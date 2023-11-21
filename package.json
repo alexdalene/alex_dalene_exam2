@@ -7,14 +7,19 @@
   "license": "MIT",
   "scripts": {
     "lint": "eslint src",
-    "cypress": "cypress open"
+    "cypress": "cypress open",
+    "test": "jest src",
+    "start": "live-server src"
   },
   "devDependencies": {
     "cypress": "9.6.0",
     "eslint": "^8.54.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-cypress": "2.12.1",
+    "eslint-plugin-jest": "^27.6.0",
     "eslint-plugin-prettier": "4.0.0",
+    "jest": "29.2.0",
+    "live-server": "1.2.1",
     "prettier": "2.6.2"
   },
   "eslintConfig": {
@@ -23,10 +28,12 @@
     ],
     "plugins": [
       "prettier",
-      "cypress"
+      "cypress",
+      "jest"
     ],
     "env": {
-      "cypress/globals": true
+      "cypress/globals": true,
+      "jest/globals": true
     },
     "rules": {
       "prettier/prettier": "warn"
@@ -37,5 +44,6 @@
     "bracketSpacing": true,
     "singleQuote": true,
     "trailingComma": "all"
-  }
+  },
+  "dependencies": {}
 }
