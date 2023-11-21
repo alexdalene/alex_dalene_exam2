@@ -1,5 +1,8 @@
 # alex_dalene_exam2
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/d7197634-bcb8-402b-94bd-75999b429cd1/deploy-status)](https://app.netlify.com/sites/ad-exam2/deploys)
+[![Test](https://github.com/alexdalene/alex_dalene_exam2/actions/workflows/test.yml/badge.svg)](https://github.com/alexdalene/alex_dalene_exam2/actions/workflows/test.yml)
+
 A website for viewing live auctions and bidding.
 
 Production: <https://ad-exam2.netlify.app/>
