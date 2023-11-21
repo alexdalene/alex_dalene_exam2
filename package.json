@@ -1,0 +1,40 @@
+{
+  "name": "alex_dalene_exam2",
+  "version": "0.0.1",
+  "description": "Website for an Auction House",
+  "main": "src/index.js",
+  "author": "Alex Dalene <aledal51469@stud.noroff.no>",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint src",
+    "cypress": "cypress open"
+  },
+  "devDependencies": {
+    "eslint": "^8.54.0",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-plugin-cypress": "2.12.1",
+    "eslint-plugin-prettier": "4.0.0",
+    "prettier": "2.6.2"
+  },
+  "eslintConfig": {
+    "extends": [
+      "prettier"
+    ],
+    "plugins": [
+      "prettier",
+      "cypress"
+    ],
+    "env": {
+      "cypress/globals": true
+    },
+    "rules": {
+      "prettier/prettier": "warn"
+    }
+  },
+  "prettier": {
+    "arrowParens": "avoid",
+    "bracketSpacing": true,
+    "singleQuote": true,
+    "trailingComma": "all"
+  }
+}
