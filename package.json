@@ -11,7 +11,8 @@
     "test": "jest src",
     "start": "live-server",
     "build": "postcss ./src/css/input.css -o ./public/css/output.css",
-    "watch": "postcss --watch ./src/css/input.css -o ./public/css/output.css & yarn start"
+    "watch": "postcss --watch ./src/css/input.css -o ./public/css/output.css & yarn start",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.16",
@@ -21,7 +22,9 @@
     "eslint-plugin-cypress": "2.12.1",
     "eslint-plugin-jest": "^27.6.0",
     "eslint-plugin-prettier": "4.0.0",
+    "husky": ">=6",
     "jest": "29.2.0",
+    "lint-staged": ">=10",
     "live-server": "1.2.1",
     "postcss": "^8.4.31",
     "postcss-cli": "^10.1.0",
@@ -51,5 +54,14 @@
     "singleQuote": true,
     "trailingComma": "all"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix", 
+      "prettier --write"
+    ],
+    "*.html": [
+      "prettier --write"
+    ]
+  }
 }
