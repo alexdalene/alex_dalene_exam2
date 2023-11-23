@@ -5,7 +5,7 @@ describe('User Login', () => {
     password: 'password123',
   };
 
-  it('successfully lets a registered user log in', () => {
+  it('lets a registered user directly log in', () => {
     cy.intercept('POST', 'https://api.noroff.dev/api/v1/auction/auth/login', {
       status: 'success',
     }).as('loginRequest');

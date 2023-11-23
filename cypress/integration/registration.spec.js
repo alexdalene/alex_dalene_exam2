@@ -1,4 +1,4 @@
-describe('User Flow', () => {
+describe('User Registration', () => {
   const userInfo = {
     name: 'test_user',
     email: 'test.user@stud.noroff.no',
