@@ -4,49 +4,49 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Authentication</title>
-    <link rel="stylesheet" href="./../public/css/output.css" />
-    <script type="module" src="./../src/js/pages/auth.mjs"></script>
+    <link rel="stylesheet" href="/public/css/output.css" />
+    <script type="module" src="/src/js/pages/auth.mjs" defer></script>
   </head>
   <body>
-    <section id="form-container">
-      <button id="login-link">Log In</button>
-      <form id="form-register">
-        <h1>Register</h1>
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" required />
+    <main>
+      <section id="form-container">
+        <button id="login-link">Log In</button>
+        <form id="form-register" aria-labelledby="form-register-title">
+          <h1 id="form-register-title">Register</h1>
+          <label for="register-name">Name</label>
+          <input type="text" id="register-name" required />
 
-        <label for="email">Email</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          pattern="^[a-zA-Z0-9._-]+@(noroff\.no|stud\.noroff\.no)$"
-          required
-        />
+          <label for="register-email">Email</label>
+          <input
+            type="email"
+            id="register-email"
+            pattern="^[a-zA-Z0-9._-]+@(noroff\.no|stud\.noroff\.no)$"
+            required
+          />
 
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" required />
+          <label for="register-password">Password</label>
+          <input type="password" id="register-password" required />
 
-        <button type="submit" id="submit">Submit</button>
-      </form>
-    </section>
+          <button type="submit" id="register-submit">Submit</button>
+        </form>
+      </section>
+    </main>
 
     <template id="form-template">
-      <form id="form-login">
-        <h1>Login</h1>
-        <label for="email">Email</label>
+      <form id="form-login" aria-labelledby="form-login-title">
+        <h1 id="form-login-title">Login</h1>
+        <label for="login-email">Email</label>
         <input
           type="email"
-          id="email"
-          name="email"
+          id="login-email"
           pattern="^[a-zA-Z0-9._-]+@(noroff\.no|stud\.noroff\.no)$"
           required
         />
 
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" required />
+        <label for="login-password">Password</label>
+        <input type="password" id="login-password" required />
 
-        <button type="submit" id="submit">Submit</button>
+        <button type="submit" id="login-submit">Submit</button>
       </form>
     </template>
   </body>

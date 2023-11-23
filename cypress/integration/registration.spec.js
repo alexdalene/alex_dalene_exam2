@@ -17,9 +17,9 @@ describe('User Registration', () => {
     cy.visit('/auth');
 
     cy.get('#form-register').within($form => {
-      cy.get('#name').type(userInfo.name);
-      cy.get('#email').type(userInfo.email);
-      cy.get('#password').type(userInfo.password);
+      cy.get('#register-name').type(userInfo.name);
+      cy.get('#register-email').type(userInfo.email);
+      cy.get('#register-password').type(userInfo.password);
       cy.root().submit();
     });
 
@@ -40,9 +40,9 @@ describe('User Registration', () => {
     cy.visit('/auth');
 
     cy.get('#form-register').within($form => {
-      cy.get('#name').type(userInfo.name);
-      cy.get('#email').type(userInfo.email);
-      cy.get('#password').type(userInfo.password);
+      cy.get('#register-name').type(userInfo.name);
+      cy.get('#register-email').type(userInfo.email);
+      cy.get('#register-password').type(userInfo.password);
       cy.root().submit();
     });
 

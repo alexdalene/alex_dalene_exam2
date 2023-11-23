@@ -15,8 +15,8 @@ describe('User Login', () => {
     cy.get('#login-link').click();
 
     cy.get('#form-login').within($form => {
-      cy.get('#email').type(userInfo.email);
-      cy.get('#password').type(userInfo.password);
+      cy.get('#login-email').type(userInfo.email);
+      cy.get('#login-password').type(userInfo.password);
       cy.root().submit();
     });
 
@@ -35,8 +35,8 @@ describe('User Login', () => {
     cy.get('#login-link').click();
 
     cy.get('#form-login').within($form => {
-      cy.get('#email').type(userInfo.email);
-      cy.get('#password').type(userInfo.password);
+      cy.get('#login-email').type(userInfo.email);
+      cy.get('#login-password').type(userInfo.password);
       cy.root().submit();
     });
 

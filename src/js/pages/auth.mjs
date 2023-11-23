@@ -1,7 +1,7 @@
 import { loginListener } from '../listeners/auth/login.mjs';
 import { registerListener } from '../listeners/auth/register.mjs';
 import { loginTemplate } from '../templates/login.mjs';
-import { clear, select } from '../tools/index.mjs';
+import { view, select } from '../tools/index.mjs';
 
 const signup = document.querySelector('#form-register');
 const loginLink = document.querySelector('#login-link');
@@ -11,12 +11,11 @@ signup.addEventListener('submit', e => {
 });
 
 loginLink.addEventListener('click', e => {
-  clear(select('#form-container'));
-  select('#form-container').appendChild(loginTemplate.content);
+  view('#form-container', loginTemplate.content, true);
 
-  const login = document.querySelector('#form-login');
-
-  login.addEventListener('submit', e => {
+  // Temporary fix for adding eventlistener to login form
+  // This makes it so that if a user comes from a successful register the login form won't submit
+  select('#form-login').addEventListener('submit', e => {
     loginListener(e);
   });
 });
