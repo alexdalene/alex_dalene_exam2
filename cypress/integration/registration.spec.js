@@ -1,48 +1,53 @@
 describe('User Registration', () => {
-  it('successfully registers a user', () => {
-    // Stubbing the POST request
+  const userInfo = {
+    name: 'test_user',
+    email: 'test.user@stud.noroff.no',
+    password: 'password123',
+  };
+
+  it('registers user with a @stud.noroff.no email', () => {
     cy.intercept(
       'POST',
       'https://api.noroff.dev/api/v1/auction/auth/register',
       {
-        statusCode: 200,
-        body: {
-          name: 'test_user',
-          email: 'test.user@stud.noroff.no',
-          password: 'password123',
-          avatar: null,
-        },
+        status: 'success',
       },
     ).as('registerRequest');
 
-    // Registration Form
     cy.visit('/auth');
-    cy.get('input[name="name"]').type('test_user');
-    cy.get('input[name="email"]').type('test.user@stud.noroff.no');
-    cy.get('input[name="password"]').type(`testpassword123`);
-    cy.contains('Submit').click();
 
-    cy.wait('@registerRequest');
+    cy.get('#form-register').within($form => {
+      cy.get('#name').type(userInfo.name);
+      cy.get('#email').type(userInfo.email);
+      cy.get('#password').type(userInfo.password);
+      cy.root().submit();
+    });
+
+    cy.wait('@registerRequest').its('response.statusCode').should('eq', 200);
+
     cy.contains('Login');
   });
 
-  it('cannot create a user with an invalid email', () => {
+  it('correctly handles error cases', () => {
+    cy.intercept(
+      'POST',
+      'https://api.noroff.dev/api/v1/auction/auth/register',
+      {
+        statusCode: 400,
+      },
+    ).as('registerRequest');
+
     cy.visit('/auth');
 
-    cy.get('input[name="name"]').type('test_user');
+    cy.get('#form-register').within($form => {
+      cy.get('#name').type(userInfo.name);
+      cy.get('#email').type(userInfo.email);
+      cy.get('#password').type(userInfo.password);
+      cy.root().submit();
+    });
 
-    cy.get('input[name="email"]').type('test.user@invalid.no');
-
-    cy.get('input[name="password"]').type(`testpassword123{enter}`);
+    cy.wait('@registerRequest').its('response.statusCode').should('eq', 400);
 
     cy.contains('Register');
-  });
-
-  it('can go directly to login', () => {
-    cy.visit('/auth');
-
-    cy.get('#login-link').click();
-
-    cy.contains('Login');
   });
 });

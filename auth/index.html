@@ -13,7 +13,7 @@
       <form id="form-register">
         <h1>Register</h1>
         <label for="name">Name</label>
-        <input type="text" id="name" name="name" required value="sherlock" />
+        <input type="text" id="name" name="name" required />
 
         <label for="email">Email</label>
         <input
@@ -22,32 +22,25 @@
           name="email"
           pattern="^[a-zA-Z0-9._-]+@(noroff\.no|stud\.noroff\.no)$"
           required
-          value="sherlock@stud.noroff.no"
         />
 
         <label for="password">Password</label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          required
-          value="password123"
-        />
+        <input type="password" id="password" name="password" required />
 
-        <button type="submit">Submit</button>
+        <button type="submit" id="submit">Submit</button>
       </form>
     </section>
 
     <template id="form-template">
       <form id="form-login">
         <h1>Login</h1>
-        <label for="username">Username</label>
-        <input type="text" id="username" name="username" required />
+        <label for="name">Username</label>
+        <input type="text" id="name" name="name" required />
 
         <label for="password">Password</label>
         <input type="password" id="password" name="password" required />
 
-        <button type="submit" id="submitBtn">Submit</button>
+        <button type="submit" id="submit">Submit</button>
       </form>
     </template>
   </body>

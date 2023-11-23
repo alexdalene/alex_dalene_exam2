@@ -1,19 +1,16 @@
 import { registerListener } from '../listeners/auth/register.mjs';
+import { loginTemplate } from '../templates/login.mjs';
+import { clear, select } from '../tools/index.mjs';
 
 const signup = document.querySelector('#form-register');
-const login = document.querySelector('#form-template');
 const container = document.querySelector('#form-container');
 const loginLink = document.querySelector('#login-link');
 
 signup.addEventListener('submit', e => {
   registerListener(e);
-  container.innerHTML = '';
-
-  container.appendChild(login.content);
 });
 
 loginLink.addEventListener('click', e => {
-  container.innerHTML = '';
-
-  container.appendChild(login.content);
+  clear(select('#form-container'));
+  select('#form-container').appendChild(loginTemplate.content);
 });
