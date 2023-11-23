@@ -1,6 +1,6 @@
 {
   "name": "alex_dalene_exam2",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Website for an Auction House",
   "main": "src/index.js",
   "author": "Alex Dalene <aledal51469@stud.noroff.no>",
@@ -57,7 +57,7 @@
   "dependencies": {},
   "lint-staged": {
     "*.js": [
-      "eslint --fix", 
+      "eslint --fix",
       "prettier --write"
     ],
     "*.html": [
