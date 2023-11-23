@@ -2,7 +2,8 @@
   "name": "alex_dalene_exam2",
   "version": "0.0.1",
   "description": "Website for an Auction House",
-  "main": "src/index.js",
+  "main": "src/index.mjs",
+  "type": "module",
   "author": "Alex Dalene <aledal51469@stud.noroff.no>",
   "license": "MIT",
   "scripts": {
