@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Authentication</title>
     <link rel="stylesheet" href="./../public/css/output.css" />
-    <script type="module" src="./../src/js/auth/index.mjs"></script>
+    <script type="module" src="./../src/js/pages/auth.mjs"></script>
   </head>
   <body>
     <section id="form-container">
       <button id="login-link">Log In</button>
-      <form id="form-signup">
-        <h1>Sign Up</h1>
-        <label for="username">Username</label>
-        <input type="text" id="username" name="username" required />
+      <form id="form-register">
+        <h1>Register</h1>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required value="sherlock" />
 
         <label for="email">Email</label>
         <input
@@ -22,10 +22,17 @@
           name="email"
           pattern="^[a-zA-Z0-9._-]+@(noroff\.no|stud\.noroff\.no)$"
           required
+          value="sherlock@stud.noroff.no"
         />
 
         <label for="password">Password</label>
-        <input type="password" id="password" name="password" required />
+        <input
+          type="password"
+          id="password"
+          name="password"
+          required
+          value="password123"
+        />
 
         <button type="submit">Submit</button>
       </form>
@@ -33,7 +40,7 @@
 
     <template id="form-template">
       <form id="form-login">
-        <h1>Log In</h1>
+        <h1>Login</h1>
         <label for="username">Username</label>
         <input type="text" id="username" name="username" required />
 

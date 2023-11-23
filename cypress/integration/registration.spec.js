@@ -1,26 +1,41 @@
 describe('User Registration', () => {
-  it('can create a user with the correct email', () => {
+  it('successfully registers a user', () => {
+    // Stubbing the POST request
+    cy.intercept(
+      'POST',
+      'https://api.noroff.dev/api/v1/auction/auth/register',
+      {
+        statusCode: 200,
+        body: {
+          name: 'test_user',
+          email: 'test.user@stud.noroff.no',
+          password: 'password123',
+          avatar: null,
+        },
+      },
+    ).as('registerRequest');
+
+    // Registration Form
     cy.visit('/auth');
-
-    cy.get('input[name="username"]').type('test_user');
-
+    cy.get('input[name="name"]').type('test_user');
     cy.get('input[name="email"]').type('test.user@stud.noroff.no');
+    cy.get('input[name="password"]').type(`testpassword123`);
+    cy.contains('Submit').click();
 
-    cy.get('input[name="password"]').type(`testpassword123{enter}`);
-
-    cy.contains('Log In');
+    cy.wait('@registerRequest');
+    cy.contains('Login');
   });
 
   it('cannot create a user with an invalid email', () => {
     cy.visit('/auth');
 
-    cy.get('input[name="username"]').type('test_user');
+    cy.get('input[name="name"]').type('test_user');
 
     cy.get('input[name="email"]').type('test.user@invalid.no');
 
     cy.get('input[name="password"]').type(`testpassword123{enter}`);
 
-    cy.contains('Sign Up');
+    cy.contains('Register');
   });
 
   it('can go directly to login', () => {
@@ -28,6 +43,6 @@ describe('User Registration', () => {
 
     cy.get('#login-link').click();
 
-    cy.contains('Log In');
+    cy.contains('Login');
   });
 });
