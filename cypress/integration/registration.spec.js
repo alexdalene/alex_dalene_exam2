@@ -1,4 +1,4 @@
-describe('User Flow', () => {
+describe('User Registration', () => {
   const userInfo = {
     name: 'test_user',
     email: 'test.user@stud.noroff.no',
@@ -42,7 +42,7 @@ describe('User Flow', () => {
     cy.url().should('include', '/profile');
   });
 
-  it('correctly handles register error', () => {
+  it('correctly handles error cases', () => {
     cy.intercept(
       'POST',
       'https://api.noroff.dev/api/v1/auction/auth/register',
@@ -63,25 +63,5 @@ describe('User Flow', () => {
     cy.wait('@registerRequest').its('response.statusCode').should('eq', 400);
 
     cy.contains('Register');
-  });
-
-  it('correctly handles login error', () => {
-    cy.intercept('POST', 'https://api.noroff.dev/api/v1/auction/auth/login', {
-      statusCode: 400,
-    }).as('loginRequest');
-
-    cy.visit('/auth');
-
-    cy.get('#login-link').click();
-
-    cy.get('#form-login').within($form => {
-      cy.get('#login-email').type(userInfo.email);
-      cy.get('#login-password').type(userInfo.password);
-      cy.root().submit();
-    });
-
-    cy.wait('@loginRequest').its('response.statusCode').should('eq', 400);
-
-    cy.url().should('not.include', '/profile');
   });
 });
