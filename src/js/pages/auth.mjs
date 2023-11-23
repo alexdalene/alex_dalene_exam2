@@ -10,11 +10,9 @@ signup.addEventListener('submit', e => {
   registerListener(e);
 });
 
-loginLink.addEventListener('click', e => {
+loginLink.addEventListener('click', () => {
   view('#form-container', loginTemplate.content, true);
 
-  // Temporary fix for adding eventlistener to login form
-  // This makes it so that if a user comes from a successful register the login form won't submit
   select('#form-login').addEventListener('submit', e => {
     loginListener(e);
   });
