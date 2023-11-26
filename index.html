@@ -7,7 +7,27 @@
     <link rel="stylesheet" href="./public/css/output.css" />
     <script type="module" src="./src/index.mjs"></script>
   </head>
-  <body>
+  <body class="bg-background">
+    <header
+      class="bg-surface px-2 md:px-16 py-4 flex justify-between items-center fixed top-0 w-full"
+    >
+      <span class="font-heading text-2xl font-bold text-text">Bid-B</span>
+      <nav class="flex gap-4">
+        <a href="" class="btn-secondary"
+          ><img src="./src/svg/icon/login.svg" alt="" /><span
+            class="hidden sm:block"
+            >Login</span
+          ></a
+        >
+        <a href="" class="btn-primary"
+          ><img src="./src/svg/icon/person_add.svg" alt="" /><span
+            class="hidden sm:block"
+            >Register</span
+          ></a
+        >
+      </nav>
+    </header>
+
     <h1 class="font-bold text-2xl">Semester Project 2</h1>
     <a href="./auth/profile/">Profile</a>
     <a href="./auth/create-listing/">New</a>
