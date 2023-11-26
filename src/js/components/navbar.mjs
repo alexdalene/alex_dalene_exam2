@@ -22,17 +22,17 @@ export default function navbar() {
   const nav = document.createElement('nav');
   nav.classList.add('flex', 'gap-4');
 
-  function link(button, icon, text) {
+  function link(button, icon, text, href) {
     const tag = document.createElement('a');
-    tag.href = '';
-    tag.classList.add(`${button}`);
+    tag.href = href;
+    tag.classList.add(button);
 
     const img = document.createElement('img');
     img.src = `./src/svg/icon/${icon}.svg`;
     img.alt = '';
 
     const span = document.createElement('span');
-    span.textContent = `${text}`;
+    span.textContent = text;
     span.classList.add('hidden', 'sm:block');
 
     tag.append(img, span);
@@ -40,8 +40,8 @@ export default function navbar() {
   }
 
   nav.append(
-    link('btn-secondary', 'login', 'Login'),
-    link('btn-primary', 'person_add', 'Register'),
+    link('btn-secondary', 'login', 'Login', './auth'),
+    link('btn-primary', 'person_add', 'Register', './auth'),
   );
 
   header.append(span, nav);
