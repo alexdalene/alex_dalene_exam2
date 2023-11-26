@@ -25,7 +25,7 @@ export default function navbar() {
   function link(button, icon, text) {
     const tag = document.createElement('a');
     tag.href = '';
-    tag.classList.add(`btn-${button}`);
+    tag.classList.add(`${button}`);
 
     const img = document.createElement('img');
     img.src = `./src/svg/icon/${icon}.svg`;
@@ -40,8 +40,8 @@ export default function navbar() {
   }
 
   nav.append(
-    link('secondary', 'login', 'Login'),
-    link('primary', 'person_add', 'Register'),
+    link('btn-secondary', 'login', 'Login'),
+    link('btn-primary', 'person_add', 'Register'),
   );
 
   header.append(span, nav);
