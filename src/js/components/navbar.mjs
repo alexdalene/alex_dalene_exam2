@@ -3,10 +3,8 @@ import { select } from '../tools/select.mjs';
 export default function navbar() {
   const header = document.createElement('header');
   header.classList.add(
-    'bg-surface',
-    'px-2',
-    'md:px-16',
-    'py-4',
+    'px-[2.5rem]',
+    'py-[1.25rem]',
     'flex',
     'justify-between',
     'items-center',
@@ -20,29 +18,19 @@ export default function navbar() {
   span.textContent = 'Bid-B';
 
   const nav = document.createElement('nav');
-  nav.classList.add('flex', 'gap-4');
+  nav.classList.add('flex', 'gap-[2.5rem]');
 
-  function link(button, icon, text, href) {
-    const tag = document.createElement('a');
-    tag.href = href;
-    tag.classList.add(button);
+  const signUp = document.createElement('a');
+  signUp.href = './auth';
+  signUp.classList.add('text-primary');
+  signUp.textContent = 'Create an account';
 
-    const img = document.createElement('img');
-    img.src = `./src/svg/icon/${icon}.svg`;
-    img.alt = '';
+  const logIn = document.createElement('a');
+  logIn.href = './auth';
+  logIn.classList.add('text-text');
+  logIn.textContent = 'Log In';
 
-    const span = document.createElement('span');
-    span.textContent = text;
-    span.classList.add('hidden', 'sm:block');
-
-    tag.append(img, span);
-    return tag;
-  }
-
-  nav.append(
-    link('btn-secondary', 'login', 'Login', './auth'),
-    link('btn-primary', 'person_add', 'Register', './auth'),
-  );
+  nav.append(logIn, signUp);
 
   header.append(span, nav);
 
