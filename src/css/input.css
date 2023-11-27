@@ -18,4 +18,8 @@
     .btn-sm-secondary {
         @apply flex justify-center items-center px-4 gap-1 h-9 rounded-3xl border border-secondary text-text text-sm;
     }
+
+    .grid-item-small {
+        @apply w-full min-h-[250px] flex items-end bg-gradient-to-br from-[#1F202A] to-[#44486360] rounded-[20px] border border-surfaceVariant p-[20px] font-heading font-bold text-xl text-text cursor-pointer hover:to-[#4448638f];
+    }
 }
