@@ -33,6 +33,7 @@ module.exports = {
       fontFamily: {
         heading: ['Poppins', 'sans-serif'],
         body: ['Gantari', 'sans-serif'],
+        headingSerif: ['Baskerville', 'serif'],
       },
       fontWeight: {
         normal: '400',

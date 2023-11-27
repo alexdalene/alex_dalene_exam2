@@ -8,9 +8,6 @@ export default function navbar() {
     'flex',
     'justify-between',
     'items-center',
-    'fixed',
-    'top-0',
-    'w-full',
   );
 
   const span = document.createElement('span');
