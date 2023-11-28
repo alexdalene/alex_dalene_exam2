@@ -8,6 +8,46 @@
     <script type="module" src="../src/js/pages/browse.mjs"></script>
   </head>
   <body class="bg-background">
-    <h1>Browse</h1>
+    <main class="min-h-screen w-full flex flex-col py-32 gap-10 items-center">
+      <section class="container text-text font-body flex flex-col gap-10 px-10">
+        <div class="flex flex-col gap-[5px]">
+          <h1 class="font-heading font-bold text-2xl">Browse</h1>
+          <p>Looking for something in particular? Try our search function.</p>
+        </div>
+        <form class="flex text-onSurfaceVariant">
+          <label
+            for="input-search"
+            class="flex items-center justify-center border-b border-onSurfaceVariant"
+            ><img src="../src/svg/icon/search.svg" alt=""
+          /></label>
+          <input
+            type="search"
+            id="input-search"
+            name="search"
+            class="peer bg-background py-2.5 focus:outline-none px-2.5 border-b border-onSurfaceVariant placeholder-onSurfaceVariant text-text"
+            placeholder="Search..."
+            autocomplete="off"
+          />
+          <button
+            class="flex gap-[5px] items-center peer-focus:opacity-20 ml-5 transition-opacity"
+            type="button"
+            id="btn-filter"
+          >
+            <img src="../src/svg/icon/tune.svg" alt="" />Filter
+          </button>
+          <button
+            class="flex gap-[5px] items-center ml-5 peer-focus:opacity-20 transition-opacity"
+            type="button"
+            id="btn-sort"
+          >
+            <img src="../src/svg/icon/swap_vert.svg" alt="" />Sort
+          </button>
+        </form>
+      </section>
+      <div
+        class="text-text font-body container px-10 grid gap-2.5 grid-cols-2 lg:grid-cols-3"
+        id="listing-container"
+      ></div>
+    </main>
   </body>
 </html>
