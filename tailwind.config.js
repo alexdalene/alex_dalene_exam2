@@ -3,6 +3,7 @@ module.exports = {
   content: [
     './src/**/*.{html,mjs}',
     './src/*.{html,mjs}',
+    './**/*.{html,mjs}',
     './*.{html,mjs}',
     './auth/*.html',
     './auth/**/*.html',
@@ -41,5 +42,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require('@tailwindcss/forms')],
+  plugins: [],
 };
