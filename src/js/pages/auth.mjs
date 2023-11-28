@@ -1,19 +1,22 @@
-import { loginListener } from '../listeners/auth/login.mjs';
-import { registerListener } from '../listeners/auth/register.mjs';
-import { loginTemplate } from '../templates/login.mjs';
-import { view, select } from '../tools/index.mjs';
+import { select } from '../tools/index.mjs';
+import changeMode from '../functions/auth/changeMode.mjs';
 
-const signup = document.querySelector('#form-register');
-const loginLink = document.querySelector('#login-link');
+const hash = window.location.hash;
+const changeType = select('#change-type');
 
-signup.addEventListener('submit', e => {
-  registerListener(e);
-});
+if (hash === '#login') {
+  changeMode('login');
+} else if (hash === '#signup') {
+  changeMode('signup');
+}
 
-loginLink.addEventListener('click', () => {
-  view('#form-container', loginTemplate.content, true);
-
-  select('#form-login').addEventListener('submit', e => {
-    loginListener(e);
-  });
+changeType.addEventListener('click', () => {
+  const hash = window.location.hash;
+  if (hash === '#login') {
+    window.location.assign('./#signup');
+    changeMode('signup');
+  } else if (hash === '#signup') {
+    window.location.assign('./#login');
+    changeMode('login');
+  }
 });

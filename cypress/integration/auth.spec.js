@@ -14,7 +14,7 @@ describe('User Authentication', () => {
       },
     ).as('registerRequest');
 
-    cy.visit('/auth');
+    cy.visit('/auth#signup');
 
     cy.get('#form-register').within($form => {
       cy.get('#register-name').type(userInfo.name);
@@ -25,7 +25,7 @@ describe('User Authentication', () => {
 
     cy.wait('@registerRequest').its('response.statusCode').should('eq', 200);
 
-    cy.contains('Login');
+    cy.contains('Log In');
 
     cy.intercept('POST', 'https://api.noroff.dev/api/v1/auction/auth/login', {
       status: 'success',
@@ -51,9 +51,7 @@ describe('User Authentication', () => {
       status: 'success',
     }).as('loginRequest');
 
-    cy.visit('/auth');
-
-    cy.get('#login-link').click();
+    cy.visit('/auth#login');
 
     cy.get('#form-login').within($form => {
       cy.get('#login-email').type(userInfo.email);

@@ -1,9 +1,6 @@
 import { select } from '../tools/select.mjs';
 
 export default function footer() {
-  // Import necessary modules if needed
-  // Example: import { createElement } from 'some-module';
-
   // Create footer element
   const footer = document.createElement('footer');
   footer.classList.add(

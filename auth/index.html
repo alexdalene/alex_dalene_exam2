@@ -7,53 +7,131 @@
     <link rel="stylesheet" href="./../public/css/output.css" />
     <script type="module" src="./../src/js/pages/auth.mjs" defer></script>
   </head>
-  <body>
-    <main>
-      <section id="form-container">
-        <button id="login-link">Log In</button>
-        <form id="form-register" aria-labelledby="form-register-title">
-          <h1 id="form-register-title">Register</h1>
-          <label for="register-name">Name</label>
-          <input type="text" id="register-name" name="name" required />
+  <body class="bg-background" data-auth-type="signup">
+    <header class="flex justify-between px-10 py-5 text-text items-center">
+      <a href="/" class="font-heading text-2xl font-bold">Bid-B</a>
+      <button id="change-type" class="text-sm">
+        Already have an account? Log In
+      </button>
+    </header>
+    <main class="min-h-screen flex justify-center">
+      <section
+        id="form-container"
+        class="py-20 text-text w-full flex justify-center"
+      >
+        <template id="template-signup">
+          <form
+            id="form-register"
+            aria-labelledby="form-register-title"
+            class="flex flex-col gap-5 w-full max-w-[380px] font-body"
+          >
+            <h1
+              id="form-register-title"
+              class="font-heading text-4xl font-bold text-center"
+            >
+              Sign Up
+            </h1>
+            <div class="flex flex-col gap-[5px]">
+              <label for="register-name">Name*</label>
+              <input
+                type="text"
+                id="register-name"
+                name="name"
+                required
+                class="form-input rounded-md bg-background py-2.5"
+                autocomplete="additional-name"
+              />
+            </div>
 
-          <label for="register-email">Email</label>
-          <input
-            type="email"
-            id="register-email"
-            pattern="^[a-zA-Z0-9._-]+@(noroff\.no|stud\.noroff\.no)$"
-            name="email"
-            required
-          />
+            <div class="flex flex-col gap-[5px]">
+              <label for="register-email">Email*</label>
+              <input
+                type="email"
+                id="register-email"
+                pattern="^[a-zA-Z0-9._-]+@(noroff\.no|stud\.noroff\.no)$"
+                name="email"
+                required
+                class="form-input rounded-md bg-background py-2.5"
+                autocomplete="email"
+              />
+            </div>
 
-          <label for="register-password">Password</label>
-          <input
-            type="password"
-            id="register-password"
-            name="password"
-            required
-          />
+            <div class="flex flex-col gap-[5px]">
+              <label for="register-password">Password*</label>
+              <input
+                type="password"
+                id="register-password"
+                name="password"
+                required
+                class="form-input rounded-md bg-background py-2.5"
+                autocomplete="new-password"
+              />
+            </div>
 
-          <button type="submit" id="register-submit">Submit</button>
-        </form>
+            <div class="flex flex-col gap-[5px]">
+              <label for="register-avatar">Avatar</label>
+              <input
+                type="url"
+                id="register-avatar"
+                name="avatar"
+                class="form-input rounded-md bg-background py-2.5"
+                autocomplete="off"
+              />
+            </div>
+
+            <button
+              type="submit"
+              id="register-submit"
+              class="btn-primary w-full"
+            >
+              Sign Up
+            </button>
+          </form>
+        </template>
       </section>
     </main>
 
-    <template id="form-template">
-      <form id="form-login" aria-labelledby="form-login-title">
-        <h1 id="form-login-title">Login</h1>
-        <label for="login-email">Email</label>
-        <input
-          type="email"
-          id="login-email"
-          pattern="^[a-zA-Z0-9._-]+@(noroff\.no|stud\.noroff\.no)$"
-          name="email"
-          required
-        />
+    <template id="template-login">
+      <form
+        id="form-login"
+        aria-labelledby="form-register-title"
+        class="flex flex-col gap-5 w-full max-w-[380px] font-body"
+      >
+        <h1
+          id="form-register-title"
+          class="font-heading text-4xl font-bold text-center"
+        >
+          Log In
+        </h1>
 
-        <label for="login-password">Password</label>
-        <input type="password" id="login-password" name="password" required />
+        <div class="flex flex-col gap-[5px]">
+          <label for="login-email">Email*</label>
+          <input
+            type="email"
+            id="login-email"
+            pattern="^[a-zA-Z0-9._-]+@(noroff\.no|stud\.noroff\.no)$"
+            name="email"
+            required
+            class="form-input rounded-md bg-background py-2.5"
+            autocomplete="email"
+          />
+        </div>
 
-        <button type="submit" id="login-submit">Submit</button>
+        <div class="flex flex-col gap-[5px]">
+          <label for="login-password">Password*</label>
+          <input
+            type="password"
+            id="login-password"
+            name="password"
+            required
+            class="form-input rounded-md bg-background py-2.5"
+            autocomplete="password"
+          />
+        </div>
+
+        <button type="submit" id="login-submit" class="btn-primary w-full">
+          Log In
+        </button>
       </form>
     </template>
   </body>

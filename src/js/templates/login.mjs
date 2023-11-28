@@ -1,1 +1,1 @@
-export const loginTemplate = document.querySelector('#form-template');
+export const loginTemplate = document.querySelector('#template-login');
