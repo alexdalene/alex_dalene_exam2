@@ -3,5 +3,6 @@ export const clear = element => {
     return null;
   }
 
-  element.innerHTML = '';
+  const selected = document.querySelector(element);
+  selected.innerHTML = '';
 };
