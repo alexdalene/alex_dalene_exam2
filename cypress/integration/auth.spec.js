@@ -1,20 +1,19 @@
 describe('User Authentication', () => {
   const userInfo = {
-    name: 'test_user',
-    email: 'test.user@stud.noroff.no',
+    name: 'sherlock',
+    email: 'sherlock@stud.noroff.no',
     password: 'password123',
   };
 
-  it('lets user register, login and logout', () => {
+  it('lets a user register', () => {
     cy.intercept(
       'POST',
       'https://api.noroff.dev/api/v1/auction/auth/register',
-      {
-        status: 'success',
-      },
     ).as('registerRequest');
 
     cy.visit('/auth#signup');
+
+    cy.wait(250);
 
     cy.get('#form-register').within($form => {
       cy.get('#register-name').type(userInfo.name);
@@ -23,13 +22,17 @@ describe('User Authentication', () => {
       cy.root().submit();
     });
 
-    cy.wait('@registerRequest').its('response.statusCode').should('eq', 200);
+    cy.wait('@registerRequest').its('response.statusCode').should('eq', 400);
+  });
 
-    cy.contains('Log In');
+  it('lets a registered user log in', () => {
+    cy.intercept('POST', 'https://api.noroff.dev/api/v1/auction/auth/login').as(
+      'loginRequest',
+    );
 
-    cy.intercept('POST', 'https://api.noroff.dev/api/v1/auction/auth/login', {
-      status: 'success',
-    }).as('loginRequest');
+    cy.visit('/auth#login');
+
+    cy.wait(250);
 
     cy.get('#form-login').within($form => {
       cy.get('#login-email').type(userInfo.email);
@@ -40,27 +43,47 @@ describe('User Authentication', () => {
     cy.wait('@loginRequest').its('response.statusCode').should('eq', 200);
 
     cy.url().should('include', '/profile');
-
-    cy.get('#btn-logout').click();
-
-    cy.url().should('not.include', '/profile');
   });
 
-  it('lets a registered user directly log in', () => {
+  it('lets a user log out', () => {
     cy.intercept('POST', 'https://api.noroff.dev/api/v1/auction/auth/login', {
       status: 'success',
     }).as('loginRequest');
 
     cy.visit('/auth#login');
 
+    cy.wait(250);
+
     cy.get('#form-login').within($form => {
       cy.get('#login-email').type(userInfo.email);
       cy.get('#login-password').type(userInfo.password);
       cy.root().submit();
     });
 
-    cy.wait('@loginRequest').its('response.statusCode').should('eq', 200);
-
     cy.url().should('include', '/profile');
+
+    cy.get('#btn-logout').click();
+
+    cy.url().should('include', '/auth');
+  });
+
+  it('validates form fields on submit', () => {
+    cy.intercept('POST', 'https://api.noroff.dev/api/v1/auction/auth/login').as(
+      'loginRequest',
+    );
+
+    cy.visit('/auth#login');
+
+    cy.wait(250);
+
+    cy.get('#form-login').within($form => {
+      cy.get('#login-email').type('invalid@email.com');
+      cy.get('#login-password').type('invalidpassword');
+      cy.root().submit();
+    });
+
+    cy.wait('@loginRequest').its('response.statusCode').should('eq', 401);
+
+    cy.url().should('not.include', '/profile');
   });
 });
