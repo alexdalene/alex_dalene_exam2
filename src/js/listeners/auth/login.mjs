@@ -10,7 +10,7 @@ export async function loginListener(event) {
 
   try {
     await login(email, password);
-    window.location.href += 'profile';
+    window.location.href = '/profile';
   } catch (error) {
     console.log(error);
   }
