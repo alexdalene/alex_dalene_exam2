@@ -22,6 +22,9 @@ module.exports = {
       accentPink: '#F7567C',
     },
     extend: {
+      boxShadow: {
+        invertedBorder: '0 -25px 0 0 #1B1B1F',
+      },
       fontSize: {
         sm: '0.833rem',
         base: '1rem',
