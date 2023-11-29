@@ -31,8 +31,7 @@ describe('User Authentication', () => {
     );
 
     cy.visit('/auth#login');
-
-    cy.wait(250);
+    cy.wait(100);
 
     cy.get('#form-login').within($form => {
       cy.get('#login-email').type(userInfo.email);
@@ -51,8 +50,7 @@ describe('User Authentication', () => {
     }).as('loginRequest');
 
     cy.visit('/auth#login');
-
-    cy.wait(250);
+    cy.wait(100);
 
     cy.get('#form-login').within($form => {
       cy.get('#login-email').type(userInfo.email);
@@ -73,8 +71,7 @@ describe('User Authentication', () => {
     );
 
     cy.visit('/auth#login');
-
-    cy.wait(250);
+    cy.wait(100);
 
     cy.get('#form-login').within($form => {
       cy.get('#login-email').type('invalid@email.com');
