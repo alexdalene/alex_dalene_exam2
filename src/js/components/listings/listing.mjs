@@ -17,15 +17,13 @@ export function listing(data) {
     article.classList.add(
       'flex',
       'flex-col',
-      'gap-[5px]',
-      'p-5',
-      'bg-gradient-to-br',
-      'from-[#1F202A]',
-      'to-[#44486360]',
+      'p-2.5',
       'rounded-xl',
       'aspect-square',
-      'border',
-      'border-surfaceVariant',
+      'transition-all',
+      'hover:bg-surface',
+      'relative',
+      'cursor-pointer',
     );
 
     // Create image element
@@ -37,7 +35,7 @@ export function listing(data) {
       'min-w-full',
       'min-h-full',
       'aspect-square',
-      'rounded-md',
+      'rounded-lg',
       'mb-2.5',
       'object-cover',
     );
@@ -62,12 +60,15 @@ export function listing(data) {
       'flex',
       'items-center',
       'gap-[5px]',
-      'bg-surfaceVariant',
-      'rounded-full',
+      'bg-surface',
+      'rounded-lg',
       'w-fit',
       'px-2',
       'py-1',
       'text-onSurfaceVariant',
+      'absolute',
+      'top-5',
+      'right-5',
     );
 
     // Create clock icon in the duration element
@@ -86,7 +87,7 @@ export function listing(data) {
 
     // Append elements to the footer
     footer.appendChild(price);
-    footer.appendChild(duration);
+    article.appendChild(duration);
 
     // Append elements to the article
     article.appendChild(image);
