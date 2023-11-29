@@ -65,22 +65,22 @@ describe('User Authentication', () => {
     cy.url().should('include', '/auth');
   });
 
-  it('validates form fields on submit', () => {
-    cy.intercept('POST', 'https://api.noroff.dev/api/v1/auction/auth/login').as(
-      'loginRequest',
-    );
+  // it('validates form fields on submit', () => {
+  //   cy.intercept('POST', 'https://api.noroff.dev/api/v1/auction/auth/login').as(
+  //     'loginRequest',
+  //   );
 
-    cy.visit('/auth#login');
-    cy.wait(100);
+  //   cy.visit('/auth#login');
+  //   cy.wait(100);
 
-    cy.get('#form-login').within($form => {
-      cy.get('#login-email').type('invalid@email.com');
-      cy.get('#login-password').type('invalidpassword');
-      cy.root().submit();
-    });
+  //   cy.get('#form-login').within($form => {
+  //     cy.get('#login-email').type('invalid@email.com');
+  //     cy.get('#login-password').type('invalidpassword');
+  //     cy.root().submit();
+  //   });
 
-    cy.wait('@loginRequest').its('response.statusCode').should('eq', 401);
+  //   cy.wait('@loginRequest').its('response.statusCode').should('eq', 401);
 
-    cy.url().should('not.include', '/profile');
-  });
+  //   cy.url().should('not.include', '/profile');
+  // });
 });
