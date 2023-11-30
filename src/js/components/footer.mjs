@@ -119,7 +119,7 @@ export default function footer() {
     anchor.classList.add('flex', 'flex-reverse', 'gap-[5px]');
     anchor.href = href;
     anchor.textContent = text;
-    img.src = './src/svg/icon/blank.svg';
+    img.src = '../src/svg/icon/blank.svg';
     img.alt = '';
     link.appendChild(anchor);
 

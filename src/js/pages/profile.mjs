@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   logout.addEventListener('click', () => {
     remove('token');
+    remove('username');
+    remove('credits');
     window.location.href = '/auth#login';
   });
 
