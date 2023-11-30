@@ -6,37 +6,107 @@
     <title>Bid-B</title>
     <link rel="stylesheet" href="./public/css/output.css" />
     <script type="module" src="./src/index.mjs"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0"
+    />
   </head>
-  <body class="bg-background">
-    <main class="min-h-screen w-full flex flex-col items-center py-32 gap-40">
-      <section
-        id="hero"
-        class="container text-center flex flex-col gap-10 items-center"
+  <body class="font-body antialiased">
+    <div class="bg-zinc-800 py-10 px-5">
+      <main
+        class="bg-zinc-900 rounded-[2.5rem] min-h-screen items-center py-5 px-10"
       >
-        <h1 class="text-6xl font-headingSerif text-text leading-snug">
-          The Bidding Buddy You <br />Were Looking For
-        </h1>
-        <a href="./auth#signup" class="btn-primary font-body"
-          >Sign up for full access</a
+        <header class="w-full flex justify-between items-center">
+          <span class="text-purple-200 font-bold font-heading text-2xl"
+            >Bid-B</span
+          >
+          <nav class="hidden lg:flex gap-5 text-zinc-400">
+            <!-- Browse -->
+            <a
+              href=""
+              class="rounded-md px-2 py-0.5 flex items-center gap-1 group relative"
+            >
+              <div class="nav-btn-circle"></div>
+              <div class="z-10">Browse</div>
+              <div class="nav-btn-bg"></div>
+            </a>
+
+            <!-- Sign In -->
+            <a
+              href=""
+              class="rounded-md px-2 py-0.5 flex items-center gap-1 group relative"
+            >
+              <div class="nav-btn-circle"></div>
+              <div class="z-10">Sign In</div>
+              <div class="nav-btn-bg"></div>
+            </a>
+
+            <!-- Sign Up -->
+            <a
+              href=""
+              class="rounded-md px-2 py-0.5 flex items-center gap-1 group relative"
+            >
+              <div class="nav-btn-circle"></div>
+              <div class="z-10">Create an account</div>
+              <div class="nav-btn-bg"></div>
+            </a>
+          </nav>
+          <button
+            class="flex items-center gap-1 bg-zinc-700 text-zinc-200 font-bold px-3 py-1 rounded-full lg:hidden"
+          >
+            <div class="nav-btn-circle scale-100"></div>
+            Menu
+          </button>
+        </header>
+        <section
+          id="hero"
+          class="flex flex-col gap-10 py-40 px-20 text-zinc-200"
         >
-      </section>
-      <div class="grid grid-cols-10 w-full container gap-[10px]">
-        <a href="./auth" class="grid-item col-span-3 text-primary">
-          <h2>Get Started</h2>
-        </a>
-        <a href="./browse" class="grid-item col-span-4">
-          <h3>Browse</h3>
-        </a>
-        <a href="./profile" class="grid-item col-span-3 row-span-2">
-          <h3>Your Profile</h3>
-        </a>
-        <a href="./faq" class="grid-item col-span-4 items-start">
-          <h3>What can you do?</h3>
-        </a>
-        <a href="./faq" class="grid-item col-span-3 text-primary">
-          <h3>How does it work?</h3>
-        </a>
-      </div>
-    </main>
+          <h1 class="text-7xl font-heading leading-tight">
+            Your next item is within reach
+          </h1>
+          <p class="text-zinc-300 max-w-xs">
+            We value our customers and their needs - therefore we built this app
+            from the ground up focusing purely on the best flow for you.
+          </p>
+          <a
+            href="./auth#signup"
+            class="flex items-center group w-fit hover:flex-row-reverse"
+          >
+            <!-- <span
+              class="material-symbols-outlined bg-zinc-200 text-zinc-900 px-4 py-2.5 h-12 rounded-2xl scale-0 group-hover:scale-100 transition-transform"
+            >
+              arrow_forward
+            </span> -->
+            <span
+              class="bg-zinc-200 text-zinc-900 px-4 h-12 text-xl rounded-2xl w-fit flex items-center"
+              >Sign up for full access</span
+            >
+            <span
+              class="material-symbols-outlined bg-zinc-200 text-zinc-900 px-4 py-2.5 h-12 rounded-2xl w-fit transition group-hover:animate-enter"
+            >
+              arrow_forward
+            </span>
+          </a>
+        </section>
+        <!-- <div class="grid grid-cols-10 w-full container gap-[10px] px-10">
+          <a href="./auth" class="grid-item col-span-3 text-primary">
+            <h2>Get Started</h2>
+          </a>
+          <a href="./browse" class="grid-item col-span-4">
+            <h3>Browse</h3>
+          </a>
+          <a href="./profile" class="grid-item col-span-3 row-span-2">
+            <h3>Your Profile</h3>
+          </a>
+          <a href="./faq" class="grid-item col-span-4 items-start">
+            <h3>What can you do?</h3>
+          </a>
+          <a href="./faq" class="grid-item col-span-3 text-primary">
+            <h3>How does it work?</h3>
+          </a>
+        </div> -->
+      </main>
+    </div>
   </body>
 </html>
