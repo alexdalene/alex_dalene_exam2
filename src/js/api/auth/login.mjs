@@ -16,5 +16,7 @@ export async function login(email, password) {
   }
 
   save('token', `${data.accessToken}`);
+  save('username', `${data.name}`);
+  save('credits', `${data.credits}`);
   return data;
 }
