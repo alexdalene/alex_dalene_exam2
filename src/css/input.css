@@ -10,4 +10,16 @@
     .nav-btn-bg {
         @apply bg-gradient-to-tl from-zinc-800 absolute rounded-lg inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500;
     }
+
+    .btn-primary-before {
+        @apply bg-zinc-200 text-zinc-900 px-4 py-2.5 h-12 rounded-2xl -translate-x-20 lg:group-hover:translate-x-0 transition-transform duration-200;
+    }
+
+    .btn-primary-after {
+        @apply bg-zinc-200 text-zinc-900 px-4 py-2.5 h-12 rounded-2xl w-fit lg:group-hover:translate-x-20 transition-transform duration-200;
+    }
+
+    .hero-text-bg {
+        @apply before:inset-0 before:bg-gradient-to-l before:from-purple-300 before:absolute relative before:rounded-xl z-10 before:-z-10 text-zinc-900 before:scale-110;
+    }
 }
