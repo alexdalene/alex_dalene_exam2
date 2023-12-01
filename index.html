@@ -12,55 +12,16 @@
     />
   </head>
   <body
-    class="font-body antialiased bg-zinc-800 py-10 px-5 grid place-content-stretch min-h-[100lvh]"
+    class="font-body antialiased bg-zinc-800 py-10 px-5 grid place-content-stretch min-h-[100lvh] overflow-hidden"
   >
     <main class="bg-zinc-900 rounded-[2.5rem] items-center py-5 px-10 relative">
-      <header
-        class="w-full flex justify-between items-center sticky top-0 py-2.5"
+      <section
+        id="hero"
+        class="flex flex-col gap-10 py-20 px-0 lg:px-20 text-zinc-200"
       >
-        <span class="text-purple-300 font-bold font-heading text-2xl"
-          >Bid-B</span
+        <h1
+          class="text-4xl sm:text-6xl lg:text-7xl font-heading leading-tight max-w-lg"
         >
-        <nav class="hidden lg:flex gap-5 text-zinc-400">
-          <!-- Browse -->
-          <a
-            href=""
-            class="rounded-md px-2 py-0.5 flex items-center gap-1 group relative"
-          >
-            <div class="nav-btn-circle"></div>
-            <div class="z-10">Browse</div>
-            <div class="nav-btn-bg"></div>
-          </a>
-
-          <!-- Sign In -->
-          <a
-            href=""
-            class="rounded-md px-2 py-0.5 flex items-center gap-1 group relative"
-          >
-            <div class="nav-btn-circle"></div>
-            <div class="z-10">Sign In</div>
-            <div class="nav-btn-bg"></div>
-          </a>
-
-          <!-- Sign Up -->
-          <a
-            href=""
-            class="rounded-md px-2 py-0.5 flex items-center gap-1 group relative"
-          >
-            <div class="nav-btn-circle"></div>
-            <div class="z-10">Create an account</div>
-            <div class="nav-btn-bg"></div>
-          </a>
-        </nav>
-        <button
-          class="flex items-center gap-1 bg-zinc-700 text-zinc-200 font-bold px-3 py-1 rounded-full lg:hidden"
-        >
-          <div class="nav-btn-circle scale-100"></div>
-          Menu
-        </button>
-      </header>
-      <section id="hero" class="flex flex-col gap-10 py-20 px-20 text-zinc-200">
-        <h1 class="text-7xl font-heading leading-tight max-w-lg">
           Your next item is within
           <span
             class="before:inset-0 before:bg-gradient-to-l before:from-purple-300 before:absolute relative before:rounded-xl z-10 before:-z-10 text-zinc-900 before:scale-110"
@@ -77,13 +38,13 @@
           class="flex items-center group w-fit overflow-hidden -translate-x-14"
         >
           <span
-            class="material-symbols-outlined bg-zinc-200 text-zinc-900 px-4 py-2.5 h-12 rounded-2xl -translate-x-20 group-hover:translate-x-0 transition-transform duration-200"
+            class="material-symbols-outlined invisible sm:visible bg-zinc-200 text-zinc-900 px-4 py-2.5 h-12 rounded-2xl -translate-x-20 group-hover:translate-x-0 transition-transform duration-200"
           >
             arrow_forward
           </span>
           <span
             class="bg-zinc-200 text-zinc-900 px-4 h-12 text-xl rounded-2xl w-fit flex items-center"
-            >Sign up for full access</span
+            >Sign Up</span
           >
           <span
             class="material-symbols-outlined bg-zinc-200 text-zinc-900 px-4 py-2.5 h-12 rounded-2xl w-fit group-hover:translate-x-20 transition-transform duration-200"
@@ -93,9 +54,12 @@
         </a>
       </section>
       <div
-        class="w-96 h-96 bg-zinc-800 absolute bottom-0 right-0 rounded-tl-[2.5rem] p-5 flex items-center justify-center"
+        class="hidden sm:flex w-60 h-60 md:w-96 md:h-96 bg-zinc-800 absolute bottom-0 right-0 rounded-tl-[2.5rem] p-5 items-center justify-center"
       >
-        <a href="./browse/" class="font-heading text-zinc-200 text-5xl group">
+        <a
+          href="./browse/"
+          class="font-heading text-zinc-200 text-3xl md:text-5xl group flex items-center gap-1"
+        >
           Browse
           <span
             class="material-symbols-outlined group-hover:translate-x-5 transition-transform duration-200"
@@ -114,6 +78,7 @@
         />
       </div>
     </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.3/TextPlugin.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.3/gsap.min.js"></script>
   </body>
 </html>
