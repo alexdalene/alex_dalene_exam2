@@ -1,27 +1,25 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './src/**/*.{html,mjs}',
-    './src/*.{html,mjs}',
+    './src/js/*.mjs',
+    './src/js/**/*.mjs',
+    './src/js/**/**/*.mjs',
+    './src/*.mjs',
     './**/*.{html,mjs}',
-    './*.{html,mjs}',
-    './auth/*.html',
-    './auth/**/*.html',
+    './index.html',
   ],
   theme: {
-    colors: {
-      primary: '#BBC3FF',
-      secondary: '#46464F',
-      background: '#1B1B1F',
-      surface: '#212126',
-      surfaceVariant: '#2E2E38',
-      onSurfaceVariant: '#67626A',
-      text: '#E4E1E6',
-      error: '#FFB4AB',
-      accentGreen: '#D2F898',
-      accentPink: '#F7567C',
-    },
     extend: {
+      animation: {
+        enter: 'enter 200ms ease-in-out',
+      },
+      keyframes: {
+        enter: {
+          '100%': { transform: 'scale(100%)' },
+          '0%': { transform: 'scale(0%)' },
+          '100%': { transform: 'scale(100%)' },
+        },
+      },
       boxShadow: {
         invertedBorder: '0 -25px 0 0 #1B1B1F',
       },
@@ -37,7 +35,6 @@ module.exports = {
       fontFamily: {
         heading: ['Poppins', 'sans-serif'],
         body: ['Gantari', 'sans-serif'],
-        headingSerif: ['Baskerville', 'serif'],
       },
       fontWeight: {
         normal: '400',

@@ -6,36 +6,112 @@
     <title>Bid-B</title>
     <link rel="stylesheet" href="./public/css/output.css" />
     <script type="module" src="./src/index.mjs"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0"
+    />
   </head>
-  <body class="bg-background">
-    <main class="min-h-screen w-full flex flex-col items-center py-32 gap-40">
-      <section
-        id="hero"
-        class="container text-center flex flex-col gap-10 items-center"
+  <body
+    class="font-body antialiased bg-zinc-800 py-10 px-5 grid place-content-stretch min-h-[100lvh]"
+  >
+    <main class="bg-zinc-900 rounded-[2.5rem] items-center py-5 px-10 relative">
+      <header
+        class="w-full flex justify-between items-center sticky top-0 py-2.5"
       >
-        <h1 class="text-6xl font-headingSerif text-text leading-snug">
-          The Bidding Buddy You <br />Were Looking For
-        </h1>
-        <a href="./auth#signup" class="btn-primary font-body"
-          >Sign up for full access</a
+        <span class="text-purple-300 font-bold font-heading text-2xl"
+          >Bid-B</span
         >
+        <nav class="hidden lg:flex gap-5 text-zinc-400">
+          <!-- Browse -->
+          <a
+            href=""
+            class="rounded-md px-2 py-0.5 flex items-center gap-1 group relative"
+          >
+            <div class="nav-btn-circle"></div>
+            <div class="z-10">Browse</div>
+            <div class="nav-btn-bg"></div>
+          </a>
+
+          <!-- Sign In -->
+          <a
+            href=""
+            class="rounded-md px-2 py-0.5 flex items-center gap-1 group relative"
+          >
+            <div class="nav-btn-circle"></div>
+            <div class="z-10">Sign In</div>
+            <div class="nav-btn-bg"></div>
+          </a>
+
+          <!-- Sign Up -->
+          <a
+            href=""
+            class="rounded-md px-2 py-0.5 flex items-center gap-1 group relative"
+          >
+            <div class="nav-btn-circle"></div>
+            <div class="z-10">Create an account</div>
+            <div class="nav-btn-bg"></div>
+          </a>
+        </nav>
+        <button
+          class="flex items-center gap-1 bg-zinc-700 text-zinc-200 font-bold px-3 py-1 rounded-full lg:hidden"
+        >
+          <div class="nav-btn-circle scale-100"></div>
+          Menu
+        </button>
+      </header>
+      <section id="hero" class="flex flex-col gap-10 py-20 px-20 text-zinc-200">
+        <h1 class="text-7xl font-heading leading-tight max-w-lg">
+          Your next item is within
+          <span
+            class="before:inset-0 before:bg-gradient-to-l before:from-purple-300 before:absolute relative before:rounded-xl z-10 before:-z-10 text-zinc-900 before:scale-110"
+            >reach</span
+          >
+        </h1>
+        <p class="text-zinc-300 max-w-xs">
+          We value our customers and their needs - therefore we built this app
+          from the ground up focusing purely on the best experience for you.
+          Easily navigate our app and bid on the items you want. It's a breeze.
+        </p>
+        <a
+          href="./auth#signup"
+          class="flex items-center group w-fit overflow-hidden -translate-x-14"
+        >
+          <span
+            class="material-symbols-outlined bg-zinc-200 text-zinc-900 px-4 py-2.5 h-12 rounded-2xl -translate-x-20 group-hover:translate-x-0 transition-transform duration-200"
+          >
+            arrow_forward
+          </span>
+          <span
+            class="bg-zinc-200 text-zinc-900 px-4 h-12 text-xl rounded-2xl w-fit flex items-center"
+            >Sign up for full access</span
+          >
+          <span
+            class="material-symbols-outlined bg-zinc-200 text-zinc-900 px-4 py-2.5 h-12 rounded-2xl w-fit group-hover:translate-x-20 transition-transform duration-200"
+          >
+            arrow_forward
+          </span>
+        </a>
       </section>
-      <div class="grid grid-cols-10 w-full container gap-[10px]">
-        <a href="./auth" class="grid-item col-span-3 text-primary">
-          <h2>Get Started</h2>
+      <div
+        class="w-96 h-96 bg-zinc-800 absolute bottom-0 right-0 rounded-tl-[2.5rem] p-5 flex items-center justify-center"
+      >
+        <a href="./browse/" class="font-heading text-zinc-200 text-5xl group">
+          Browse
+          <span
+            class="material-symbols-outlined group-hover:translate-x-5 transition-transform duration-200"
+            >arrow_forward</span
+          >
         </a>
-        <a href="./browse" class="grid-item col-span-4">
-          <h3>Browse</h3>
-        </a>
-        <a href="./profile" class="grid-item col-span-3 row-span-2">
-          <h3>Your Profile</h3>
-        </a>
-        <a href="./faq" class="grid-item col-span-4 items-start">
-          <h3>What can you do?</h3>
-        </a>
-        <a href="./faq" class="grid-item col-span-3 text-primary">
-          <h3>How does it work?</h3>
-        </a>
+        <img
+          src="./src/svg/border.svg"
+          alt=""
+          class="borde absolute right-0 -top-10 rotate-180 w-10 h-10"
+        />
+        <img
+          src="./src/svg/border.svg"
+          alt=""
+          class="absolute -left-10 bottom-0 rotate-180 w-10 h-10"
+        />
       </div>
     </main>
   </body>
