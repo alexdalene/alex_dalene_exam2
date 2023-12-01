@@ -1,6 +1,7 @@
 import { save } from '../../storage/save.mjs';
 import { apiBase } from '../base.mjs';
 import { headers } from '../headers.mjs';
+import { handleErrors } from '../../functions/auth/handleErrors.mjs';
 
 export async function login(email, password) {
   const response = await fetch(`${apiBase}/auction/auth/login`, {
@@ -12,6 +13,7 @@ export async function login(email, password) {
   const data = await response.json();
 
   if (!response.ok) {
+    handleErrors(data);
     throw new Error(data.errors[0].message);
   }
 
