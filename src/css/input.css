@@ -3,39 +3,11 @@
 @tailwind utilities;
 
 @layer components {
-    .btn-primary {
-        @apply flex justify-center items-center px-7 w-fit gap-1 py-3 rounded-md border border-primary bg-[#2D2F3D] bg-gradient-to-t from-[#4c5072bf] text-text backdrop-blur hover:from-[#4c5072];
-    }
-
-    .btn-sm-primary {
-        @apply flex justify-center items-center px-4 gap-1 h-9 rounded-3xl border border-primary bg-primary text-background text-sm;
-    }
-
-    .btn-secondary {
-        @apply flex justify-center items-center px-6 gap-1 h-11 rounded-3xl border border-secondary text-text;
-    }
-
-    .btn-sm-secondary {
-        @apply flex justify-center items-center px-4 gap-1 h-9 rounded-3xl border border-secondary text-text text-sm;
-    }
-
-    .grid-item {
-        @apply w-full min-h-[250px] flex items-end bg-gradient-to-br from-[#1F202A] to-[#44486360] rounded-[20px] border border-surfaceVariant p-[20px] font-heading font-bold text-xl text-text hover:to-[#4448638f];
-    }
-
     .nav-btn-circle {
-        @apply w-1.5 h-1.5 scale-0 bg-purple-200 rounded-full group-hover:scale-100 transition-transform duration-200 z-10;
+        @apply w-1.5 h-1.5 scale-0 bg-purple-300 rounded-full group-hover:scale-100 transition-transform duration-200 z-10;
     }
 
     .nav-btn-bg {
         @apply bg-gradient-to-tl from-zinc-800 absolute rounded-lg inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500;
-    }
-
-    .hidden-important {
-        @apply hidden !important;
-    }
-
-    .block-important {
-        @apply inline-block !important;
     }
 }
