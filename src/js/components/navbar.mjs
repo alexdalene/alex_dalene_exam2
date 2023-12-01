@@ -63,9 +63,9 @@ export default function navbar() {
   }
 
   // Create navigation links
-  const browseLink = createNavLink('', 'Browse');
-  const loginLink = createNavLink('', 'Log In');
-  const signupLink = createNavLink('', 'Create an account');
+  const browseLink = createNavLink('./browse/', 'Browse');
+  const loginLink = createNavLink('./auth#login', 'Log In');
+  const signupLink = createNavLink('./auth#signup', 'Create an account');
 
   // Append navigation links to the navigation element
   nav.appendChild(browseLink);

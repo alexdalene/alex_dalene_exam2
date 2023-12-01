@@ -5,17 +5,31 @@ export const displayErrors = errors => {
   const email = select('#email-error');
   const password = select('#password-error');
 
-  name.textContent = errors.name;
-  email.textContent = errors.email;
-  password.textContent = errors.password;
+  if (!name && !email && !password) {
+    return;
+  }
 
-  name.classList.remove('hidden');
-  email.classList.remove('hidden');
-  password.classList.remove('hidden');
+  if (name) {
+    name.textContent = errors.name;
+    name.classList.remove('hidden');
+    setTimeout(() => {
+      name.classList.add('hidden');
+    }, 5000);
+  }
 
-  setTimeout(() => {
-    name.classList.add('hidden');
-    email.classList.add('hidden');
-    password.classList.add('hidden');
-  }, 5000);
+  if (email) {
+    email.textContent = errors.email;
+    email.classList.remove('hidden');
+    setTimeout(() => {
+      email.classList.add('hidden');
+    }, 5000);
+  }
+
+  if (password) {
+    password.textContent = errors.password;
+    password.classList.remove('hidden');
+    setTimeout(() => {
+      password.classList.add('hidden');
+    }, 5000);
+  }
 };
