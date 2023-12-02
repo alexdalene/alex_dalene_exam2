@@ -30,7 +30,7 @@ export function listing(data) {
 
     // Create image element
     const image = document.createElement('img');
-    image.src = media ? media : '../src/images/hero-gradient-2.png';
+    image.src = media ? media : '../src/images/placeholder.webp';
     image.alt = 'Image of an item being auctioned away';
     image.loading = 'lazy';
     image.classList.add(
