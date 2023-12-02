@@ -217,8 +217,6 @@ export default function navbar() {
   header.appendChild(nav);
   header.appendChild(button);
 
-  const tl = gsap.timeline();
-
   // Add event listener to the navbar on scroll
   window.addEventListener('scroll', () => {
     if (window.scrollY > header.offsetHeight + 50) {
