@@ -3,6 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="./src/svg/favicon.svg"
+      type="image/x-icon"
+    />
     <title>Bid-B</title>
     <link rel="stylesheet" href="./public/css/output.css" />
     <script type="module" src="./src/index.mjs"></script>
@@ -49,22 +54,22 @@
         </a>
       </section>
       <div
-        class="w-1/3 h-1/6 lg:h-1/2 flex bg-zinc-800 absolute bottom-0 right-0 rounded-tl-[2.5rem] p-5 items-center justify-center"
+        class="w-1/3 h-1/6 lg:h-1/2 flex bg-zinc-800 absolute bottom-0 right-0 rounded-tl-[2.5rem] pt-5 pl-5 items-center justify-center"
       >
-        <a
-          href="./browse/"
-          class="font-heading text-zinc-200 text-lg sm:text-3xl lg:text-5xl group flex items-center gap-1"
+        <div
+          class="bg-zinc-900 w-full h-full rounded-[2rem] flex items-center justify-center rounded-br-xl sm:rounded-[2.5rem]"
         >
-          Browse
-          <span
-            class="material-symbols-outlined group-hover:translate-x-5 transition-transform duration-200"
-            >arrow_forward</span
-          >
-        </a>
+          <a href="./browse/">
+            <span
+              class="material-symbols-outlined text-zinc-200 bg-gradient-to-tl from-zinc-600 p-2.5 sm:p-5 rounded-xl flex items-center justify-center border border-zinc-700"
+              >arrow_forward</span
+            >
+          </a>
+        </div>
         <img
           src="./src/svg/border.svg"
           alt=""
-          class="borde absolute right-0 -top-10 rotate-180 w-10 h-10"
+          class="absolute right-0 -top-10 rotate-180 w-10 h-10"
         />
         <img
           src="./src/svg/border.svg"
