@@ -20,7 +20,7 @@
     }
 
     .hero-text-bg {
-        @apply before:inset-0 before:bg-gradient-to-l before:from-purple-300 before:absolute relative before:rounded-xl z-10 before:-z-10 text-zinc-900 before:scale-110;
+        @apply before:inset-0 before:bg-purple-300 before:absolute relative before:rounded-full z-10 before:-z-10 text-zinc-900 before:scale-110;
     }
 
     .input-primary {

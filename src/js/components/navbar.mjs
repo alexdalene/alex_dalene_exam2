@@ -12,17 +12,41 @@ export default function navbar() {
     'sticky',
     'top-0',
     'py-2.5',
+    'z-50',
   );
 
   // Create logo span
   const logoSpan = document.createElement('span');
-  logoSpan.classList.add(
-    'text-purple-300',
-    'font-bold',
-    'font-heading',
-    'text-2xl',
-  );
-  logoSpan.textContent = 'Bid-B';
+  logoSpan.classList.add('w-6', 'fill-purple-300');
+
+  logoSpan.innerHTML = `
+  <svg
+            id="logo"
+            data-name="logo"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 215.02 309.07"
+          >
+            <g id="logo-group" data-name="logo-group">
+              <g>
+                <g>
+                  <path
+                    d="m215,221h-49c.52-12.08-4.34-24.58-13.75-32.5-18.35-15.44-42.78-7.39-64.75-9.75l.25-49.25c23.43-2.31,53.29,7.67,70.25-13.25,19.08-23.54,5.78-57.57-22.5-65V1.75c75.4,10.95,106.02,97.7,52.5,153.5,17.32,16.76,27.59,41.65,27,65.75Z"
+                  />
+                  <path d="m.75,0h122l-.25,50.75-121.75.25V0Z" />
+                  <g>
+                    <path d="m.25,63l52.75.25-.75,181.75-52.25-.75L.25,63Z" />
+                    <path d="m.75,257.5h105.5l.25,50.75-105.75.75v-51.5Z" />
+                  </g>
+                  <path
+                    d="m215,221c-1.23,50.84-44.35,89.99-94.75,88-.26-.11-1.18-1.51-1.25-1.75-.71-2.32.17-41.81.5-48.5,2.1-2.62,17.16,3.51,32.25-8.25,9.1-7.09,13.76-18.15,14.25-29.5h49Z"
+                  />
+                </g>
+                <path
+                  d="m66.25,63c14.9.9,54.14-1.4,64.5.5,28.33,5.2,29.93,45.4,4.5,53-10.39,3.1-60.01-1.06-61.25,1.75v73c13.7,1.35,46.93-.95,55.75.25,16.39,2.24,30.87,24.58,18.75,42.75-2.93,4.39-11.07,10.46-16.25,11.25-7.12,1.08-52.95-.62-66.75-.25l.75-182.25Z"
+                />
+              </g>
+            </g></svg
+  `;
 
   // Create navigation element
   const nav = document.createElement('nav');
@@ -83,7 +107,7 @@ export default function navbar() {
     'text-zinc-200',
     'font-bold',
     'px-3',
-    'py-1',
+    'py-0.5',
     'rounded-full',
     'lg:hidden',
     'relative',
@@ -110,7 +134,7 @@ export default function navbar() {
     'flex-col',
     'justify-between',
     'px-2.5',
-    'pt-1',
+    'pt-0.5',
     'pb-2.5',
     'text-zinc-900',
     'w-0',

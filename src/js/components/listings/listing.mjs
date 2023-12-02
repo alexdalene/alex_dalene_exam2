@@ -17,13 +17,15 @@ export function listing(data) {
     article.classList.add(
       'flex',
       'flex-col',
-      'p-2.5',
       'rounded-xl',
       'aspect-square',
       'transition-all',
       'hover:bg-surface',
       'relative',
       'cursor-pointer',
+      'bg-zinc-800',
+      'group',
+      'overflow-hidden',
     );
 
     // Create image element
@@ -36,23 +38,89 @@ export function listing(data) {
       'min-h-full',
       'aspect-square',
       'rounded-xl',
-      'mb-2.5',
       'object-cover',
+    );
+
+    // Create footer element
+    const footer = document.createElement('footer');
+    footer.classList.add(
+      'flex',
+      'gap-2.5',
+      'items-center',
+      'absolute',
+      'bottom-0',
+      'bg-zinc-900',
+      'rounded-tr-2xl',
+      'pt-3',
+      'pr-3',
+      'min-w-[60%]',
+      'max-w-[60%]',
+      'justify-between',
+      'group-hover:translate-y-20',
+      'transition-transform',
+      'delay-200',
     );
 
     // Create title element
     const title = document.createElement('h2');
-    title.classList.add('font-bold');
+    title.classList.add(
+      'font-bold',
+      'line-clamp-1',
+      'bg-zinc-800',
+      'px-2.5',
+      'py-1',
+      'rounded-lg',
+      'w-full',
+      'basis-3/4',
+    );
     title.textContent = name;
-
-    // Create footer element
-    const footer = document.createElement('footer');
-    footer.classList.add('flex', 'gap-2.5', 'items-center');
 
     // Create price element
     const price = document.createElement('h3');
-    price.classList.add('font-bold', 'text-2xl', 'font-heading');
+    price.classList.add(
+      'text-purple-300',
+      'font-bold',
+      'bg-zinc-800',
+      'px-2.5',
+      'py-1',
+      'rounded-lg',
+      'w-full',
+      'text-center',
+      'basis-1/4',
+    );
     price.textContent = `$${bids ? bids : '0'}`;
+
+    const borderLeftFooter = document.createElement('div');
+    borderLeftFooter.classList.add(
+      'absolute',
+      '-top-5',
+      'left-0',
+      'h-5',
+      'w-5',
+      'text-zinc-900',
+      '-rotate-90',
+    );
+    borderLeftFooter.innerHTML = `
+    <svg viewBox="0 0 13 13" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0.000212396 0H13.0002C2.87774 0 0.163678 7.61338 0.000212396 12.1365V13C-0.0102433 12.7282 -0.0107289 12.4392 0.000212396 12.1365V0Z"/>
+    </svg>
+    `;
+
+    const borderRightFooter = document.createElement('div');
+    borderRightFooter.classList.add(
+      'absolute',
+      'bottom-0',
+      '-right-5',
+      'h-5',
+      'w-5',
+      'text-zinc-900',
+      '-rotate-90',
+    );
+    borderRightFooter.innerHTML = `
+    <svg viewBox="0 0 13 13" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0.000212396 0H13.0002C2.87774 0 0.163678 7.61338 0.000212396 12.1365V13C-0.0102433 12.7282 -0.0107289 12.4392 0.000212396 12.1365V0Z"/>
+    </svg>
+    `;
 
     // Create duration element
     const durationContainer = document.createElement('div');
@@ -61,42 +129,70 @@ export function listing(data) {
       'items-center',
       'justify-center',
       'gap-[5px]',
-      'bg-background',
-      'rounded-bl-xl',
+      'bg-zinc-900',
+      'rounded-bl-2xl',
       'rounded-tr-xl',
       'w-fit',
       'pb-3',
       'pl-3',
-      'text-onSurfaceVariant',
+      'text-zinc-200',
       'absolute',
-      'top-2.5',
-      'right-2.5',
+      'top-0',
+      'right-0',
+      'group-hover:-translate-y-20',
+      'transition-transform',
+      'delay-200',
     );
 
-    const borderLeft = document.createElement('img');
-    borderLeft.src = '../src/svg/inverted-border.svg';
-    borderLeft.alt = '';
-    borderLeft.classList.add('absolute', 'top-0', '-left-[1.1rem]', 'h-5');
+    const borderLeft = document.createElement('div');
+    borderLeft.classList.add(
+      'absolute',
+      'top-0',
+      '-left-5',
+      'h-5',
+      'w-5',
+      'text-zinc-900',
+      'rotate-90',
+    );
+    borderLeft.innerHTML = `
+    <svg viewBox="0 0 13 13" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0.000212396 0H13.0002C2.87774 0 0.163678 7.61338 0.000212396 12.1365V13C-0.0102433 12.7282 -0.0107289 12.4392 0.000212396 12.1365V0Z"/>
+    </svg>
+    `;
 
-    const borderRight = document.createElement('img');
-    borderRight.src = '../src/svg/inverted-border.svg';
-    borderRight.alt = '';
-    borderRight.classList.add('absolute', 'top-10', 'right-0', 'h-5');
+    const borderRight = document.createElement('div');
+    borderRight.classList.add(
+      'absolute',
+      'top-10',
+      'right-0',
+      'h-5',
+      'w-5',
+      'text-zinc-900',
+      'rotate-90',
+    );
+    borderRight.innerHTML = `
+    <svg viewBox="0 0 13 13" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0.000212396 0H13.0002C2.87774 0 0.163678 7.61338 0.000212396 12.1365V13C-0.0102433 12.7282 -0.0107289 12.4392 0.000212396 12.1365V0Z"/>
+    </svg>
+    `;
 
     const duration = document.createElement('span');
     duration.classList.add(
       'flex',
-      'gap-[5px]',
-      'rounded-full',
-      'bg-surfaceVariant',
+      'gap-1',
+      'rounded-lg',
+      'bg-zinc-800',
       'p-1',
       'text-sm',
+      'text-zinc-500',
+      'flex',
+      'items-center',
     );
 
     // Create clock icon in the duration element
-    const clockIcon = document.createElement('img');
-    clockIcon.src = '../src/svg/icon/pace.svg';
-    clockIcon.alt = '';
+    const clockIcon = document.createElement('span');
+    clockIcon.classList.add('material-symbols-outlined');
+    clockIcon.textContent = 'schedule';
 
     // Create text content for the duration element
     const durationText = document.createTextNode(
@@ -109,12 +205,11 @@ export function listing(data) {
     durationContainer.append(duration, borderLeft, borderRight);
 
     // Append elements to the footer
-    footer.appendChild(price);
+    footer.append(title, price, borderLeftFooter, borderRightFooter);
     article.appendChild(durationContainer);
 
     // Append elements to the article
     article.appendChild(image);
-    article.appendChild(title);
     article.appendChild(footer);
 
     select('#listing-container').appendChild(article);
