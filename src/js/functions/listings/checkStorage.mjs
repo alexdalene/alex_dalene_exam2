@@ -7,6 +7,7 @@ export const checkStorage = () => {
 
   if (timeSinceSave(currentDate)) {
     getListings();
+    displayListings();
   } else {
     console.log('Using cached data');
     displayListings();

@@ -1,5 +1,5 @@
 import { select } from '../tools/select.mjs';
-import { load } from '../storage/load.mjs';
+import { load, remove } from '../storage/index.mjs';
 
 export default function navbar() {
   // Create header element
@@ -16,7 +16,8 @@ export default function navbar() {
   );
 
   // Create logo span
-  const logoSpan = document.createElement('span');
+  const logoSpan = document.createElement('a');
+  logoSpan.href = '/';
   logoSpan.classList.add('w-6', 'fill-purple-300');
 
   logoSpan.innerHTML = `
@@ -87,9 +88,22 @@ export default function navbar() {
   }
 
   // Create navigation links
-  const browseLink = createNavLink('./browse/', 'Browse');
-  const loginLink = createNavLink('./auth#login', 'Log In');
-  const signupLink = createNavLink('./auth#signup', 'Create an account');
+  const browseLink = createNavLink('/browse', 'Browse');
+  let loginLink = createNavLink('/auth#login', 'Log In');
+  let signupLink = createNavLink('/auth#signup', 'Create an account');
+
+  // Create navigation links for logged in users
+  if (load('token')) {
+    loginLink = createNavLink('#', 'Log Out');
+    signupLink = createNavLink('/profile', 'Profile');
+
+    loginLink.addEventListener('click', () => {
+      remove('token');
+      remove('username');
+      remove('credits');
+      window.location.href = '/';
+    });
+  }
 
   // Append navigation links to the navigation element
   nav.appendChild(browseLink);
@@ -167,9 +181,22 @@ export default function navbar() {
   }
 
   // Create menu links
-  const browseMenuLink = createMenuLink('./browse/', 'Browse');
-  const loginMenuLink = createMenuLink('./auth#login', 'Log In');
-  const signupMenuLink = createMenuLink('./auth#signup', 'Sign Up');
+  const browseMenuLink = createMenuLink('/browse/', 'Browse');
+  let loginMenuLink = createMenuLink('/auth#login', 'Log In');
+  let signupMenuLink = createMenuLink('/auth#signup', 'Sign Up');
+
+  if (load('token')) {
+    loginMenuLink = createNavLink('#', 'Log Out');
+    signupMenuLink = createNavLink('/profile', 'Profile');
+    spanBtnOpen.textContent = `Hi, ${load('username')}`;
+
+    loginMenuLink.addEventListener('click', () => {
+      remove('token');
+      remove('username');
+      remove('credits');
+      window.location.href = '/';
+    });
+  }
 
   // Append menu links to the menuLinks element
   menuLinks.appendChild(browseMenuLink);
@@ -189,6 +216,19 @@ export default function navbar() {
   header.appendChild(logoSpan);
   header.appendChild(nav);
   header.appendChild(button);
+
+  const tl = gsap.timeline();
+
+  // Add event listener to the navbar on scroll
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > header.offsetHeight + 50) {
+      nav.classList.remove('lg:flex');
+      button.classList.remove('lg:hidden');
+    } else {
+      nav.classList.add('lg:flex');
+      button.classList.add('lg:hidden');
+    }
+  });
 
   select('main').prepend(header);
 }
