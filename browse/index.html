@@ -5,56 +5,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="shortcut icon"
-      href="./src/svg/favicon.svg"
+      href="../src/svg/favicon.svg"
       type="image/x-icon"
     />
     <title>Browse</title>
     <link rel="stylesheet" href="./../public/css/output.css" />
     <script type="module" src="../src/js/pages/browse.mjs"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0"
+    />
   </head>
-  <body class="bg-background">
-    <main class="min-h-screen w-full flex flex-col py-32 gap-10 items-center">
-      <section
-        class="container text-text font-body flex flex-col gap-10 px-2.5 md:px-10"
-      >
+  <body
+    class="font-body antialiased bg-zinc-800 pt-10 pb-2.5 sm:pb-5 px-2.5 sm:px-5 grid place-content-stretch min-h-[100svh]"
+  >
+    <main
+      class="bg-zinc-900 rounded-xl sm:rounded-[2.5rem] py-2.5 sm:py-5 px-5 sm:px-10 relative"
+    >
+      <section class="flex flex-col gap-10 py-20 px-0 lg:px-20 text-zinc-200">
         <div class="flex flex-col gap-[5px]">
-          <h1 class="font-heading font-bold text-2xl">Browse</h1>
-          <p>Looking for something in particular? Try our search function.</p>
+          <h1 class="font-heading text-2xl">Browse</h1>
+          <form class="flex gap-2">
+            <label for="input-search">
+              <input
+                type="text"
+                id="input-search"
+                name="search"
+                class="input-primary"
+                placeholder="Search..."
+                autocomplete="off"
+              />
+            </label>
+            <button
+              class="flex gap-1 items-center bg-zinc-800 rounded-md px-3 py-1 group"
+              type="button"
+              id="btn-sort"
+            >
+              <span class="material-symbols-outlined">swap_vert</span>
+            </button>
+          </form>
         </div>
-        <form class="flex text-onSurfaceVariant">
-          <label
-            for="input-search"
-            class="flex items-center justify-center border-b border-onSurfaceVariant"
-            ><img src="../src/svg/icon/search.svg" alt=""
-          /></label>
-          <input
-            type="text"
-            id="input-search"
-            name="search"
-            class="peer bg-background py-2.5 focus:outline-none px-2.5 border-b border-onSurfaceVariant placeholder-onSurfaceVariant text-text"
-            placeholder="Search..."
-            autocomplete="off"
-          />
-          <button
-            class="flex gap-[5px] items-center peer-focus:opacity-20 ml-5 transition-opacity"
-            type="button"
-            id="btn-filter"
-          >
-            <img src="../src/svg/icon/tune.svg" alt="" />Filter
-          </button>
-          <button
-            class="flex gap-[5px] items-center ml-5 peer-focus:opacity-20 transition-opacity"
-            type="button"
-            id="btn-sort"
-          >
-            <img src="../src/svg/icon/swap_vert.svg" alt="" />Sort
-          </button>
-        </form>
       </section>
       <div
-        class="text-text font-body container px-2.5 md:px-10 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4"
+        class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4"
         id="listing-container"
       ></div>
+      <div
+        class="w-[10%] lg:w-1/6 h-24 bg-zinc-800 absolute top-0 right-[15rem] sm:right-[20rem] rounded-b-[2.5rem] p-5"
+      >
+        <svg
+          width="13"
+          height="13"
+          viewBox="0 0 13 13"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          class="absolute -right-10 top-0 w-10 h-10 fill-zinc-800"
+        >
+          <path
+            d="M0.000212396 0H13.0002C2.87774 0 0.163678 7.61338 0.000212396 12.1365V13C-0.0102433 12.7282 -0.0107289 12.4392 0.000212396 12.1365V0Z"
+            fill="#currentColor"
+          />
+        </svg>
+        <svg
+          width="13"
+          height="13"
+          viewBox="0 0 13 13"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          class="absolute -left-10 top-0 w-10 h-10 rotate-90 fill-zinc-800"
+        >
+          <path
+            d="M0.000212396 0H13.0002C2.87774 0 0.163678 7.61338 0.000212396 12.1365V13C-0.0102433 12.7282 -0.0107289 12.4392 0.000212396 12.1365V0Z"
+            fill="#currentColor"
+          />
+        </svg>
+      </div>
     </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.3/TextPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.3/gsap.min.js"></script>
   </body>
 </html>

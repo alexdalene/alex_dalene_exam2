@@ -12,6 +12,7 @@ export default function navbar() {
     'sticky',
     'top-0',
     'py-2.5',
+    'z-50',
   );
 
   // Create logo span
