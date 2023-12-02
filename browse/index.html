@@ -22,9 +22,14 @@
     <main
       class="bg-zinc-900 rounded-xl sm:rounded-[2.5rem] py-2.5 sm:py-5 px-5 sm:px-10 relative"
     >
-      <section class="flex flex-col gap-10 py-20 px-0 lg:px-20 text-zinc-200">
-        <div class="flex flex-col gap-[5px]">
-          <h1 class="font-heading text-2xl">Browse</h1>
+      <section class="flex flex-col gap-10 py-20 px-0 text-zinc-200">
+        <div class="flex flex-col gap-2.5">
+          <h1 class="font-heading flex gap-1 items-center font-bold">
+            <div
+              class="nav-btn-circle opacity-100 bg-red-400 scale-100 animate-pulse"
+            ></div>
+            Browse
+          </h1>
           <form class="flex gap-2">
             <label for="input-search">
               <input
@@ -47,11 +52,11 @@
         </div>
       </section>
       <div
-        class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4"
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 text-zinc-200"
         id="listing-container"
       ></div>
       <div
-        class="w-[10%] lg:w-1/6 h-24 bg-zinc-800 absolute top-0 right-[15rem] sm:right-[20rem] rounded-b-[2.5rem] p-5"
+        class="w-[10%] lg:w-1/6 h-24 bg-zinc-800 absolute top-0 right-[15rem] sm:right-[20rem] lg:right-[30rem] rounded-b-[2.5rem] p-5"
       >
         <svg
           width="13"
