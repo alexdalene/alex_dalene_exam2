@@ -17,15 +17,6 @@ const render = async () => {
   } catch (error) {
     console.error(error);
   }
-
-  const logout = document.querySelector('#btn-logout');
-
-  logout.addEventListener('click', () => {
-    remove('token');
-    remove('username');
-    remove('credits');
-    window.location.href = '/auth#login';
-  });
 };
 
 render();

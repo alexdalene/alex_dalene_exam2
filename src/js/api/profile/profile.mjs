@@ -4,11 +4,14 @@ import { load } from '../../storage/index.mjs';
 
 export async function getProfile() {
   const username = load('username');
-  const response = await fetch(`${apiBase}/auction/profiles/${username}`, {
-    method: 'get',
-    body: JSON.stringify(),
-    headers: headers('application/json'),
-  });
+  const response = await fetch(
+    `${apiBase}/auction/profiles/${username ? username : 'sherlock'}`,
+    {
+      method: 'get',
+      body: JSON.stringify(),
+      headers: headers('application/json'),
+    },
+  );
 
   const data = await response.json();
 
