@@ -13,6 +13,7 @@ let signupLink = createNavLink('/auth#signup', 'Create an account');
 // Create navigation links for logged in users
 if (load('token')) {
   loginLink = createNavLink('#', 'Log Out');
+  loginLink.id = 'btn-logout';
   signupLink = createNavLink('/profile', 'Profile');
 
   loginLink.addEventListener('click', () => {
