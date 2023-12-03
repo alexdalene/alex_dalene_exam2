@@ -1,4 +1,4 @@
-import navbar from '../components/navbar.mjs';
+import { navbar } from '../components/navbar/navbar.mjs';
 import { load, remove } from '../storage/index.mjs';
 
 document.addEventListener('DOMContentLoaded', () => {
