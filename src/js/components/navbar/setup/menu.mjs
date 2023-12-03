@@ -1,3 +1,5 @@
+import { load } from '../../../storage/load.mjs';
+
 // Create button element
 const button = document.createElement('button');
 button.id = 'menu-container';
@@ -22,6 +24,10 @@ circleBtn.classList.add('nav-btn-circle', 'scale-100');
 const spanBtnOpen = document.createElement('span');
 spanBtnOpen.id = 'btn-open';
 spanBtnOpen.textContent = 'Menu';
+
+if (load('token')) {
+  spanBtnOpen.textContent = `Hi, ${load('username')}`;
+}
 
 // Append elements to the button
 button.appendChild(circleBtn);

@@ -47,7 +47,6 @@ let signupMenuLink = createMenuLink('/auth#signup', 'Sign Up');
 if (load('token')) {
   loginMenuLink = createNavLink('#', 'Log Out');
   signupMenuLink = createNavLink('/profile', 'Profile');
-  spanBtnOpen.textContent = `Hi, ${load('username')}`;
 
   loginMenuLink.addEventListener('click', () => {
     remove('token');
