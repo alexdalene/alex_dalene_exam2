@@ -1,11 +1,20 @@
 import { navbar } from '../components/navbar/navbar.mjs';
 import { load, remove } from '../storage/index.mjs';
+import { loader } from '../components/loader/loader.mjs';
 
-document.addEventListener('DOMContentLoaded', () => {
-  const token = load('token');
+const render = async () => {
+  try {
+    const token = load('token');
+    if (!token) {
+      window.location.href = '/auth#signup';
+    }
 
-  if (!token) {
-    window.location.href = '/auth#signup';
+    loader.showLoader();
+    // await profile();
+    await navbar();
+    loader.hideLoader();
+  } catch (error) {
+    console.error(error);
   }
 
   const logout = document.querySelector('#btn-logout');
@@ -16,6 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
     remove('credits');
     window.location.href = '/auth#login';
   });
+};
 
-  navbar();
-});
+render();
