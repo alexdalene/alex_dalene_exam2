@@ -28,6 +28,7 @@ export const navbarAnimations = () => {
         menu,
         {
           right: '0',
+          display: 'flex',
         },
         '<',
       )

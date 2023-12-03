@@ -11,7 +11,6 @@ dropdownMenu.classList.add(
   'top-0',
   '-right-20',
   'z-10',
-  'flex',
   'flex-col',
   'justify-between',
   'px-2.5',
@@ -21,6 +20,7 @@ dropdownMenu.classList.add(
   'w-0',
   'h-0',
   'opacity-0',
+  'hidden',
 );
 
 // Create elements for the dropdown menu
