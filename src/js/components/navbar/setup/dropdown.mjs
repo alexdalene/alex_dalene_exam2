@@ -46,6 +46,7 @@ let signupMenuLink = createMenuLink('/auth#signup', 'Sign Up');
 
 if (load('token')) {
   loginMenuLink = createMenuLink('#', 'Log Out');
+  loginMenuLink.id = 'btn-logout';
   signupMenuLink = createMenuLink('/profile', 'Profile');
 
   loginMenuLink.addEventListener('click', () => {
