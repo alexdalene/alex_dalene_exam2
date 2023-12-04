@@ -13,4 +13,29 @@ describe('User Flow', () => {
 
     cy.get('#input-search').should('value', 'test');
   });
+
+  it('lets a registered user log out', () => {
+    cy.login('sherlock@stud.noroff.no', 'password123');
+
+    cy.visit('/profile');
+
+    cy.get('h1').should('contain', 'Profile');
+
+    cy.get('#menu-container').click();
+    cy.get('#btn-menu-logout').click();
+
+    cy.url().should('not.include', '/profile');
+
+    cy.get('h1').should('contain', 'Your next item');
+  });
+
+  it('lets a registered user view their total credits', () => {
+    cy.login('sherlock@stud.noroff.no', 'password123');
+
+    cy.visit('/profile');
+
+    cy.get('h1').should('contain', 'Profile');
+
+    cy.get('#credits').should('contain', '$');
+  });
 });

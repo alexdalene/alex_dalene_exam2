@@ -6,6 +6,8 @@ Cypress.Commands.add('login', (email, password) => {
       body: { email, password },
     }).then(({ body }) => {
       window.localStorage.setItem('token', body.accessToken);
+      window.localStorage.setItem('username', body.name);
+      window.localStorage.setItem('credits', body.credits);
     });
   });
 });
