@@ -1,9 +1,9 @@
-import {
-  registerListener,
-  loginListener,
-} from '../../listeners/auth/index.mjs';
-import { view, select } from '../../tools/index.mjs';
-import { loginTemplate, signupTemplate } from '../../templates/index.mjs';
+import { registerListener } from '../../listeners/auth/register.mjs';
+import { loginListener } from '../../listeners/auth/login.mjs';
+import { view } from '../../tools/view.mjs';
+import { select } from '../../tools/select.mjs';
+import { loginTemplate } from '../../templates/login.mjs';
+import { signupTemplate } from '../../templates/signup.mjs';
 
 export default function changeMode(mode) {
   if (typeof mode !== 'string') {

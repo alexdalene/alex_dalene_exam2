@@ -1,5 +1,6 @@
 import { createNavLink } from '../functions/createNavLink.mjs';
-import { remove, load } from '../../../storage/index.mjs';
+import { remove } from '../../../storage/remove.mjs';
+import { load } from '../../../storage/load.mjs';
 
 // Create navigation element
 const nav = document.createElement('nav');

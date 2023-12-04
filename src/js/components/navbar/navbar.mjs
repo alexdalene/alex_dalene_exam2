@@ -1,4 +1,8 @@
-import { header, logo, nav, button, dropdownMenu } from './setup/index.mjs';
+import { header } from './setup/header.mjs';
+import { logo } from './setup/logo.mjs';
+import { nav } from './setup/navigation.mjs';
+import { button } from './setup/menu.mjs';
+import { dropdownMenu } from './setup/dropdown.mjs';
 import { select } from '../../tools/select.mjs';
 import { navbarAnimations } from '../../animations/navbar.mjs';
 

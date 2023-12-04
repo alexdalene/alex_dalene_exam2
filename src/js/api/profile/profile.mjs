@@ -1,6 +1,6 @@
 import { apiBase } from '../base.mjs';
 import { headers } from '../headers.mjs';
-import { load } from '../../storage/index.mjs';
+import { load } from '../../storage/load.mjs';
 
 export async function getProfile() {
   const username = load('username');
