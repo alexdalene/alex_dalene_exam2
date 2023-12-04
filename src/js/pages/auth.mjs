@@ -1,4 +1,4 @@
-import { select } from '../tools/index.mjs';
+import { select } from '../tools/select.mjs';
 import changeMode from '../functions/auth/changeMode.mjs';
 import { load } from '../storage/load.mjs';
 

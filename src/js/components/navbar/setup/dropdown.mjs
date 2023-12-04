@@ -1,6 +1,6 @@
-import { createNavLink } from '../functions/createNavLink.mjs';
 import { createMenuLink } from '../functions/createMenuLink.mjs';
-import { remove, load } from '../../../storage/index.mjs';
+import { remove } from '../../../storage/remove.mjs';
+import { load } from '../../../storage/load.mjs';
 
 const dropdownMenu = document.createElement('div');
 dropdownMenu.id = 'dropdown-menu';

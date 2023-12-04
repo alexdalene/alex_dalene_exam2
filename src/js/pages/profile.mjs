@@ -1,5 +1,5 @@
 import { navbar } from '../components/navbar/navbar.mjs';
-import { load, remove } from '../storage/index.mjs';
+import { load } from '../storage/load.mjs';
 import { loader } from '../components/loader/loader.mjs';
 import { profile } from '../components/profile/profile.mjs';
 
