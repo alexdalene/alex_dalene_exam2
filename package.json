@@ -8,6 +8,7 @@
   "scripts": {
     "lint": "eslint src",
     "cypress": "cypress open",
+    "cypress-cli": "cypress run",
     "test": "jest src",
     "start": "live-server",
     "build": "postcss ./src/css/input.css -o ./public/css/output.css",
@@ -16,7 +17,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.16",
-    "cypress": "9.6.0",
+    "cypress": "^13.6.0",
     "eslint": "^8.54.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-cypress": "2.12.1",
