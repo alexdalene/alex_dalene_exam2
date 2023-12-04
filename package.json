@@ -8,6 +8,7 @@
   "scripts": {
     "lint": "eslint src",
     "cypress": "cypress open",
+    "cypress-cli": "cypress run",
     "test": "jest src",
     "start": "live-server",
     "build": "postcss ./src/css/input.css -o ./public/css/output.css",
