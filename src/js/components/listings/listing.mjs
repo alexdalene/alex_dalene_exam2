@@ -4,8 +4,10 @@ import calculateRemainingTime from '../../functions/listings/timeRemaining.mjs';
 export function listing(data) {
   data.map(listing => {
     const listingData = {
-      name: listing.title,
-      media: listing.media[0],
+      name: listing.title ? listing.title : 'Lorem ipsum dolor sit amet',
+      media: listing.media[0]
+        ? listing.media[0]
+        : '../src/images/placeholder.webp',
       bids: listing.bids.map(bid => bid.amount).pop(),
       deadline: calculateRemainingTime(listing.endsAt),
     };
@@ -19,8 +21,6 @@ export function listing(data) {
       'flex-col',
       'rounded-xl',
       'aspect-square',
-      'transition-all',
-      'hover:bg-surface',
       'relative',
       'cursor-pointer',
       'bg-zinc-800',
@@ -30,7 +30,7 @@ export function listing(data) {
 
     // Create image element
     const image = document.createElement('img');
-    image.src = media ? media : '../src/images/placeholder.webp';
+    image.src = media;
     image.alt = 'Image of an item being auctioned away';
     image.loading = 'lazy';
     image.classList.add(
@@ -39,6 +39,9 @@ export function listing(data) {
       'aspect-square',
       'rounded-xl',
       'object-cover',
+      'group-hover:scale-105',
+      'transition-transform',
+      'duration-300',
     );
 
     // Create footer element
@@ -56,9 +59,6 @@ export function listing(data) {
       'min-w-[60%]',
       'max-w-[60%]',
       'justify-between',
-      'group-hover:translate-y-20',
-      'transition-transform',
-      'delay-200',
     );
 
     // Create title element
@@ -139,9 +139,7 @@ export function listing(data) {
       'absolute',
       'top-0',
       'right-0',
-      'group-hover:-translate-y-20',
-      'transition-transform',
-      'delay-200',
+      'z-10',
     );
 
     const borderLeft = document.createElement('div');
@@ -184,7 +182,6 @@ export function listing(data) {
       'bg-zinc-800',
       'p-1',
       'text-sm',
-      'text-zinc-500',
       'flex',
       'items-center',
     );
