@@ -20,3 +20,18 @@ const render = async () => {
 };
 
 render();
+
+const update = document.querySelector('#update-avatar');
+const button = document.querySelector('#update-button');
+
+button.addEventListener('click', () => {
+  if (button.textContent === 'check') {
+    if (update.value && typeof update.value === 'string') {
+      console.log(update.value);
+      update.value = '';
+    }
+    button.textContent = 'edit';
+  } else {
+    button.textContent = 'check';
+  }
+});

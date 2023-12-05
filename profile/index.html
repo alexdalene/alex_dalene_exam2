@@ -37,13 +37,25 @@
               alt="Image of the user"
               class="aspect-square h-40 rounded-full object-cover"
             />
-            <div class="absolute right-1 bottom-1">
+            <label
+              for="update-avatar"
+              class="absolute right-1 bottom-1 flex items-center gap-2 group"
+            >
               <button
-                class="material-symbols-outlined bg-zinc-900 p-3 rounded-full border border-zinc-900 hover:border-purple-300 transition"
+                id="update-button"
+                type="submit"
+                class="material-symbols-outlined bg-zinc-900 p-3 rounded-full border border-zinc-900 group-focus-within:border-purple-300 transition"
               >
                 edit
               </button>
-            </div>
+              <input
+                id="update-avatar"
+                type="url"
+                name="update-avatar"
+                placeholder="Paste URL here"
+                class="input-primary absolute left-14 opacity-0 scale-0 group-focus-within:border-purple-300 group-focus-within:opacity-100 group-focus-within:scale-100 transition-transform"
+              />
+            </label>
           </div>
         </div>
         <div>
