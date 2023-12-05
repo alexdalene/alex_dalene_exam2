@@ -10,12 +10,16 @@ export function listing(data) {
         : '../src/images/placeholder.webp',
       bids: listing.bids.map(bid => bid.amount).pop(),
       deadline: calculateRemainingTime(listing.endsAt),
+      id: listing.id,
     };
 
-    const { name, media, bids, deadline } = listingData;
+    const { name, media, bids, deadline, id } = listingData;
 
     // Create article element
     const article = document.createElement('article');
+    article.addEventListener('click', () => {
+      location.href = `./listing/?id=${id}`;
+    });
     article.classList.add(
       'flex',
       'flex-col',
