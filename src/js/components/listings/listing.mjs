@@ -5,7 +5,9 @@ export function listing(data) {
   data.map(listing => {
     const listingData = {
       name: listing.title ? listing.title : 'Lorem ipsum dolor sit amet',
-      media: listing.media[0],
+      media: listing.media[0]
+        ? listing.media[0]
+        : '../src/images/placeholder.webp',
       bids: listing.bids.map(bid => bid.amount).pop(),
       deadline: calculateRemainingTime(listing.endsAt),
     };
@@ -28,7 +30,7 @@ export function listing(data) {
 
     // Create image element
     const image = document.createElement('img');
-    image.src = media ? media : '../src/images/placeholder.webp';
+    image.src = media;
     image.alt = 'Image of an item being auctioned away';
     image.loading = 'lazy';
     image.classList.add(
@@ -180,7 +182,6 @@ export function listing(data) {
       'bg-zinc-800',
       'p-1',
       'text-sm',
-      'text-zinc-500',
       'flex',
       'items-center',
     );
