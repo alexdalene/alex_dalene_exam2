@@ -2,6 +2,7 @@
 const logo = document.createElement('a');
 logo.href = '/';
 logo.classList.add('w-6', 'fill-purple-300');
+logo.ariaLabel = 'Logo for the website';
 
 logo.innerHTML = `
   <svg
