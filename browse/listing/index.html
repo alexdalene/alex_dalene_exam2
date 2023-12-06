@@ -22,8 +22,60 @@
     <main
       class="bg-zinc-900 rounded-xl sm:rounded-[2.5rem] py-2.5 sm:py-5 px-5 sm:px-10 relative"
     >
-      <section class="flex flex-col gap-10 py-20 px-0 text-zinc-200">
-        <h1>Listing</h1>
+      <section class="flex flex-col gap-10 py-20 px-0 text-zinc-200 max-w-3xl">
+        <h1 class="font-heading flex gap-1 items-center font-bold">
+          <div
+            class="nav-btn-circle opacity-100 bg-red-400 scale-100 animate-pulse"
+          ></div>
+          Listing
+        </h1>
+        <div class="grid grid-cols-3 gap-1">
+          <img
+            src="../../src/images/placeholder.webp"
+            alt=""
+            class="col-span-3 rounded-md"
+          />
+          <img
+            src="../../src/images/placeholder.webp"
+            alt=""
+            class="rounded-md"
+          />
+          <img
+            src="../../src/images/placeholder.webp"
+            alt=""
+            class="rounded-md"
+          />
+          <img
+            src="../../src/images/placeholder.webp"
+            alt=""
+            class="rounded-md"
+          />
+        </div>
+        <div>
+          <h2 class="text-4xl font-heading">Heading goes here</h2>
+          <p class="max-w-sm text-zinc-300">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime,
+            voluptates magni harum natus eum doloribus explicabo. Omnis
+            excepturi laborum atque natus vel. Harum, minus? Quas, reiciendis
+            temporibus! Odio, ipsa repellendus!
+          </p>
+        </div>
+        <div
+          class="relative before:content-['$'] before:absolute before:left-0 flex items-center before:ml-2.5"
+        >
+          <input
+            type="number"
+            class="input-primary pl-6"
+            id="input-bid"
+            min="0"
+            value="0"
+          />
+          <button
+            class="ml-2 bg-zinc-200 text-zinc-900 py-2.5 rounded-full px-4"
+          >
+            Place bid
+          </button>
+        </div>
       </section>
       <div
         class="w-[10%] lg:w-1/6 h-24 bg-zinc-800 absolute top-0 right-[15rem] sm:right-[20rem] lg:right-[30rem] rounded-b-[2.5rem] p-5"
