@@ -7,7 +7,7 @@ export function listing(data) {
       name: listing.title ? listing.title : 'Lorem ipsum dolor sit amet',
       media: listing.media[0]
         ? listing.media[0]
-        : '../src/images/placeholder.webp',
+        : '/src/images/placeholder.webp',
       bids: listing.bids.map(bid => bid.amount).pop(),
       deadline: calculateRemainingTime(listing.endsAt),
       id: listing.id,
