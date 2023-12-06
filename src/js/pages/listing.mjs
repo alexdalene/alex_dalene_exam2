@@ -6,6 +6,7 @@ const render = async () => {
   try {
     loader.showLoader();
     await getSpecificListing();
+    await checkStorage();
     await navbar();
     loader.hideLoader();
   } catch (error) {
