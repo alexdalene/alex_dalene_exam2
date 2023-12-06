@@ -165,7 +165,7 @@ export function listing(data) {
     const borderRight = document.createElement('div');
     borderRight.classList.add(
       'absolute',
-      'top-10',
+      '-bottom-5',
       'right-0',
       'h-5',
       'w-5',
