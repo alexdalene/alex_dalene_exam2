@@ -17,68 +17,84 @@
     />
   </head>
   <body
-    class="font-body antialiased bg-zinc-800 pt-10 pb-2.5 sm:pb-5 px-2.5 sm:px-5 grid place-content-stretch min-h-[100svh] overflow-x-hidden"
+    class="font-body antialiased bg-purple-300 pt-10 pb-2.5 sm:pb-5 px-2.5 sm:px-5 grid place-content-stretch min-h-[100svh] overflow-x-hidden"
   >
     <main
       class="bg-zinc-900 rounded-xl sm:rounded-[2.5rem] py-2.5 sm:py-5 px-5 sm:px-10 relative"
     >
       <section class="flex flex-col gap-10 py-20 px-0 text-zinc-200 max-w-3xl">
-        <h1 class="font-heading flex gap-1 items-center font-bold">
-          <div
-            class="nav-btn-circle opacity-100 bg-red-400 scale-100 animate-pulse"
-          ></div>
-          Listing
+        <h1 class="font-heading flex gap-1 items-center font-bold text-sm">
+          <div class="nav-btn-circle opacity-100 bg-purple-300 scale-100"></div>
+          <a href="/">HOME</a> / <a href="/browse/">BROWSE</a> /
+          <a href="">LISTING</a>
         </h1>
-        <div class="grid grid-cols-3 gap-1">
+      </section>
+      <section class="grid grid-cols-3 gap-10 text-zinc-200 max-w-3xl">
+        <div class="col-span-2">
           <img
             src="../../src/images/placeholder.webp"
             alt=""
-            class="col-span-3 rounded-md"
-          />
-          <img
-            src="../../src/images/placeholder.webp"
-            alt=""
-            class="rounded-md"
-          />
-          <img
-            src="../../src/images/placeholder.webp"
-            alt=""
-            class="rounded-md"
-          />
-          <img
-            src="../../src/images/placeholder.webp"
-            alt=""
-            class="rounded-md"
+            class="col-span-3 rounded-md w-full h-full object-cover"
           />
         </div>
-        <div>
-          <h2 class="text-4xl font-heading">Heading goes here</h2>
-          <p class="max-w-sm text-zinc-300">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime,
-            voluptates magni harum natus eum doloribus explicabo. Omnis
-            excepturi laborum atque natus vel. Harum, minus? Quas, reiciendis
-            temporibus! Odio, ipsa repellendus!
-          </p>
-        </div>
-        <div
-          class="relative before:content-['$'] before:absolute before:left-0 flex items-center before:ml-2.5"
-        >
-          <input
-            type="number"
-            class="input-primary pl-6"
-            id="input-bid"
-            min="0"
-            value="0"
-          />
-          <button
-            class="ml-2 bg-zinc-200 text-zinc-900 py-2.5 rounded-full px-4"
+        <div class="flex flex-col gap-3 row-span-2 sticky top-0">
+          <h2 class="text-4xl font-heading line-clamp-2 leading-tight">
+            Heading goes here
+          </h2>
+          <div
+            class="border border-zinc-700 rounded-xl h-20 p-4 flex justify-center flex-col"
           >
-            Place bid
-          </button>
+            <p class="text-2xl font-bold" id="highest-bid">$200</p>
+            <h3 class="flex items-center gap-2 text-sm">
+              <span class="material-symbols-outlined text-purple-300"
+                >payments</span
+              >Highest bid
+            </h3>
+          </div>
+          <div
+            class="border border-zinc-700 rounded-xl h-20 p-4 flex justify-center flex-col"
+          >
+            <p class="text-2xl font-bold" id="highest-bid">3</p>
+            <h3 class="flex items-center gap-2 text-sm">
+              <span class="material-symbols-outlined text-purple-300"
+                >checkbook</span
+              >Bids
+            </h3>
+          </div>
+          <div>
+            <button class="bg-zinc-200 w-full py-2.5 text-zinc-900 rounded-2xl">
+              Add bid
+            </button>
+          </div>
+        </div>
+        <div class="col-span-2 flex flex-col gap-4">
+          <h4 class="font-heading font-bold">Description</h4>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id eos
+            enim fuga corrupti. Sit hic, voluptatibus accusantium sapiente autem
+            possimus sequi eaque minus facere deserunt? Temporibus inventore
+            nostrum officia vel.
+          </p>
+          <hr class="border-zinc-700" />
+          <ul class="max-w-[40%] flex flex-col gap-0.5">
+            <li class="font-bold grid grid-cols-2 grid-flow-col-dense">
+              ID <span class="font-normal" id="id">123132</span>
+            </li>
+            <li class="font-bold grid grid-cols-2">
+              Owner <span class="font-normal" id="id">Username</span>
+            </li>
+          </ul>
         </div>
       </section>
+      <section class="text-zinc-200 mt-10">
+        <h2 class="text-4xl font-heading mb-4">More Listings</h2>
+        <div
+          id="listing-container"
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 text-zinc-200"
+        ></div>
+      </section>
       <div
-        class="w-[10%] lg:w-1/6 h-24 bg-zinc-800 absolute top-0 right-[15rem] sm:right-[20rem] lg:right-[30rem] rounded-b-[2.5rem] p-5"
+        class="w-[10%] lg:w-1/6 h-24 bg-purple-300 absolute top-0 right-[15rem] sm:right-[20rem] lg:right-[30rem] rounded-b-[2.5rem] p-5"
       >
         <svg
           width="13"
@@ -86,7 +102,7 @@
           viewBox="0 0 13 13"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          class="absolute -right-10 top-0 w-10 h-10 fill-zinc-800"
+          class="absolute -right-10 top-0 w-10 h-10 fill-purple-300"
         >
           <path
             d="M0.000212396 0H13.0002C2.87774 0 0.163678 7.61338 0.000212396 12.1365V13C-0.0102433 12.7282 -0.0107289 12.4392 0.000212396 12.1365V0Z"
@@ -99,7 +115,7 @@
           viewBox="0 0 13 13"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          class="absolute -left-10 top-0 w-10 h-10 rotate-90 fill-zinc-800"
+          class="absolute -left-10 top-0 w-10 h-10 rotate-90 fill-purple-300"
         >
           <path
             d="M0.000212396 0H13.0002C2.87774 0 0.163678 7.61338 0.000212396 12.1365V13C-0.0102433 12.7282 -0.0107289 12.4392 0.000212396 12.1365V0Z"

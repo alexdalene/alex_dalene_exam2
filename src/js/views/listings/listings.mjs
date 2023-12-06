@@ -1,6 +1,6 @@
-import { listing } from '../../components/listings/listing.mjs';
+import { displayAllListings } from '../../functions/listings/displayAllListings.mjs';
+import { displayFilteredListings } from '../../functions/listings/displayFilteredListings.mjs';
 import { loadCache } from '../../storage/cache.mjs';
-import { clear } from '../../tools/clear.mjs';
 
 export async function displayListings(searchValue) {
   try {
