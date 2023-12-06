@@ -7,18 +7,13 @@ export async function displayListings(searchValue) {
     const data = await loadCache();
 
     if (searchValue) {
-      const filtered = data.filter(listing =>
-        listing.title.toLowerCase().includes(searchValue.toLowerCase()),
-      );
-
-      console.log(filtered);
-      clear('#listing-container');
-      listing(filtered);
-    } else if (!searchValue) {
-      clear('#listing-container');
-      listing(data);
+      // Filter and display listings based on searchValue
+      displayFilteredListings(data, searchValue);
+    } else {
+      // Display all listings with infinite scroll
+      displayAllListings(data);
     }
   } catch (error) {
-    console.log(error);
+    console.error('Error loading listings:', error);
   }
 }
