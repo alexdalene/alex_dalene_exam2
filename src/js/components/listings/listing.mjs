@@ -7,15 +7,19 @@ export function listing(data) {
       name: listing.title ? listing.title : 'Lorem ipsum dolor sit amet',
       media: listing.media[0]
         ? listing.media[0]
-        : '../src/images/placeholder.webp',
+        : '/src/images/placeholder.webp',
       bids: listing.bids.map(bid => bid.amount).pop(),
       deadline: calculateRemainingTime(listing.endsAt),
+      id: listing.id,
     };
 
-    const { name, media, bids, deadline } = listingData;
+    const { name, media, bids, deadline, id } = listingData;
 
     // Create article element
     const article = document.createElement('article');
+    article.addEventListener('click', () => {
+      location.href = `./listing/?id=${id}`;
+    });
     article.classList.add(
       'flex',
       'flex-col',
@@ -161,7 +165,7 @@ export function listing(data) {
     const borderRight = document.createElement('div');
     borderRight.classList.add(
       'absolute',
-      'top-10',
+      '-bottom-5',
       'right-0',
       'h-5',
       'w-5',

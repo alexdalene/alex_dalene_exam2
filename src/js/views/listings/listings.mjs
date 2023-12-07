@@ -1,20 +1,19 @@
-import { listing } from '../../components/listings/listing.mjs';
+import { displayAllListings } from '../../functions/listings/displayAllListings.mjs';
+import { displayFilteredListings } from '../../functions/listings/displayFilteredListings.mjs';
 import { loadCache } from '../../storage/cache.mjs';
-import { clear } from '../../tools/clear.mjs';
 
 export async function displayListings(searchValue) {
-  const data = await loadCache();
+  try {
+    const data = await loadCache();
 
-  if (searchValue) {
-    const filtered = data.filter(listing =>
-      listing.title.toLowerCase().includes(searchValue.toLowerCase()),
-    );
-
-    console.log(filtered);
-    clear('#listing-container');
-    listing(filtered);
-  } else if (!searchValue) {
-    clear('#listing-container');
-    listing(data);
+    if (searchValue) {
+      // Filter and display listings based on searchValue
+      displayFilteredListings(data, searchValue);
+    } else {
+      // Display all listings with infinite scroll
+      displayAllListings(data);
+    }
+  } catch (error) {
+    console.error('Error loading listings:', error);
   }
 }
