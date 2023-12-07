@@ -6,7 +6,7 @@ export const checkStorage = async () => {
   try {
     const currentDate = Date.now();
 
-    if (timeSinceSave(currentDate)) {
+    if (timeSinceSave(currentDate) || !localStorage.getItem('cachedPosts')) {
       await getListings();
       displayListings();
     } else {
