@@ -5,11 +5,14 @@ export async function getSpecificListing() {
   const url = new URL(location.href);
   let id = url.searchParams.get('id').toString();
 
-  const response = await fetch(`${apiBase}/auction/listings/${id}`, {
-    method: 'get',
-    body: JSON.stringify(),
-    headers: headers('application/json'),
-  });
+  const response = await fetch(
+    `${apiBase}/auction/listings/${id}?_seller=true&_bids=true`,
+    {
+      method: 'get',
+      body: JSON.stringify(),
+      headers: headers('application/json'),
+    },
+  );
 
   const data = await response.json();
 
