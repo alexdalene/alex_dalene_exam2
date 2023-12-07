@@ -44,14 +44,7 @@ export const singleListing = data => {
 
   // Create container for the second column
   const col2Container = document.createElement('div');
-  col2Container.classList.add(
-    'flex',
-    'flex-col',
-    'gap-3',
-    'row-span-2',
-    'sticky',
-    'top-0',
-  );
+  col2Container.classList.add('flex', 'flex-col', 'gap-3', 'sticky', 'top-0');
 
   // Create heading for the second column
   const heading = document.createElement('h2');
