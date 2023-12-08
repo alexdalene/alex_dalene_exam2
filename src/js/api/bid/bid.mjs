@@ -17,5 +17,6 @@ export async function bidOnListing(amount) {
     throw new Error(data.errors[0].message);
   }
 
+  console.log(data);
   return data;
 }

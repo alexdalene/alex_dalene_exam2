@@ -1,3 +1,4 @@
+import { bidOnListing } from '../../api/bid/bid.mjs';
 import calculateRemainingTime from '../../functions/listings/timeRemaining.mjs';
 import { load } from '../../storage/load.mjs';
 import { createBidContainer } from './single-createContainer.mjs';
@@ -135,6 +136,7 @@ export const singleListing = data => {
   Input.required = true;
   Input.placeholder = `${highest ? highest + 1 : 1}`;
   Input.min = highest ? highest + 1 : 1;
+  Input.name = 'amount';
   Input.classList.add(
     'input-primary',
     'peer',
@@ -184,7 +186,8 @@ export const singleListing = data => {
       label.classList.add('text-red-500');
       return;
     }
-    console.log(amount);
+
+    bidOnListing(parseInt(amount));
   });
 
   const addIcon = document.createElement('span');
