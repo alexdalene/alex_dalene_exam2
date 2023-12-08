@@ -84,8 +84,8 @@ export const singleListing = data => {
     'flex',
     'justify-center',
     'items-center',
-    'font-bold',
     'text-2xl',
+    'justify-between',
   );
 
   updateTime(deadline, deadlineContainer);
