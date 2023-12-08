@@ -3,7 +3,9 @@ export const createBidContainer = (amount, icon, label) => {
   const bidContainer = document.createElement('div');
   bidContainer.classList.add(
     'border',
-    'border-zinc-700',
+    'border-zinc-800',
+    'bg-gradient-to-tl',
+    'from-zinc-800',
     'rounded-xl',
     'h-20',
     'p-4',
