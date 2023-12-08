@@ -1,4 +1,5 @@
 import calculateRemainingTime from '../../functions/listings/timeRemaining.mjs';
+import { load } from '../../storage/load.mjs';
 import { createBidContainer } from './single-createContainer.mjs';
 import { createListItem } from './single-createList.mjs';
 import { updateTime } from './single-timeInteral.mjs';
@@ -101,29 +102,106 @@ export const singleListing = data => {
   updateTime(deadline, deadlineContainer);
 
   // Create container for bidding
-  const buttonContainer = document.createElement('div');
+  const buttonContainer = document.createElement('form');
   buttonContainer.classList.add(
     'flex',
     'gap-2',
-    'flex-col',
     'relative',
     'col-span-2',
-    'mt-1',
+    'mt-2',
+    'peer',
+    'hidden',
   );
+
+  if (load('token')) {
+    buttonContainer.classList.remove('hidden');
+  }
+
+  const label = document.createElement('label');
+  label.classList.add(
+    'w-full',
+    'relative',
+    'before:absolute',
+    'before:left-3.5',
+    'before:content-["$"]',
+    'flex',
+    'items-center',
+    'transition',
+    'duration-300',
+  );
+
+  const Input = document.createElement('input');
+  Input.type = 'number';
+  Input.required = true;
+  Input.placeholder = `${highest ? highest + 1 : 1}`;
+  Input.min = highest ? highest + 1 : 1;
+  Input.classList.add(
+    'input-primary',
+    'peer',
+    'w-full',
+    'pl-7',
+    'placeholder-zinc-600',
+    '[appearance:textfield]',
+    '[&::-webkit-outer-spin-button]:appearance-none',
+    '[&::-webkit-inner-spin-button]:appearance-none',
+  );
+  Input.addEventListener('keyup', e => {
+    label.classList.remove('text-red-500');
+    // Check if the input value is not a number
+    if (e.target.value === '') {
+      // Clear the input field
+      e.target.value = '';
+    }
+  });
 
   // Create "Add Bid" button
   const addButton = document.createElement('button');
   addButton.classList.add(
-    'bg-zinc-200',
-    'w-full',
+    'bg-gradient-to-r',
+    'from-zinc-700',
+    'w-1/4',
     'py-2.5',
-    'text-zinc-900',
-    'rounded-2xl',
+    'border',
+    'border-zinc-700',
+    'peer-focus:border-purple-300',
+    'transition',
+    'duration-300',
+    'border-l-0',
+    'rounded-r-md',
+    'rounded-l-none',
+    'flex',
+    'items-center',
+    'justify-center',
+    'absolute',
+    'right-0',
+    'group',
   );
-  addButton.textContent = 'Add bid';
+  addButton.addEventListener('click', e => {
+    e.preventDefault();
+    const amount = Input.value;
+
+    if (amount <= highest) {
+      label.classList.add('text-red-500');
+      return;
+    }
+    console.log(amount);
+  });
+
+  const addIcon = document.createElement('span');
+  addIcon.classList.add(
+    'material-symbols-outlined',
+    'text-purple-300',
+    'group-hover:rotate-12',
+    'transition-translate',
+    'duration-200',
+    'ease-in-out',
+  );
+  addIcon.textContent = 'gavel';
 
   // Append elements to the second column container
-  buttonContainer.appendChild(addButton);
+  addButton.appendChild(addIcon);
+  label.append(Input, addButton);
+  buttonContainer.appendChild(label);
   col2Container.appendChild(heading);
   col2Container.appendChild(deadlineContainer);
   col2Container.appendChild(highestBidContainer);
