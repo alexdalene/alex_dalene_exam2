@@ -55,6 +55,7 @@ export function listing(data) {
       'transition-transform',
       'duration-300',
       'ease-in-out',
+      '[height:-webkit-fill-available]',
     );
 
     // Create footer element
