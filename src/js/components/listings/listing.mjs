@@ -40,6 +40,8 @@ export function listing(data) {
       'aspect-[3/4]',
       'overflow-hidden',
       'rounded-xl',
+      'h-full',
+      'w-full',
     );
 
     // Create image element
