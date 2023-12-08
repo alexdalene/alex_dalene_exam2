@@ -1,6 +1,7 @@
 import calculateRemainingTime from '../../functions/listings/timeRemaining.mjs';
 import { createBidContainer } from './single-createContainer.mjs';
 import { createListItem } from './single-createList.mjs';
+import { updateTime } from './single-timeInteral.mjs';
 
 export const singleListing = data => {
   console.log(data);
@@ -70,6 +71,29 @@ export const singleListing = data => {
     'Bids',
   );
 
+  const deadlineContainer = document.createElement('div');
+  deadlineContainer.textContent = 'Loading...';
+  deadlineContainer.classList.add(
+    'border',
+    'border-zinc-800',
+    'bg-gradient-to-tl',
+    'from-zinc-800',
+    'rounded-xl',
+    'h-20',
+    'p-4',
+    'flex',
+    'justify-center',
+    'items-center',
+    'font-bold',
+    'text-2xl',
+  );
+
+  updateTime(deadline, deadlineContainer);
+
+  // Create container for bidding
+  const buttonContainer = document.createElement('div');
+  buttonContainer.classList.add('flex', 'gap-2', 'flex-col', 'relative');
+
   // Create "Add Bid" button
   const addButton = document.createElement('button');
   addButton.classList.add(
@@ -82,10 +106,12 @@ export const singleListing = data => {
   addButton.textContent = 'Add bid';
 
   // Append elements to the second column container
+  buttonContainer.appendChild(addButton);
   col2Container.appendChild(heading);
+  col2Container.appendChild(deadlineContainer);
   col2Container.appendChild(highestBidContainer);
   col2Container.appendChild(bidsContainer);
-  col2Container.appendChild(addButton);
+  col2Container.appendChild(buttonContainer);
 
   // Create container for the third column
   const col3Container = document.createElement('div');
@@ -104,7 +130,7 @@ export const singleListing = data => {
 
   // Create horizontal line
   const hr = document.createElement('hr');
-  hr.classList.add('border-zinc-700');
+  hr.classList.add('border-zinc-700', 'mt-4');
 
   // Create list container
   const listContainer = document.createElement('ul');
