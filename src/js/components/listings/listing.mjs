@@ -40,8 +40,6 @@ export function listing(data) {
       'aspect-[3/4]',
       'overflow-hidden',
       'rounded-xl',
-      'h-full',
-      'w-full',
     );
 
     // Create image element
@@ -57,6 +55,7 @@ export function listing(data) {
       'transition-transform',
       'duration-300',
       'ease-in-out',
+      '[height:-webkit-fill-available]',
     );
 
     // Create footer element
