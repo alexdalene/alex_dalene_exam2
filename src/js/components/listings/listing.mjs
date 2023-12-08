@@ -18,7 +18,7 @@ export function listing(data) {
     // Create article element
     const article = document.createElement('article');
     article.addEventListener('click', () => {
-      location.href = `./listing/?id=${id}`;
+      location.href = `/browse/listing/?id=${id}`;
     });
     article.classList.add(
       'flex',
@@ -70,12 +70,12 @@ export function listing(data) {
 
     // Create title element
     const title = document.createElement('h2');
-    title.classList.add('font-bold', 'line-clamp-1', 'w-full');
+    title.classList.add('font-bold', 'line-clamp-1', 'w-full', 'basis-4/5');
     title.textContent = name;
 
     // Create price element
     const price = document.createElement('h3');
-    price.classList.add('font-bold', 'w-full', 'text-end');
+    price.classList.add('font-bold', 'w-full', 'text-end', 'basis-1/5');
     price.textContent = `$${bids ? bids : '0'}`;
 
     // Create duration element

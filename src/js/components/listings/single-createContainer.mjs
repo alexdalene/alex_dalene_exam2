@@ -12,10 +12,11 @@ export const createBidContainer = (amount, icon, label) => {
     'flex',
     'justify-center',
     'flex-col',
+    'col-span-1',
   );
 
   const amountElement = document.createElement('p');
-  amountElement.classList.add('text-2xl', 'font-bold');
+  amountElement.classList.add('font-bold');
   amountElement.textContent = amount;
 
   const labelElement = document.createElement('h3');

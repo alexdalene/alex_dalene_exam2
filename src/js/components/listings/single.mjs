@@ -45,7 +45,16 @@ export const singleListing = data => {
 
   // Create container for the second column
   const col2Container = document.createElement('div');
-  col2Container.classList.add('flex', 'flex-col', 'gap-3', 'sticky', 'top-0');
+  col2Container.classList.add(
+    'gap-2.5',
+    'lg:sticky',
+    'lg:top-0',
+    'grid',
+    'grid-cols-2',
+    'col-span-2',
+    'lg:col-span-1',
+    'lg:content-start',
+  );
 
   // Create heading for the second column
   const heading = document.createElement('h2');
@@ -54,6 +63,7 @@ export const singleListing = data => {
     'font-heading',
     'line-clamp-2',
     'leading-tight',
+    'col-span-2',
   );
   heading.textContent = title;
 
@@ -84,15 +94,22 @@ export const singleListing = data => {
     'flex',
     'justify-center',
     'items-center',
-    'text-2xl',
-    'justify-between',
+    'justify-around',
+    'col-span-2',
   );
 
   updateTime(deadline, deadlineContainer);
 
   // Create container for bidding
   const buttonContainer = document.createElement('div');
-  buttonContainer.classList.add('flex', 'gap-2', 'flex-col', 'relative');
+  buttonContainer.classList.add(
+    'flex',
+    'gap-2',
+    'flex-col',
+    'relative',
+    'col-span-2',
+    'mt-1',
+  );
 
   // Create "Add Bid" button
   const addButton = document.createElement('button');
@@ -115,7 +132,17 @@ export const singleListing = data => {
 
   // Create container for the third column
   const col3Container = document.createElement('div');
-  col3Container.classList.add('col-span-2', 'flex', 'flex-col', 'gap-4');
+  col3Container.classList.add(
+    'col-span-2',
+    'flex',
+    'flex-col',
+    'gap-4',
+    'bg-zinc-800',
+    'p-4',
+    'rounded-xl',
+    'lg:bg-transparent',
+    'lg:p-0',
+  );
 
   // Create description heading
   const descriptionHeading = document.createElement('h4');
