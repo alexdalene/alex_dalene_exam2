@@ -17,7 +17,6 @@ export const loadOnScroll = posts => {
     }
 
     listing(postsToLoad);
-    console.log(postsToLoad);
 
     currentPage++;
   };
