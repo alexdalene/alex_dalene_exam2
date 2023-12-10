@@ -3,27 +3,27 @@
 @tailwind utilities;
 
 @layer components {
-    .nav-btn-circle {
-        @apply w-1.5 h-1.5 scale-0 bg-purple-300 rounded-full group-hover:scale-100 transition-transform duration-200 z-10;
-    }
+  .nav-btn-circle {
+    @apply z-10 h-1.5 w-1.5 scale-0 rounded-full bg-purple-300 transition-transform duration-200 group-hover:scale-100;
+  }
 
-    .nav-btn-bg {
-        @apply bg-gradient-to-tl from-zinc-800 absolute rounded-lg inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500;
-    }
+  .nav-btn-bg {
+    @apply absolute inset-0 rounded-lg bg-gradient-to-tl from-zinc-800 opacity-0 transition-opacity duration-500 group-hover:opacity-100;
+  }
 
-    .btn-primary-before {
-        @apply bg-zinc-200 text-zinc-900 px-4 py-2.5 h-12 rounded-2xl -translate-x-20 lg:group-hover:translate-x-0 transition-transform duration-200;
-    }
+  .btn-primary-before {
+    @apply h-12 -translate-x-20 rounded-2xl bg-zinc-200 px-4 py-2.5 text-zinc-900 transition-transform duration-200 lg:group-hover:translate-x-0;
+  }
 
-    .btn-primary-after {
-        @apply bg-zinc-200 text-zinc-900 px-4 py-2.5 h-12 rounded-2xl w-fit lg:group-hover:translate-x-20 transition-transform duration-200;
-    }
+  .btn-primary-after {
+    @apply h-12 w-fit rounded-2xl bg-zinc-200 px-4 py-2.5 text-zinc-900 transition-transform duration-200 lg:group-hover:translate-x-20;
+  }
 
-    .hero-text-bg {
-        @apply before:inset-0 before:bg-purple-300 before:absolute relative before:rounded-full z-10 before:-z-10 text-zinc-900 before:scale-110;
-    }
+  .hero-text-bg {
+    @apply relative z-10 text-zinc-900 before:absolute before:inset-0 before:-z-10 before:scale-110 before:rounded-full before:bg-purple-300;
+  }
 
-    .input-primary {
-        @apply rounded-md bg-zinc-800 py-2.5 px-2.5 focus:outline-none border border-zinc-800 focus:border-purple-300 transition duration-300;
-    }
+  .input-primary {
+    @apply rounded-md border border-zinc-800 bg-zinc-800 px-2.5 py-2.5 transition duration-300 focus:border-purple-300 focus:outline-none;
+  }
 }

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -17,16 +17,16 @@
     />
   </head>
   <body
-    class="font-body antialiased bg-zinc-800 pt-10 pb-2.5 sm:pb-5 px-2.5 sm:px-5 grid place-content-stretch min-h-[100svh] overflow-x-hidden"
+    class="grid min-h-[100svh] place-content-stretch overflow-x-hidden bg-zinc-800 px-2.5 pb-2.5 pt-10 font-body antialiased sm:px-5 sm:pb-5"
   >
     <main
-      class="bg-zinc-900 rounded-xl sm:rounded-[2.5rem] py-2.5 sm:py-5 px-5 sm:px-10 relative"
+      class="relative rounded-xl bg-zinc-900 px-5 py-2.5 sm:rounded-[2.5rem] sm:px-10 sm:py-5"
     >
-      <section class="flex flex-col gap-10 py-20 px-0 text-zinc-200">
+      <section class="flex flex-col gap-10 px-0 py-20 text-zinc-200">
         <div class="flex flex-col gap-2.5">
-          <h1 class="font-heading flex gap-1 items-center font-bold">
+          <h1 class="flex items-center gap-1 font-heading font-bold">
             <div
-              class="nav-btn-circle opacity-100 bg-green-400 scale-100"
+              class="nav-btn-circle scale-100 bg-green-400 opacity-100"
             ></div>
             Create
           </h1>
@@ -34,7 +34,7 @@
       </section>
       <form
         action=""
-        class="flex flex-col gap-5 text-zinc-200 max-w-sm mx-auto"
+        class="mx-auto flex max-w-sm flex-col gap-5 text-zinc-200"
       >
         <label for="listing-title" class="flex flex-col gap-1">
           Title
@@ -80,7 +80,7 @@
           Media
           <button
             type="button"
-            class="w-fit border border-zinc-400 rounded-md py-2.5 px-5 text-purple-300"
+            class="w-fit rounded-md border border-zinc-400 px-5 py-2.5 text-purple-300"
           >
             Add media
           </button>
@@ -96,17 +96,17 @@
         </label>
         <button
           type="submit"
-          class="py-2.5 px-5 bg-zinc-200 text-zinc-900 rounded-2xl"
+          class="rounded-2xl bg-zinc-200 px-5 py-2.5 text-zinc-900"
         >
           Publish
         </button>
       </form>
       <div
-        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 text-zinc-200 max-w-2xl lg:max-w-4xl mx-auto"
+        class="mx-auto grid max-w-2xl grid-cols-1 gap-2.5 text-zinc-200 sm:grid-cols-2 lg:max-w-4xl lg:grid-cols-3"
         id="listing-container"
       ></div>
       <div
-        class="w-[10%] lg:w-1/6 h-24 bg-zinc-800 absolute top-0 right-[15rem] sm:right-[20rem] lg:right-[30rem] rounded-b-[2.5rem] p-5"
+        class="absolute right-[15rem] top-0 h-24 w-[10%] rounded-b-[2.5rem] bg-zinc-800 p-5 sm:right-[20rem] lg:right-[30rem] lg:w-1/6"
       >
         <svg
           width="13"
@@ -114,7 +114,7 @@
           viewBox="0 0 13 13"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          class="absolute -right-10 top-0 w-10 h-10 fill-zinc-800"
+          class="absolute -right-10 top-0 h-10 w-10 fill-zinc-800"
         >
           <path
             d="M0.000212396 0H13.0002C2.87774 0 0.163678 7.61338 0.000212396 12.1365V13C-0.0102433 12.7282 -0.0107289 12.4392 0.000212396 12.1365V0Z"
@@ -127,7 +127,7 @@
           viewBox="0 0 13 13"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          class="absolute -left-10 top-0 w-10 h-10 rotate-90 fill-zinc-800"
+          class="absolute -left-10 top-0 h-10 w-10 rotate-90 fill-zinc-800"
         >
           <path
             d="M0.000212396 0H13.0002C2.87774 0 0.163678 7.61338 0.000212396 12.1365V13C-0.0102433 12.7282 -0.0107289 12.4392 0.000212396 12.1365V0Z"
