@@ -50,7 +50,7 @@ export const singleListing = data => {
   col2Container.classList.add(
     'gap-2.5',
     'lg:sticky',
-    'lg:top-0',
+    'lg:top-5',
     'grid',
     'grid-cols-2',
     'col-span-2',

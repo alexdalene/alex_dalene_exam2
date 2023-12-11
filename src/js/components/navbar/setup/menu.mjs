@@ -15,6 +15,7 @@ button.classList.add(
   'rounded-full',
   'lg:hidden',
   'relative',
+  'lg:opacity-0',
 );
 
 // Create elements for the button
