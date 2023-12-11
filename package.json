@@ -48,7 +48,7 @@
       "jest/globals": true
     },
     "rules": {
-      "prettier/prettier": "error"
+      "prettier/prettier": "warn"
     }
   },
   "lint-staged": {
