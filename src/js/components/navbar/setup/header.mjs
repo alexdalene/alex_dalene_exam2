@@ -1,13 +1,15 @@
 const header = document.createElement('header');
 header.classList.add(
-  'w-full',
   'flex',
+  'w-full',
   'justify-between',
   'items-center',
-  'sticky',
-  'top-0',
-  'py-2.5',
+  'fixed',
+  'top-12',
+  'py-5',
   'z-50',
+  'px-6',
+  'sm:px-12',
 );
 
 export { header };
