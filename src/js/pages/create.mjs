@@ -21,8 +21,8 @@ const render = async () => {
       if (!value) return;
       mediaInput.value = '';
 
-      if (imgArray.length >= 4) {
-        message.textContent = 'You can only upload 4 images';
+      if (imgArray.length >= 8) {
+        message.textContent = 'You can only upload 8 images';
         message.classList.remove('text-zinc-400');
         message.classList.add('text-red-400');
         return;
@@ -61,7 +61,7 @@ const render = async () => {
     };
 
     submitBtn.addEventListener('click', async event => {
-      createListener(event, imgArray);
+      await createListener(event, imgArray);
     });
   } catch (error) {
     console.log(error);

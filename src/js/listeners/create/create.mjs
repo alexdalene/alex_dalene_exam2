@@ -1,4 +1,5 @@
 import { createListing } from '../../api/listing/create.mjs';
+import { validate } from './validate.mjs';
 
 export async function createListener(event, images) {
   event.preventDefault();
@@ -11,11 +12,11 @@ export async function createListener(event, images) {
   const endsAt = data.get('listing-deadline');
   const media = images;
 
-  console.log(title, description, tags, endsAt, media);
+  if (!validate()) return;
 
   try {
-    await createListing(title, description, tags, media, endsAt);
-    console.log('Listing created');
+    const result = await createListing(title, description, tags, media, endsAt);
+    console.log(result);
   } catch (error) {
     console.log(error);
   }
