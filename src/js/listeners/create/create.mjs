@@ -1,6 +1,7 @@
 import { createListing } from '../../api/listing/create.mjs';
+import { imgArray } from '../../components/create/images-imgArray.mjs';
 
-export async function createListener(event, images) {
+export async function createListener(event) {
   event.preventDefault();
 
   const form = event.target.closest('form');
@@ -9,13 +10,11 @@ export async function createListener(event, images) {
   const description = data.get('listing-description');
   const tags = data.getAll('listing-tags');
   const endsAt = data.get('listing-deadline');
-  const media = images;
-
-  console.log(title, description, tags, endsAt, media);
+  const media = imgArray;
 
   try {
-    await createListing(title, description, tags, media, endsAt);
-    console.log('Listing created');
+    const result = await createListing(title, description, tags, media, endsAt);
+    return result;
   } catch (error) {
     console.log(error);
   }

@@ -16,7 +16,7 @@
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0"
     />
   </head>
-  <body class="min-h-[100svh] bg-zinc-800">
+  <body class="min-h-[100svh] bg-zinc-800 font-body">
     <div class="px-2.5 py-10 sm:px-5">
       <main
         class="relative rounded-xl bg-zinc-900 px-5 py-2.5 sm:rounded-[2.5rem] sm:px-10 sm:py-5"
@@ -38,30 +38,57 @@
           class="mx-auto flex max-w-md flex-col gap-5 pb-20 text-zinc-200"
         >
           <label for="listing-title" class="flex flex-col gap-1">
-            Title
+            <div class="relative flex items-center justify-between gap-1">
+              Title
+              <div
+                class="material-symbols-outlined group relative w-fit text-zinc-400"
+              >
+                info
+                <span
+                  class="absolute right-6 rounded-full bg-zinc-200 px-2 py-1 font-body text-sm text-zinc-900 opacity-0 transition-opacity group-hover:opacity-100"
+                >
+                  5 - 50 characters
+                </span>
+              </div>
+            </div>
             <input
               type="text"
               name="listing-title"
               id="listing-title"
               class="input-primary text-zinc-200"
+              minlength="5"
               required
             />
-            <p class="text-sm text-zinc-400">
-              Describe the item in a short and simple way.
+            <p class="text-sm text-zinc-400" id="title-message">
+              Describe your listing in a few words.
             </p>
           </label>
           <label for="listing-description" class="flex flex-col gap-1">
-            Description
+            <div class="relative flex items-center justify-between gap-1">
+              Description
+              <div
+                class="material-symbols-outlined group relative w-fit text-zinc-400"
+              >
+                info
+                <span
+                  class="absolute right-6 rounded-full bg-zinc-200 px-2 py-1 font-body text-sm text-zinc-900 opacity-0 transition-opacity group-hover:opacity-100"
+                >
+                  10 - 250 characters
+                </span>
+              </div>
+            </div>
+
             <textarea
               type="text"
               rows="3"
               name="listing-description"
               id="listing-description"
               class="input-primary resize-y text-zinc-200"
+              minlength="10"
               required
             >
             </textarea>
-            <p class="text-sm text-zinc-400">
+            <p class="text-sm text-zinc-400" id="description-message">
               Try to accurately describe your item. Listings that have a good
               and detailed description are more likely to be sold.
             </p>
@@ -90,23 +117,40 @@
               </button>
             </div>
             <p class="text-sm text-zinc-400" id="media-message">
-              Add a link to an image of your item. You can add up to 4 images.
+              Add a link to an image of your item. You can add up to 8 images.
             </p>
           </label>
           <div id="listing-gallery" class="grid grid-cols-4 gap-1"></div>
           <label for="listing-tags" class="flex flex-col gap-1">
-            Tags (optional)
+            <div class="relative flex items-center justify-between gap-1">
+              Tags (optional)
+              <div
+                class="material-symbols-outlined group relative w-fit text-zinc-400"
+              >
+                info
+                <span
+                  class="absolute right-6 rounded-full bg-zinc-200 px-2 py-1 font-body text-sm text-zinc-900 opacity-0 transition-opacity group-hover:opacity-100"
+                >
+                  Minimum 3 characters
+                </span>
+              </div>
+            </div>
             <input
               type="text"
               name="listing-tags"
               id="listing-tags"
               class="input-primary"
+              minlength="3"
             />
+            <p class="text-sm text-zinc-400" id="tag-message">
+              Tags help users find your listing. Press enter to add a tag.
+            </p>
           </label>
+          <div id="tags"></div>
           <button
             type="submit"
             id="btn-publish"
-            class="rounded-2xl bg-zinc-200 px-5 py-2.5 text-zinc-900"
+            class="rounded-2xl bg-zinc-200 px-5 py-2.5 text-zinc-900 disabled:opacity-50"
           >
             Publish
           </button>

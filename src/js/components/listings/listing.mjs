@@ -150,7 +150,7 @@ export function listing(data) {
 
     // Create text content for the duration element
     const durationText = document.createTextNode(
-      `${deadline.hours}h ${deadline.minutes}m`,
+      `${deadline.days}d ${deadline.hours}h ${deadline.minutes}m`,
     );
 
     // Append elements to the DOM
