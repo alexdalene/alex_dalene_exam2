@@ -1,12 +1,13 @@
 import { load } from '../../../storage/load.mjs';
 
-// Create button element
+gsap.registerPlugin(TextPlugin);
+
 const button = document.createElement('button');
 button.id = 'menu-container';
 button.classList.add(
   'flex',
   'items-center',
-  'gap-1',
+  'gap-1.5',
   'bg-zinc-700',
   'text-zinc-200',
   'font-bold',
@@ -20,14 +21,32 @@ button.classList.add(
 
 // Create elements for the button
 const circleBtn = document.createElement('div');
-circleBtn.classList.add('nav-btn-circle', 'scale-100');
+circleBtn.classList.add(
+  'z-10',
+  'h-1.5',
+  'w-1.5',
+  'rounded-full',
+  'bg-purple-300',
+);
 
 const spanBtnOpen = document.createElement('span');
 spanBtnOpen.id = 'btn-open';
 spanBtnOpen.textContent = 'Menu';
 
-if (load('token')) {
-  spanBtnOpen.textContent = `Hi, ${load('username')}`;
+const credits = load('credits');
+
+if (credits) {
+  gsap.to(spanBtnOpen, {
+    duration: 1,
+    text: {
+      value: `$${credits}`,
+      newClass: 'font-normal',
+    },
+    ease: 'power4.out',
+    repeatDelay: 6,
+    repeat: -1,
+    yoyo: true,
+  });
 }
 
 // Append elements to the button
