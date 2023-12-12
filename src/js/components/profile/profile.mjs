@@ -1,6 +1,7 @@
 import { select } from '../../tools/select.mjs';
 import { getProfile } from '../../api/profile/profile.mjs';
 import { remove } from '../../storage/remove.mjs';
+import { profileEdit } from './profile-edit.mjs';
 
 export const profile = async () => {
   const data = await getProfile();
@@ -17,6 +18,8 @@ export const profile = async () => {
   const winsCount = wins.length > 0 ? wins.length : 0;
 
   const container = select('#profile-info');
+  container.innerHTML = '';
+
   // Create main container element
   const mainContainer = document.createElement('div');
   mainContainer.classList.add('flex', 'flex-col', 'gap-5', 'sm:flex-row');
@@ -57,6 +60,12 @@ export const profile = async () => {
     'group-hover:opacity-100',
   );
 
+  overlay.addEventListener('click', () => {
+    const body = select('body');
+
+    body.appendChild(profileEdit(avatar));
+  });
+
   // Create edit icon
   const editIcon = document.createElement('span');
   editIcon.classList.add(
@@ -89,7 +98,7 @@ export const profile = async () => {
   userDetailsContainer.classList.add(
     'flex',
     'flex-col',
-    'justify-end',
+    'justify-start',
     'gap-5',
   );
 
