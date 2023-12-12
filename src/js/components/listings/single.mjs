@@ -138,7 +138,16 @@ export const singleListing = data => {
   Input.min = highest ? highest + 1 : 1;
   Input.name = 'amount';
   Input.classList.add(
-    'input-primary',
+    'rounded-md',
+    'border',
+    'border-zinc-800',
+    'bg-zinc-800',
+    'px-2.5',
+    'py-2.5',
+    'transition',
+    'duration-300',
+    'focus:border-purple-300',
+    'focus:outline-none',
     'peer',
     'w-full',
     'pl-7',

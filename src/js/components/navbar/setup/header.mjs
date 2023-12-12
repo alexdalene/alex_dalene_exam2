@@ -10,6 +10,7 @@ header.classList.add(
   'z-50',
   'px-6',
   'sm:px-12',
+  'font-body',
 );
 
 export { header };

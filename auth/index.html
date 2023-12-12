@@ -77,7 +77,7 @@
                 id="register-name"
                 name="name"
                 minlength="3"
-                class="input-primary focus:border-purple-400"
+                class="rounded-md border border-zinc-800 bg-zinc-800 px-2.5 py-2.5 transition duration-300 focus:border-purple-400 focus:outline-none"
                 autocomplete="additional-name"
                 required
               />
@@ -95,7 +95,7 @@
                 type="email"
                 id="register-email"
                 name="email"
-                class="input-primary focus:border-purple-400"
+                class="rounded-md border border-zinc-800 bg-zinc-800 px-2.5 py-2.5 transition duration-300 focus:border-purple-400 focus:outline-none"
                 autocomplete="email"
                 required
               />
@@ -113,7 +113,7 @@
                 id="register-password"
                 name="password"
                 minlength="8"
-                class="input-primary focus:border-purple-400"
+                class="rounded-md border border-zinc-800 bg-zinc-800 px-2.5 py-2.5 transition duration-300 focus:border-purple-400 focus:outline-none"
                 autocomplete="new-password"
                 required
               />
@@ -131,7 +131,7 @@
                 type="url"
                 id="register-avatar"
                 name="avatar"
-                class="input-primary placeholder-zinc-700 focus:border-purple-400"
+                class="rounded-md border border-zinc-800 bg-zinc-800 px-2.5 py-2.5 placeholder-zinc-700 transition duration-300 focus:border-purple-400 focus:outline-none"
                 placeholder="https://example.com/avatar.png"
                 autocomplete="off"
               />
@@ -142,14 +142,18 @@
               id="register-submit"
               class="group mt-2 flex w-fit -translate-x-14 items-center overflow-hidden"
             >
-              <span class="material-symbols-outlined btn-primary-before">
+              <span
+                class="material-symbols-outlined h-12 -translate-x-20 rounded-2xl bg-zinc-200 px-4 py-2.5 text-zinc-900 transition-transform duration-200 lg:group-hover:translate-x-0"
+              >
                 arrow_forward
               </span>
               <span
                 class="flex h-12 w-fit items-center rounded-2xl bg-zinc-200 px-4 text-xl text-zinc-900"
                 >Sign Up</span
               >
-              <span class="material-symbols-outlined btn-primary-after">
+              <span
+                class="material-symbols-outlined h-12 w-fit rounded-2xl bg-zinc-200 px-4 py-2.5 text-zinc-900 transition-transform duration-200 lg:group-hover:translate-x-20"
+              >
                 arrow_forward
               </span>
             </button>
@@ -236,7 +240,7 @@
             type="email"
             id="login-email"
             name="email"
-            class="input-primary focus:border-purple-400"
+            class="rounded-md border border-zinc-800 bg-zinc-800 px-2.5 py-2.5 transition duration-300 focus:border-purple-400 focus:outline-none"
             autocomplete="email"
             required
           />
@@ -251,7 +255,7 @@
             id="login-password"
             name="password"
             minlength="8"
-            class="input-primary focus:border-purple-400"
+            class="rounded-md border border-zinc-800 bg-zinc-800 px-2.5 py-2.5 transition duration-300 focus:border-purple-400 focus:outline-none"
             autocomplete="password"
             required
           />
@@ -265,14 +269,18 @@
           id="login-submit"
           class="group mt-2 flex w-fit -translate-x-14 items-center overflow-hidden"
         >
-          <span class="material-symbols-outlined btn-primary-before">
+          <span
+            class="material-symbols-outlined h-12 -translate-x-20 rounded-2xl bg-zinc-200 px-4 py-2.5 text-zinc-900 transition-transform duration-200 lg:group-hover:translate-x-0"
+          >
             arrow_forward
           </span>
           <span
             class="flex h-12 w-fit items-center rounded-2xl bg-zinc-200 px-4 text-xl text-zinc-900"
             >Log In</span
           >
-          <span class="material-symbols-outlined btn-primary-after">
+          <span
+            class="material-symbols-outlined h-12 w-fit rounded-2xl bg-zinc-200 px-4 py-2.5 text-zinc-900 transition-transform duration-200 lg:group-hover:translate-x-20"
+          >
             arrow_forward
           </span>
         </button>

@@ -12,6 +12,9 @@ import { createNavLink } from './createNavLink.mjs';
 export const createMenuLink = (href, text) => {
   const link = createNavLink(href, text);
   link.querySelector('.nav-btn-circle').classList.add('bg-zinc-900');
-  link.querySelector('.nav-btn-bg').classList.add('from-purple-100');
+  link
+    .querySelector('.nav-btn-bg')
+    .classList.add('bg-purple-200', 'bg-opacity-50');
+  link.querySelector('.nav-btn-bg').classList.remove('from-zinc-800');
   return link;
 };
