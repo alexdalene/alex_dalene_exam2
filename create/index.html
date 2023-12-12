@@ -47,7 +47,7 @@
                 <span
                   class="absolute right-6 rounded-full bg-zinc-200 px-2 py-1 font-body text-sm text-zinc-900 opacity-0 transition-opacity group-hover:opacity-100"
                 >
-                  Minimum 5 characters
+                  5 - 50 characters
                 </span>
               </div>
             </div>
@@ -59,8 +59,8 @@
               minlength="5"
               required
             />
-            <p class="text-sm text-zinc-400">
-              Describe the item in a short and simple way.
+            <p class="text-sm text-zinc-400" id="title-message">
+              Describe your listing in a few words.
             </p>
           </label>
           <label for="listing-description" class="flex flex-col gap-1">
@@ -73,7 +73,7 @@
                 <span
                   class="absolute right-6 rounded-full bg-zinc-200 px-2 py-1 font-body text-sm text-zinc-900 opacity-0 transition-opacity group-hover:opacity-100"
                 >
-                  Minimum 10 characters
+                  10 - 250 characters
                 </span>
               </div>
             </div>
@@ -88,7 +88,7 @@
               required
             >
             </textarea>
-            <p class="text-sm text-zinc-400">
+            <p class="text-sm text-zinc-400" id="description-message">
               Try to accurately describe your item. Listings that have a good
               and detailed description are more likely to be sold.
             </p>
@@ -117,7 +117,7 @@
               </button>
             </div>
             <p class="text-sm text-zinc-400" id="media-message">
-              Add a link to an image of your item. You can add up to 4 images.
+              Add a link to an image of your item. You can add up to 8 images.
             </p>
           </label>
           <div id="listing-gallery" class="grid grid-cols-4 gap-1"></div>
@@ -142,7 +142,11 @@
               class="input-primary"
               minlength="3"
             />
+            <p class="text-sm text-zinc-400" id="tag-message">
+              Tags help users find your listing. Press enter to add a tag.
+            </p>
           </label>
+          <div id="tags"></div>
           <button
             type="submit"
             id="btn-publish"
