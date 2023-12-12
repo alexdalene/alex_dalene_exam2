@@ -120,7 +120,7 @@ export const profile = async () => {
   userStatsContainer.classList.add('flex', 'gap-2.5');
 
   // Helper function to create stat elements
-  function createStat(statValue, statLabel) {
+  function createStat(statValue, statLabel, id) {
     const statElement = document.createElement('div');
     statElement.classList.add(
       'flex',
@@ -144,13 +144,17 @@ export const profile = async () => {
     statElement.appendChild(statValueElement);
     statElement.appendChild(statLabelElement);
 
+    statElement.id = id;
+
     return statElement;
   }
 
   // Create and append user stats
-  userStatsContainer.appendChild(createStat(`$${credits}`, 'Credits'));
-  userStatsContainer.appendChild(createStat(listings, 'Listings'));
-  userStatsContainer.appendChild(createStat(winsCount, 'Wins'));
+  userStatsContainer.appendChild(
+    createStat(`$${credits}`, 'Credits', 'credits'),
+  );
+  userStatsContainer.appendChild(createStat(listings, 'Listings', 'listings'));
+  userStatsContainer.appendChild(createStat(winsCount, 'Wins', 'wins'));
 
   // Append user stats container to user details container
   userDetailsContainer.appendChild(userStatsContainer);
@@ -182,6 +186,7 @@ export const profile = async () => {
     'text-zinc-900',
   );
   logoutButton.textContent = 'Logout';
+  logoutButton.id = 'btn-logout';
   logoutButton.addEventListener('click', () => {
     remove('token');
     remove('username');

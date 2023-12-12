@@ -21,12 +21,11 @@ describe('User Flow', () => {
 
     cy.get('h1').should('contain', 'Profile');
 
-    cy.get('#menu-container').click();
-    cy.get('#btn-menu-logout').click();
+    cy.get('#btn-logout').click();
 
     cy.url().should('not.include', '/profile');
 
-    cy.get('h1').should('contain', 'Your next item');
+    cy.get('h1').should('contain', 'Sign Up');
   });
 
   it('lets a registered user view their total credits', () => {
