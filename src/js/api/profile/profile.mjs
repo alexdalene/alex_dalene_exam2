@@ -1,6 +1,7 @@
 import { apiBase } from '../base.mjs';
 import { headers } from '../headers.mjs';
 import { load } from '../../storage/load.mjs';
+import { save } from '../../storage/save.mjs';
 
 export async function getProfile() {
   const username = load('username');
@@ -19,5 +20,6 @@ export async function getProfile() {
     throw new Error(data.errors[0].message);
   }
 
+  save('credits', `${data.credits}`);
   return data;
 }
