@@ -5,7 +5,8 @@ export const heroAnimations = () => {
     delay: 3,
     text: {
       delimiter: ' ',
-      value: 'All you have to do is <span class="hero-text-bg">sign up</span>',
+      value:
+        'All you have to do is <span class="relative z-10 text-zinc-900 before:absolute before:inset-0 before:-z-10 before:scale-110 before:rounded-full before:bg-purple-300">sign up</span>',
       speed: 0.4,
     },
     repeat: -1,

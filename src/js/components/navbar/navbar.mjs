@@ -11,7 +11,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 export const navbar = async () => {
   try {
-    // Append elements to the menu
+    // // Append elements to the menu
     button.appendChild(dropdownMenu);
 
     // Append elements to the header

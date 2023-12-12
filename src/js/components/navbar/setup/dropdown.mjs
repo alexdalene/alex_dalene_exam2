@@ -9,7 +9,7 @@ dropdownMenu.classList.add(
   'rounded-2xl',
   'absolute',
   'top-0',
-  '-right-20',
+  'right-0',
   'z-10',
   'flex-col',
   'justify-between',
@@ -39,22 +39,31 @@ menuLinks.classList.add(
   'font-normal',
 );
 
-// Create menu links
 const browseMenuLink = createMenuLink('/browse/', 'Browse');
-let loginMenuLink = createMenuLink('/auth#login', 'Log In');
-let signupMenuLink = createMenuLink('/auth#signup', 'Sign Up');
+menuLinks.appendChild(browseMenuLink);
 
 if (load('token')) {
-  loginMenuLink = createMenuLink('#', 'Log Out');
-  loginMenuLink.id = 'btn-menu-logout';
-  signupMenuLink = createMenuLink('/profile', 'Profile');
+  const logoutMenuLink = createMenuLink('#', 'Log Out');
+  logoutMenuLink.id = 'btn-menu-logout';
 
-  loginMenuLink.addEventListener('click', () => {
+  const profileMenuLink = createMenuLink('/profile', 'Profile');
+
+  logoutMenuLink.addEventListener('click', () => {
     remove('token');
     remove('username');
     remove('credits');
     window.location.href = '/';
   });
+
+  // Append elements to the dropdown menu
+  menuLinks.appendChild(logoutMenuLink);
+  menuLinks.appendChild(profileMenuLink);
+} else {
+  const loginMenuLink = createMenuLink('/auth#login', 'Log In');
+  const signupMenuLink = createMenuLink('/auth#signup', 'Sign Up');
+
+  menuLinks.appendChild(loginMenuLink);
+  menuLinks.appendChild(signupMenuLink);
 }
 
 // Append elements to the dropdown menu
@@ -62,8 +71,5 @@ dropdownMenu.appendChild(spanBtnClose);
 dropdownMenu.appendChild(menuLinks);
 
 // Append menu links to the menuLinks element
-menuLinks.appendChild(browseMenuLink);
-menuLinks.appendChild(loginMenuLink);
-menuLinks.appendChild(signupMenuLink);
 
 export { dropdownMenu };

@@ -5,7 +5,6 @@ export const navbarAnimations = () => {
   const open = select('#btn-open');
   const close = select('#btn-close');
   const menu = select('#dropdown-menu');
-  const container = select('#menu-container');
 
   const tl = gsap.timeline();
 
@@ -15,30 +14,19 @@ export const navbarAnimations = () => {
       text: 'Close',
       ease: 'ease-in',
       color: 'rgb(24 24 27)',
-      duration: 0.3,
-    })
-      .to(
-        container,
-        {
-          backgroundColor: 'rgb(216 180 254)',
-        },
-        '<',
-      )
-      .to(
-        menu,
-        {
-          right: '0',
-          display: 'flex',
-        },
-        '<',
-      )
-      .to(menu, {
+      duration: 0.2,
+    }).to(
+      menu,
+      {
         opacity: '1',
-        width: '15rem',
-        height: '10rem',
-        duration: 0.8,
-        ease: 'elastic',
-      });
+        width: '12rem',
+        height: '12rem',
+        duration: 0.4,
+        ease: 'power2.inOut',
+        display: 'flex',
+      },
+      '<',
+    );
   });
 
   close.addEventListener('click', () => {
