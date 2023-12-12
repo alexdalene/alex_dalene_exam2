@@ -1,6 +1,10 @@
 import { navbar } from '../components/navbar/navbar.mjs';
 import { loader } from '../components/loader/loader.mjs';
+import { select } from '../tools/select.mjs';
+import { getImageValue } from '../listeners/create/media.mjs';
+import { validateCreate } from '../functions/create/validate.mjs';
 import { createListener } from '../listeners/create/create.mjs';
+import { appendTags } from '../functions/create/tags.mjs';
 
 const render = async () => {
   try {
@@ -8,60 +12,29 @@ const render = async () => {
     await navbar();
     loader.hideLoader();
 
-    const mediaBtn = document.querySelector('#btn-add-media');
-    const mediaInput = document.querySelector('#listing-media');
-    const gallery = document.querySelector('#listing-gallery');
-    const message = document.querySelector('#media-message');
-    const submitBtn = document.querySelector('#btn-publish');
+    const submitBtn = select('#btn-publish');
+    submitBtn.addEventListener('click', async event => {
+      try {
+        event.preventDefault();
+        await validateCreate();
 
-    const imgArray = [];
-
-    mediaBtn.addEventListener('click', () => {
-      const value = mediaInput.value;
-      if (!value) return;
-      mediaInput.value = '';
-
-      if (imgArray.length >= 8) {
-        message.textContent = 'You can only upload 8 images';
-        message.classList.remove('text-zinc-400');
-        message.classList.add('text-red-400');
-        return;
+        submitBtn.textContent = 'Publishing...';
+        const data = await createListener(event);
+        location.replace(`/browse/listing/?id=${data.id}`);
+      } catch (error) {
+        console.log(error);
       }
-
-      imgArray.push(value);
-      appendImage(value);
     });
 
-    const appendImage = url => {
-      const container = document.createElement('div');
-      container.classList.add('relative', 'gallery-item');
+    const mediaBtn = select('#btn-add-media');
+    mediaBtn.addEventListener('click', getImageValue);
 
-      const number = document.createElement('span');
-      number.classList.add(
-        'absolute',
-        '-top-2',
-        '-right-2',
-        'bg-zinc-900',
-        'w-8',
-        'h-8',
-        'rounded-full',
-        'text-sm',
-        'flex',
-        'items-center',
-        'justify-center',
-      );
-      number.textContent = imgArray.length; // Add the number to the image
-
-      const img = document.createElement('img');
-      img.src = url;
-
-      container.appendChild(number);
-      container.appendChild(img);
-      gallery.appendChild(container);
-    };
-
-    submitBtn.addEventListener('click', async event => {
-      await createListener(event, imgArray);
+    const tagsInput = select('#listing-tags');
+    tagsInput.addEventListener('keydown', event => {
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        appendTags(event);
+      }
     });
   } catch (error) {
     console.log(error);
