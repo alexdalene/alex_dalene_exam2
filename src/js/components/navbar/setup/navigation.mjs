@@ -1,5 +1,4 @@
 import { createNavLink } from '../functions/createNavLink.mjs';
-import { remove } from '../../../storage/remove.mjs';
 import { load } from '../../../storage/load.mjs';
 
 // Create navigation element
@@ -13,19 +12,12 @@ let signupLink = createNavLink('/auth#signup', 'Create an account');
 
 // Create navigation links for logged in users
 if (load('token')) {
-  loginLink = createNavLink('#', 'Log Out');
-  loginLink.id = 'btn-logout';
-  signupLink = createNavLink('/profile', 'Profile');
+  const profileLink = createNavLink('/profile', 'Profile');
+  const createLink = createNavLink('/create', 'Create');
 
-  loginLink.addEventListener('click', () => {
-    remove('token');
-    remove('username');
-    remove('credits');
-    window.location.href = '/';
-  });
+  nav.append(browseLink, createLink, profileLink);
+} else {
+  nav.append(browseLink, loginLink, signupLink);
 }
-
-// Append navigation links to the navigation element
-nav.append(browseLink, loginLink, signupLink);
 
 export { nav };

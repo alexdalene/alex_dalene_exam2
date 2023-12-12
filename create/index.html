@@ -22,148 +22,146 @@
         class="relative rounded-xl bg-zinc-900 px-5 py-2.5 sm:rounded-[2.5rem] sm:px-10 sm:py-5"
       >
         <section
-          class="mx-auto flex max-w-md flex-col gap-10 px-0 py-20 text-zinc-200"
+          class="mx-auto flex max-w-xl flex-col gap-10 px-0 py-20 text-zinc-200"
         >
-          <div class="flex flex-col gap-2.5">
-            <h1 class="flex items-center gap-1 font-heading font-bold">
-              <div
-                class="z-10 h-1.5 w-1.5 scale-100 rounded-full bg-green-400 opacity-100 transition-transform duration-200 group-hover:scale-100"
-              ></div>
-              Create
-            </h1>
-          </div>
+          <h1 class="flex items-center gap-1 font-heading font-bold">
+            <div
+              class="z-10 h-1.5 w-1.5 scale-100 rounded-full bg-purple-300 opacity-100 transition-transform duration-200 group-hover:scale-100"
+            ></div>
+            Create
+          </h1>
         </section>
-        <form
-          action=""
-          class="mx-auto flex max-w-md flex-col gap-5 pb-20 text-zinc-200"
+        <section
+          class="mx-auto flex max-w-4xl flex-col gap-10 px-0 text-zinc-200"
         >
-          <label for="listing-title" class="flex flex-col gap-1">
-            <div class="relative flex items-center justify-between gap-1">
-              Title
-              <div
-                class="material-symbols-outlined group relative w-fit text-zinc-400"
-              >
-                info
-                <span
-                  class="absolute right-6 rounded-full bg-zinc-200 px-2 py-1 font-body text-sm text-zinc-900 opacity-0 transition-opacity group-hover:opacity-100"
-                >
-                  5 - 50 characters
-                </span>
-              </div>
-            </div>
-            <input
-              type="text"
-              name="listing-title"
-              id="listing-title"
-              class="rounded-md border border-zinc-800 bg-zinc-800 px-2.5 py-2.5 text-zinc-200 transition duration-300 focus:border-purple-300 focus:outline-none"
-              minlength="5"
-              required
-            />
-            <p class="text-sm text-zinc-400" id="title-message">
-              Describe your listing in a few words.
-            </p>
-          </label>
-          <label for="listing-description" class="flex flex-col gap-1">
-            <div class="relative flex items-center justify-between gap-1">
-              Description
-              <div
-                class="material-symbols-outlined group relative w-fit text-zinc-400"
-              >
-                info
-                <span
-                  class="absolute right-6 rounded-full bg-zinc-200 px-2 py-1 font-body text-sm text-zinc-900 opacity-0 transition-opacity group-hover:opacity-100"
-                >
-                  10 - 250 characters
-                </span>
-              </div>
-            </div>
-
-            <textarea
-              type="text"
-              rows="3"
-              name="listing-description"
-              id="listing-description"
-              class="resize-y rounded-md border border-zinc-800 bg-zinc-800 px-2.5 py-2.5 text-zinc-200 transition duration-300 focus:border-purple-300 focus:outline-none"
-              minlength="10"
-              required
-            >
-            </textarea>
-            <p class="text-sm text-zinc-400" id="description-message">
-              Try to accurately describe your item. Listings that have a good
-              and detailed description are more likely to be sold.
-            </p>
-          </label>
-          <label for="listing-deadline" class="flex flex-col gap-1">
-            Ends at
-            <input
-              type="datetime-local"
-              name="listing-deadline"
-              id="listing-deadline"
-              class="rounded-md border border-zinc-800 bg-zinc-800 px-2.5 py-2.5 text-zinc-400 transition duration-300 focus:border-purple-300 focus:text-zinc-200 focus:outline-none"
-              value="2024-01-01T00:00"
-              required
-            />
-          </label>
-          <label for="listing-media" class="flex flex-col gap-1">
-            Media
-            <div class="relative flex flex-col justify-center gap-1">
-              <input
-                type="url"
-                id="listing-media"
-                class="rounded-md border border-zinc-800 bg-zinc-800 px-2.5 py-2.5 transition duration-300 focus:border-purple-300 focus:outline-none"
-              />
-              <button
-                type="button"
-                id="btn-add-media"
-                class="absolute right-0 flex h-full items-center justify-center rounded-r-md border border-dashed border-zinc-200 bg-zinc-900 px-2.5"
-              >
-                <span class="material-symbols-outlined">add</span>
-              </button>
-            </div>
-            <p class="text-sm text-zinc-400" id="media-message">
-              Add a link to an image of your item. You can add up to 8 images.
-            </p>
-          </label>
-          <div id="listing-gallery" class="grid grid-cols-4 gap-1"></div>
-          <label for="listing-tags" class="flex flex-col gap-1">
-            <div class="relative flex items-center justify-between gap-1">
-              Tags (optional)
-              <div
-                class="material-symbols-outlined group relative w-fit text-zinc-400"
-              >
-                info
-                <span
-                  class="absolute right-6 rounded-full bg-zinc-200 px-2 py-1 font-body text-sm text-zinc-900 opacity-0 transition-opacity group-hover:opacity-100"
-                >
-                  Minimum 3 characters
-                </span>
-              </div>
-            </div>
-            <input
-              type="text"
-              name="listing-tags"
-              id="listing-tags"
-              class="rounded-md border border-zinc-800 bg-zinc-800 px-2.5 py-2.5 transition duration-300 focus:border-purple-300 focus:outline-none"
-              minlength="3"
-            />
-            <p class="text-sm text-zinc-400" id="tag-message">
-              Tags help users find your listing. Press enter to add a tag.
-            </p>
-          </label>
-          <div id="tags"></div>
-          <button
-            type="submit"
-            id="btn-publish"
-            class="rounded-2xl bg-zinc-200 px-5 py-2.5 text-zinc-900 disabled:opacity-50"
+          <form
+            action=""
+            class="mx-auto flex max-w-xl flex-col gap-5 pb-20 text-zinc-200"
           >
-            Publish
-          </button>
-        </form>
+            <label for="listing-title" class="flex flex-col gap-1">
+              <div class="relative flex items-center justify-between gap-1">
+                Title
+                <div
+                  class="material-symbols-outlined group relative w-fit text-zinc-400"
+                >
+                  info
+                  <span
+                    class="absolute right-6 rounded-full bg-zinc-200 px-2 py-1 font-body text-sm text-zinc-900 opacity-0 transition-opacity group-hover:opacity-100"
+                  >
+                    5 - 50 characters
+                  </span>
+                </div>
+              </div>
+              <input
+                type="text"
+                name="listing-title"
+                id="listing-title"
+                class="rounded-md border border-zinc-800 bg-zinc-800 px-2.5 py-2.5 text-zinc-200 transition duration-300 focus:border-purple-300 focus:outline-none"
+                minlength="5"
+                required
+              />
+              <p class="text-sm text-zinc-400" id="title-message">
+                Describe your listing in a few words.
+              </p>
+            </label>
+            <label for="listing-description" class="flex flex-col gap-1">
+              <div class="relative flex items-center justify-between gap-1">
+                Description
+                <div
+                  class="material-symbols-outlined group relative w-fit text-zinc-400"
+                >
+                  info
+                  <span
+                    class="absolute right-6 rounded-full bg-zinc-200 px-2 py-1 font-body text-sm text-zinc-900 opacity-0 transition-opacity group-hover:opacity-100"
+                  >
+                    10 - 250 characters
+                  </span>
+                </div>
+              </div>
+
+              <textarea
+                type="text"
+                rows="3"
+                name="listing-description"
+                id="listing-description"
+                class="resize-y rounded-md border border-zinc-800 bg-zinc-800 px-2.5 py-2.5 text-zinc-200 transition duration-300 focus:border-purple-300 focus:outline-none"
+                minlength="10"
+                required
+              >
+              </textarea>
+              <p class="text-sm text-zinc-400" id="description-message">
+                Try to accurately describe your item. Listings that have a good
+                and detailed description are more likely to be sold.
+              </p>
+            </label>
+            <label for="listing-deadline" class="flex flex-col gap-1">
+              Ends at
+              <input
+                type="datetime-local"
+                name="listing-deadline"
+                id="listing-deadline"
+                class="rounded-md border border-zinc-800 bg-zinc-800 px-2.5 py-2.5 text-zinc-400 transition duration-300 focus:border-purple-300 focus:text-zinc-200 focus:outline-none"
+                value="2024-01-01T00:00"
+                required
+              />
+            </label>
+            <label for="listing-media" class="flex flex-col gap-1">
+              Media
+              <div class="relative flex flex-col justify-center gap-1">
+                <input
+                  type="url"
+                  id="listing-media"
+                  class="rounded-md border border-zinc-800 bg-zinc-800 px-2.5 py-2.5 transition duration-300 focus:border-purple-300 focus:outline-none"
+                />
+                <button
+                  type="button"
+                  id="btn-add-media"
+                  class="absolute right-0 flex h-full items-center justify-center rounded-r-md border border-dashed border-zinc-200 bg-zinc-900 px-2.5"
+                >
+                  <span class="material-symbols-outlined">add</span>
+                </button>
+              </div>
+              <p class="text-sm text-zinc-400" id="media-message">
+                Add a link to an image of your item. You can add up to 8 images.
+              </p>
+            </label>
+            <div id="listing-gallery" class="grid grid-cols-4 gap-1"></div>
+            <label for="listing-tags" class="flex flex-col gap-1">
+              <div class="relative flex items-center justify-between gap-1">
+                Tags (optional)
+                <div
+                  class="material-symbols-outlined group relative w-fit text-zinc-400"
+                >
+                  info
+                  <span
+                    class="absolute right-6 rounded-full bg-zinc-200 px-2 py-1 font-body text-sm text-zinc-900 opacity-0 transition-opacity group-hover:opacity-100"
+                  >
+                    Minimum 3 characters
+                  </span>
+                </div>
+              </div>
+              <input
+                type="text"
+                name="listing-tags"
+                id="listing-tags"
+                class="rounded-md border border-zinc-800 bg-zinc-800 px-2.5 py-2.5 transition duration-300 focus:border-purple-300 focus:outline-none"
+                minlength="3"
+              />
+              <p class="text-sm text-zinc-400" id="tag-message">
+                Tags help users find your listing. Press enter to add a tag.
+              </p>
+            </label>
+            <div id="tags"></div>
+            <button
+              type="submit"
+              id="btn-publish"
+              class="rounded-2xl bg-zinc-200 px-5 py-2.5 text-zinc-900 disabled:opacity-50"
+            >
+              Publish
+            </button>
+          </form>
+        </section>
         <div
-          class="mx-auto grid max-w-2xl grid-cols-1 gap-2.5 text-zinc-200 sm:grid-cols-2 lg:max-w-4xl lg:grid-cols-3"
-          id="listing-container"
-        ></div>
-        <!-- <div
           class="absolute right-[15rem] top-0 h-24 w-[10%] rounded-b-[2.5rem] bg-zinc-800 p-5 sm:right-[20rem] lg:right-[30rem] lg:w-1/6"
         >
           <svg
@@ -192,7 +190,7 @@
               fill="#currentColor"
             />
           </svg>
-        </div> -->
+        </div>
       </main>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.3/ScrollTrigger.min.js"></script>
