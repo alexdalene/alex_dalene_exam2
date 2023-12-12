@@ -1,5 +1,4 @@
 import { createMenuLink } from '../functions/createMenuLink.mjs';
-import { remove } from '../../../storage/remove.mjs';
 import { load } from '../../../storage/load.mjs';
 
 const dropdownMenu = document.createElement('div');
@@ -43,20 +42,11 @@ const browseMenuLink = createMenuLink('/browse/', 'Browse');
 menuLinks.appendChild(browseMenuLink);
 
 if (load('token')) {
-  const logoutMenuLink = createMenuLink('#', 'Log Out');
-  logoutMenuLink.id = 'btn-menu-logout';
-
+  const createListingsMenuLink = createMenuLink('/create', 'Create');
   const profileMenuLink = createMenuLink('/profile', 'Profile');
 
-  logoutMenuLink.addEventListener('click', () => {
-    remove('token');
-    remove('username');
-    remove('credits');
-    window.location.href = '/';
-  });
-
   // Append elements to the dropdown menu
-  menuLinks.appendChild(logoutMenuLink);
+  menuLinks.appendChild(createListingsMenuLink);
   menuLinks.appendChild(profileMenuLink);
 } else {
   const loginMenuLink = createMenuLink('/auth#login', 'Log In');
