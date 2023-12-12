@@ -29,7 +29,10 @@
             class="max-w-xl font-heading text-4xl leading-snug sm:text-6xl lg:text-7xl"
           >
             Your next item is within
-            <span class="hero-text-bg">reach</span>
+            <span
+              class="relative z-10 text-zinc-900 before:absolute before:inset-0 before:-z-10 before:scale-110 before:rounded-full before:bg-purple-300"
+              >reach</span
+            >
           </h1>
           <p class="max-w-xs text-zinc-300">
             We value our customers and their needs - therefore we built this app
@@ -41,14 +44,18 @@
             href="./auth#signup"
             class="group flex w-fit -translate-x-14 items-center overflow-hidden"
           >
-            <span class="material-symbols-outlined btn-primary-before">
+            <span
+              class="material-symbols-outlined h-12 -translate-x-20 rounded-2xl bg-zinc-200 px-4 py-2.5 text-zinc-900 transition-transform duration-200 lg:group-hover:translate-x-0"
+            >
               arrow_forward
             </span>
             <span
               class="flex h-12 w-fit items-center rounded-2xl bg-zinc-200 px-4 text-xl text-zinc-900"
               >Sign Up</span
             >
-            <span class="material-symbols-outlined btn-primary-after">
+            <span
+              class="material-symbols-outlined h-12 w-fit rounded-2xl bg-zinc-200 px-4 py-2.5 text-zinc-900 transition-transform duration-200 lg:group-hover:translate-x-20"
+            >
               arrow_forward
             </span>
           </a>
