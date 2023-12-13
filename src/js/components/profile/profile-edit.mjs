@@ -80,6 +80,7 @@ export const profileEdit = avatar => {
     'duration-300',
     'focus:border-purple-300',
     'focus:outline-none',
+    'w-full',
   );
   urlInput.addEventListener('input', () => {
     if (!urlInput.value) {
@@ -94,7 +95,12 @@ export const profileEdit = avatar => {
 
   // Create buttons container
   const buttonsContainer = document.createElement('div');
-  buttonsContainer.classList.add('flex', 'justify-between', 'gap-2.5');
+  buttonsContainer.classList.add(
+    'flex',
+    'justify-between',
+    'gap-2.5',
+    'w-full',
+  );
 
   // Create Cancel button
   const cancelButton = document.createElement('button');
