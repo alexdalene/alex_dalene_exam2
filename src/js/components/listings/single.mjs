@@ -17,6 +17,7 @@ export const singleListing = data => {
     highest: data.bids.map(bid => bid.amount).pop(),
     deadline: calculateRemainingTime(data.endsAt),
     bids: data._count.bids,
+    bidsArray: data.bids,
     owner: data.seller.name,
   };
 
@@ -29,6 +30,7 @@ export const singleListing = data => {
     highest,
     deadline,
     bids,
+    bidsArray,
     owner,
   } = listing;
 
@@ -190,6 +192,27 @@ export const singleListing = data => {
     'checkbook',
     'Bids',
   );
+  bidsContainer.classList.add('cursor-pointer', 'relative', 'group');
+  bidsContainer.addEventListener('click', () => {
+    bidsList.classList.toggle('hidden');
+    bidsContainerIcon.textContent = bidsList.classList.contains('hidden')
+      ? 'visibility_off'
+      : 'visibility';
+  });
+
+  const bidsContainerIcon = document.createElement('span');
+  bidsContainerIcon.classList.add(
+    'material-symbols-outlined',
+    'absolute',
+    'right-2',
+    'top-2',
+    'text-zinc-600',
+    'group-hover:text-zinc-200',
+    'transition',
+  );
+  bidsContainerIcon.textContent = 'visibility_off';
+
+  bidsContainer.appendChild(bidsContainerIcon);
 
   const deadlineContainer = document.createElement('div');
   deadlineContainer.textContent = 'Loading...';
@@ -299,7 +322,7 @@ export const singleListing = data => {
     e.preventDefault();
     const amount = Input.value;
 
-    if (amount <= highest) {
+    if (amount <= highest || amount === '' || amount === '0') {
       label.classList.add('text-red-500');
       return;
     }
@@ -318,6 +341,30 @@ export const singleListing = data => {
   );
   addIcon.textContent = 'gavel';
 
+  const bidsList = document.createElement('ul');
+  bidsList.classList.add(
+    'flex',
+    'flex-col',
+    'gap-0.5',
+    'bg-gradient-to-tl',
+    'from-zinc-800',
+    'rounded-xl',
+    'p-4',
+    'col-span-2',
+    'border',
+    'border-zinc-800',
+    'text-sm',
+    'hidden',
+    'max-h-60',
+    'overflow-y-scroll',
+  );
+
+  for (let bid of bidsArray) {
+    const listItem = createListItem(bid.bidderName, `$${bid.amount}`);
+    listItem.classList.add('border-b', 'border-zinc-700', 'mb-1', 'pb-1');
+    bidsList.appendChild(listItem);
+  }
+
   // Append elements to the second column container
   addButton.appendChild(addIcon);
   label.append(Input, addButton);
@@ -326,6 +373,7 @@ export const singleListing = data => {
   col2Container.appendChild(deadlineContainer);
   col2Container.appendChild(highestBidContainer);
   col2Container.appendChild(bidsContainer);
+  col2Container.appendChild(bidsList);
   col2Container.appendChild(buttonContainer);
 
   // Create container for the third column
@@ -344,7 +392,7 @@ export const singleListing = data => {
 
   // Create description heading
   const descriptionHeading = document.createElement('h4');
-  descriptionHeading.classList.add('font-heading', 'font-bold');
+  descriptionHeading.classList.add('font-heading', 'font-bold', 'text-xl');
   descriptionHeading.textContent = 'Description';
 
   // Create description paragraph
