@@ -2,6 +2,7 @@ import { bidOnListing } from '../../api/bid/bid.mjs';
 import calculateRemainingTime from '../../functions/listings/timeRemaining.mjs';
 import { load } from '../../storage/load.mjs';
 import { displaySingleListing } from '../../views/listings/single.mjs';
+import { showCredits } from '../navbar/functions/credits.mjs';
 import { createBidContainer } from './single-createContainer.mjs';
 import { createListItem } from './single-createList.mjs';
 import { updateTime } from './single-timeInteral.mjs';
@@ -321,19 +322,23 @@ export const singleListing = data => {
     'group',
   );
   addButton.addEventListener('click', async e => {
-    e.preventDefault();
-    const amount = Input.value;
+    try {
+      e.preventDefault();
+      const amount = Input.value;
 
-    if (amount <= highest || amount === '' || amount === '0') {
-      label.classList.add('text-red-500');
-      return;
+      if (amount <= highest || amount === '' || amount === '0') {
+        label.classList.add('text-red-500');
+        return;
+      }
+
+      addIcon.textContent = 'progress_activity';
+      addIcon.classList.add('animate-spin');
+      await bidOnListing(parseInt(amount));
+      await showCredits();
+      await displaySingleListing();
+    } catch (error) {
+      throw new Error(error.message);
     }
-
-    addIcon.textContent = 'progress_activity';
-    addIcon.classList.add('animate-spin');
-    await bidOnListing(parseInt(amount));
-
-    await displaySingleListing();
   });
 
   const addIcon = document.createElement('span');
