@@ -1,6 +1,7 @@
 import { bidOnListing } from '../../api/bid/bid.mjs';
 import calculateRemainingTime from '../../functions/listings/timeRemaining.mjs';
 import { load } from '../../storage/load.mjs';
+import { displaySingleListing } from '../../views/listings/single.mjs';
 import { createBidContainer } from './single-createContainer.mjs';
 import { createListItem } from './single-createList.mjs';
 import { updateTime } from './single-timeInteral.mjs';
@@ -35,6 +36,7 @@ export const singleListing = data => {
   } = listing;
 
   const container = document.querySelector('#single-container');
+  container.innerHTML = '';
 
   // Create container for the first column
   const col1Container = document.createElement('div');
@@ -318,7 +320,7 @@ export const singleListing = data => {
     'right-0',
     'group',
   );
-  addButton.addEventListener('click', e => {
+  addButton.addEventListener('click', async e => {
     e.preventDefault();
     const amount = Input.value;
 
@@ -327,14 +329,17 @@ export const singleListing = data => {
       return;
     }
 
-    bidOnListing(parseInt(amount));
+    addIcon.textContent = 'progress_activity';
+    addIcon.classList.add('animate-spin');
+    await bidOnListing(parseInt(amount));
+
+    await displaySingleListing();
   });
 
   const addIcon = document.createElement('span');
   addIcon.classList.add(
     'material-symbols-outlined',
     'text-purple-300',
-    'group-hover:rotate-12',
     'transition-translate',
     'duration-200',
     'ease-in-out',
