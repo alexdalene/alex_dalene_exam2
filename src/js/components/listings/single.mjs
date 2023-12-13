@@ -12,6 +12,7 @@ export const singleListing = data => {
     title: data.title,
     description: data.description,
     image: data.media[0] ? data.media[0] : '/src/images/placeholder.webp',
+    imageArray: data.media,
     id: data.id,
     highest: data.bids.map(bid => bid.amount).pop(),
     deadline: calculateRemainingTime(data.endsAt),
@@ -19,14 +20,100 @@ export const singleListing = data => {
     owner: data.seller.name,
   };
 
-  const { title, description, image, id, highest, deadline, bids, owner } =
-    listing;
+  const {
+    title,
+    description,
+    image,
+    imageArray,
+    id,
+    highest,
+    deadline,
+    bids,
+    owner,
+  } = listing;
 
   const container = document.querySelector('#single-container');
 
   // Create container for the first column
   const col1Container = document.createElement('div');
-  col1Container.classList.add('col-span-2');
+  col1Container.classList.add(
+    'col-span-2',
+    'relative',
+    'flex',
+    'items-center',
+    'justify-center',
+  );
+
+  const nextButton = document.createElement('button');
+  nextButton.classList.add(
+    'absolute',
+    'right-5',
+    'z-10',
+    'bg-purple-300',
+    'bg-opacity-60',
+    'hover:bg-opacity-100',
+    'transition',
+    'text-zinc-900',
+    'p-2',
+    'grid',
+    'place-content-center',
+    'rounded-full',
+  );
+  nextButton.addEventListener('click', () => {
+    const index = imageArray.indexOf(imageCol1.src);
+    const nextIndex = index + 1;
+    const nextImage = imageArray[nextIndex];
+
+    if (nextIndex === imageArray.length) {
+      imageCol1.src = imageArray[0];
+      updateIndexOfImage(0);
+      return;
+    }
+
+    imageCol1.src = nextImage;
+    updateIndexOfImage(nextIndex);
+  });
+
+  const nextIcon = document.createElement('span');
+  nextIcon.classList.add('material-symbols-outlined');
+  nextIcon.textContent = 'arrow_forward_ios';
+
+  const prevButton = document.createElement('button');
+  prevButton.classList.add(
+    'absolute',
+    'left-5',
+    'z-10',
+    'bg-purple-300',
+    'bg-opacity-60',
+    'hover:bg-opacity-100',
+    'transition',
+    'text-zinc-900',
+    'p-2',
+    'grid',
+    'place-content-center',
+    'rounded-full',
+  );
+  prevButton.addEventListener('click', () => {
+    const index = imageArray.indexOf(imageCol1.src);
+    const prevIndex = index - 1;
+    const prevImage = imageArray[prevIndex];
+
+    if (prevIndex === -1) {
+      imageCol1.src = imageArray[imageArray.length - 1];
+      updateIndexOfImage(imageArray.length - 1);
+      return;
+    }
+
+    imageCol1.src = prevImage;
+    updateIndexOfImage(prevIndex);
+  });
+
+  const prevIcon = document.createElement('span');
+  prevIcon.classList.add('material-symbols-outlined', 'rotate-180');
+  prevIcon.textContent = 'arrow_forward_ios';
+
+  nextButton.appendChild(nextIcon);
+  prevButton.appendChild(prevIcon);
 
   // Create image element for the first column
   const imageCol1 = document.createElement('img');
@@ -42,8 +129,29 @@ export const singleListing = data => {
     'aspect-square',
   );
 
+  const indexOfImage = document.createElement('span');
+  indexOfImage.classList.add(
+    'absolute',
+    'bottom-5',
+    'font-bold',
+    'bg-zinc-900',
+    'bg-opacity-60',
+    'px-2.5',
+    'py-0.5',
+    'rounded-full',
+    'min-w-[3rem]',
+    'text-center',
+  );
+  indexOfImage.textContent = `${imageArray.indexOf(image) + 1}/${
+    imageArray.length
+  }`;
+
+  const updateIndexOfImage = index => {
+    indexOfImage.textContent = `${index + 1}/${imageArray.length}`;
+  };
+
   // Append image to the container
-  col1Container.appendChild(imageCol1);
+  col1Container.append(imageCol1, nextButton, prevButton, indexOfImage);
 
   // Create container for the second column
   const col2Container = document.createElement('div');
