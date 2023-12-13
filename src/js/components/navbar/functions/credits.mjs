@@ -2,19 +2,19 @@ import { getProfile } from '../../../api/profile/profile.mjs';
 import { load } from '../../../storage/load.mjs';
 
 export const showCredits = async btn => {
+  const credits = load('credits');
+  if (!credits) {
+    return;
+  }
+
   await getProfile();
 
-  const credits = load('credits');
   let spanBtnOpen;
 
   if (!btn) {
     spanBtnOpen = document.getElementById('btn-open');
   } else {
     spanBtnOpen = btn;
-  }
-
-  if (!credits) {
-    return;
   }
 
   gsap.to(spanBtnOpen, {
