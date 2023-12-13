@@ -1,6 +1,6 @@
 {
   "name": "alex_dalene_exam2",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "description": "Website for an Auction House",
   "main": "src/index.js",
   "author": "Alex Dalene <aledal51469@stud.noroff.no>",
