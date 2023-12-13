@@ -1,4 +1,4 @@
-import { load } from '../../../storage/load.mjs';
+import { showCredits } from '../functions/credits.mjs';
 
 gsap.registerPlugin(TextPlugin);
 
@@ -33,21 +33,7 @@ const spanBtnOpen = document.createElement('span');
 spanBtnOpen.id = 'btn-open';
 spanBtnOpen.textContent = 'Menu';
 
-const credits = load('credits');
-
-if (credits) {
-  gsap.to(spanBtnOpen, {
-    duration: 1,
-    text: {
-      value: `$${credits}`,
-      newClass: 'font-normal',
-    },
-    ease: 'power4.out',
-    repeatDelay: 6,
-    repeat: -1,
-    yoyo: true,
-  });
-}
+showCredits(spanBtnOpen);
 
 // Append elements to the button
 button.appendChild(circleBtn);
