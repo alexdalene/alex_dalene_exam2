@@ -31,7 +31,7 @@ export const profile = async () => {
     'relative',
     'mx-auto',
     'aspect-square',
-    'h-60',
+    'h-40',
     'w-min',
     'overflow-hidden',
     'rounded-full',
