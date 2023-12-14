@@ -9,4 +9,5 @@ export const displayFilteredListings = (data, searchValue) => {
   console.log(filteredListings);
   clear('#listing-container');
   listing(filteredListings);
+  onscroll = null;
 };
