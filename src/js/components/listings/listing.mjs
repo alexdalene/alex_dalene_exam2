@@ -15,6 +15,20 @@ export function listing(data) {
 
     const { name, media, bids, deadline, id } = listingData;
 
+    const img = new Image();
+    img.src = media;
+    img.alt = 'Image of an item being auctioned away';
+    img.classList.add(
+      'min-w-full',
+      'min-h-full',
+      'object-cover',
+      'group-hover:scale-105',
+      'transition-transform',
+      'duration-300',
+      'ease-in-out',
+      '[height:-webkit-fill-available]',
+    );
+
     // Create article element
     const article = document.createElement('article');
     article.addEventListener('click', () => {
@@ -42,21 +56,10 @@ export function listing(data) {
       'rounded-xl',
     );
 
-    // Create image element
-    const image = document.createElement('img');
-    image.src = media;
-    image.alt = 'Image of an item being auctioned away';
-    image.loading = 'lazy';
-    image.classList.add(
-      'min-w-full',
-      'min-h-full',
-      'object-cover',
-      'group-hover:scale-105',
-      'transition-transform',
-      'duration-300',
-      'ease-in-out',
-      '[height:-webkit-fill-available]',
-    );
+    // // Create image element
+    // const image = document.createElement('img');
+    // image.src = media;
+    // image.alt = 'Image of an item being auctioned away';
 
     // Create footer element
     const footer = document.createElement('footer');
@@ -163,7 +166,7 @@ export function listing(data) {
     article.appendChild(durationContainer);
 
     // Append elements to the article
-    imageContainer.appendChild(image);
+    imageContainer.appendChild(img);
     article.appendChild(imageContainer);
     article.appendChild(footer);
 

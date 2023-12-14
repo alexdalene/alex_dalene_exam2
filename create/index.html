@@ -9,6 +9,10 @@
       type="image/x-icon"
     />
     <title>Create</title>
+    <meta
+      name="description"
+      content="Create a listing and sell your item to the highest bidder."
+    />
     <link rel="stylesheet" href="./../public/css/output.css" />
     <script type="module" src="../src/js/pages/create.mjs"></script>
     <link
@@ -36,7 +40,7 @@
         >
           <form
             action=""
-            class="mx-auto flex max-w-xl flex-col gap-5 pb-20 text-zinc-200"
+            class="mx-auto flex w-full max-w-xl flex-col gap-5 pb-20 text-zinc-200"
           >
             <label for="listing-title" class="flex flex-col gap-1">
               <div class="relative flex items-center justify-between gap-1">
@@ -87,8 +91,7 @@
                 class="resize-y rounded-md border border-zinc-800 bg-zinc-800 px-2.5 py-2.5 text-zinc-200 transition duration-300 focus:border-purple-300 focus:outline-none"
                 minlength="10"
                 required
-              >
-              </textarea>
+              ></textarea>
               <p class="text-sm text-zinc-400" id="description-message">
                 Try to accurately describe your item. Listings that have a good
                 and detailed description are more likely to be sold.

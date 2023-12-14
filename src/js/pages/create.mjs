@@ -16,7 +16,11 @@ const render = async () => {
     submitBtn.addEventListener('click', async event => {
       try {
         event.preventDefault();
-        await validateCreate();
+        const isOkay = await validateCreate();
+
+        if (!isOkay) {
+          return;
+        }
 
         submitBtn.textContent = 'Publishing...';
         const data = await createListener(event);

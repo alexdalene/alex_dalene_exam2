@@ -121,9 +121,9 @@ export const singleListing = data => {
   prevButton.appendChild(prevIcon);
 
   // Create image element for the first column
-  const imageCol1 = document.createElement('img');
+  const imageCol1 = new Image();
   imageCol1.src = image;
-  imageCol1.alt = '';
+  imageCol1.alt = 'Image of an item being auctioned away';
   imageCol1.classList.add(
     'col-span-3',
     'rounded-md',

@@ -35,5 +35,5 @@ export const loadOnScroll = posts => {
     }
   };
 
-  window.addEventListener('scroll', scrollCheck);
+  onscroll = scrollCheck;
 };

@@ -2,6 +2,8 @@ import { imgArray } from '../../components/create/images-imgArray.mjs';
 
 export const validateCreate = async () => {
   try {
+    let isOkay = true;
+
     const title = document.querySelector('#listing-title');
     const titleMessage = document.querySelector('#title-message');
     const titleMessageOriginal = 'Describe your listing in a few words.';
@@ -27,7 +29,8 @@ export const validateCreate = async () => {
       titleMessage.classList.remove('text-zinc-400');
       titleMessage.classList.add('text-red-400');
 
-      throw new Error('Title must be between 5 and 50 characters');
+      isOkay = false;
+      // throw new Error('Title must be between 5 and 50 characters');
     } else {
       title.classList.remove('border-red-400');
       title.classList.add('border-green-400');
@@ -47,7 +50,9 @@ export const validateCreate = async () => {
       descriptionMessage.classList.remove('text-zinc-400');
       descriptionMessage.classList.add('text-red-400');
 
-      throw new Error('Description must be between 10 and 250 characters');
+      isOkay = false;
+
+      // throw new Error('Description must be between 10 and 250 characters');
     } else {
       description.classList.remove('border-red-400');
       description.classList.add('border-green-400');
@@ -66,7 +71,9 @@ export const validateCreate = async () => {
       mediaMessage.classList.remove('text-zinc-400');
       mediaMessage.classList.add('text-red-400');
 
-      throw new Error('You must add at least one image');
+      isOkay = false;
+
+      // throw new Error('You must add at least one image');
     } else {
       media.classList.remove('border-red-400');
 
@@ -76,12 +83,7 @@ export const validateCreate = async () => {
       mediaMessage.textContent = mediaMessageOriginal;
     }
 
-    if (
-      titleRegex.test(title.value) &&
-      descriptionRegex.test(description.value && imgArray.length > 0)
-    ) {
-      return true;
-    }
+    return isOkay;
   } catch (error) {
     throw new Error(error);
   }
