@@ -8,7 +8,7 @@ export const createListItem = (label, value) => {
   labelElement.textContent = label;
 
   const valueElement = document.createElement('span');
-  valueElement.classList.add('text-right', 'text-zinc-400');
+  valueElement.classList.add('text-right', 'text-zinc-400', 'line-clamp-1');
   valueElement.textContent = value;
 
   listItem.appendChild(labelElement);
