@@ -1,10 +1,8 @@
 import { register } from '../../api/auth/register.mjs';
 import changeMode from '../../functions/auth/changeMode.mjs';
 
-export async function registerListener(event) {
-  event.preventDefault();
-
-  const form = event.target;
+export async function registerListener() {
+  const form = document.querySelector('#form-register');
   const data = new FormData(form);
   const name = data.get('name');
   const email = data.get('email');

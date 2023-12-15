@@ -4,6 +4,7 @@ import { view } from '../../tools/view.mjs';
 import { select } from '../../tools/select.mjs';
 import { loginTemplate } from '../../templates/login.mjs';
 import { signupTemplate } from '../../templates/signup.mjs';
+import { validateRegister } from './validate.mjs';
 
 export default function changeMode(mode) {
   if (typeof mode !== 'string') {
@@ -18,9 +19,16 @@ export default function changeMode(mode) {
 
     changeType.textContent = 'Already have an account? Log In';
 
-    const signup = document.querySelector('#form-register');
-    signup.addEventListener('submit', e => {
-      registerListener(e);
+    const submitBtn = document.querySelector('#register-submit');
+    submitBtn.addEventListener('click', async e => {
+      e.preventDefault();
+      const isOkay = await validateRegister();
+
+      if (!isOkay) {
+        return;
+      }
+
+      registerListener();
     });
   }
   if (mode === 'login') {
