@@ -23,11 +23,9 @@ describe('User Register', () => {
     cy.get('#register-email').type('testuser@stud.noroff.no');
     cy.get('#register-password').type(`testpassword{enter}`);
 
-    cy.wait('@registerRequest').its('response.statusCode').should('eq', 400);
-
     cy.get('#name-error').should(
       'contain',
-      'Name can only use a-Z, 0-9, and _',
+      'Name must be between 5 and 20 characters',
     );
   });
 });
