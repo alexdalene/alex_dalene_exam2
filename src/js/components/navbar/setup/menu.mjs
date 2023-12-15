@@ -1,3 +1,4 @@
+import { load } from '../../../storage/load.mjs';
 import { showCredits } from '../functions/credits.mjs';
 
 gsap.registerPlugin(TextPlugin);
@@ -32,7 +33,11 @@ circleBtn.classList.add(
 const spanBtnOpen = document.createElement('span');
 spanBtnOpen.id = 'btn-open';
 
-showCredits(spanBtnOpen);
+if (load('token')) {
+  showCredits(spanBtnOpen);
+} else {
+  spanBtnOpen.textContent = 'Menu';
+}
 
 // Append elements to the button
 button.appendChild(circleBtn);
