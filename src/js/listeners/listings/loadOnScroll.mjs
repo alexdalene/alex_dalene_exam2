@@ -13,7 +13,7 @@ export const loadOnScroll = posts => {
     if (postsToLoad.length <= 0) {
       noListings();
 
-      window.removeEventListener('scroll', scrollCheck);
+      onscroll = null;
     }
 
     listing(postsToLoad);
