@@ -157,7 +157,7 @@ export const singleListing = data => {
 
   // Append image to the container
   if (imageArray.length > 1) {
-    col1Container.appendChild(nextButton, prevButton, indexOfImage);
+    col1Container.append(nextButton, prevButton, indexOfImage);
   }
 
   col1Container.appendChild(imageCol1);
