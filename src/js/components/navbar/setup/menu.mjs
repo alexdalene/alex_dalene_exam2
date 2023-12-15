@@ -31,7 +31,6 @@ circleBtn.classList.add(
 
 const spanBtnOpen = document.createElement('span');
 spanBtnOpen.id = 'btn-open';
-spanBtnOpen.textContent = 'Menu';
 
 showCredits(spanBtnOpen);
 
