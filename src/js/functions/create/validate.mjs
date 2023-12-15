@@ -18,8 +18,8 @@ export const validateCreate = async () => {
     const mediaMessageOriginal =
       'Add a link to an image of your item. You can add up to 8 images.';
 
-    const titleRegex = /^[a-zA-Z0-9\s]{5,50}$/;
-    const descriptionRegex = /^[a-zA-Z0-9\s]{10,250}$/;
+    const titleRegex = /^[a-zA-Z0-9æøåÆØÅ\s]{5,50}$/;
+    const descriptionRegex = /^[a-zA-Z0-9æøåÆØÅ\s,.!?-]{10,250}$/;
 
     if (!titleRegex.test(title.value)) {
       title.classList.remove('border-green-400');
