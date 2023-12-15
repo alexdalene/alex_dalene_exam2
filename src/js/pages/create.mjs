@@ -24,6 +24,7 @@ const render = async () => {
 
         submitBtn.textContent = 'Publishing...';
         const data = await createListener(event);
+        submitBtn.textContent = 'Publish';
         location.replace(`/browse/listing/?id=${data.id}`);
       } catch (error) {
         console.log(error);

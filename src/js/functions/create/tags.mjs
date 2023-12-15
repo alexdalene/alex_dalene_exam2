@@ -16,12 +16,37 @@ export const appendTags = event => {
     'rounded-full',
     'px-3',
     'py-1',
-    'text-sm',
     'text-zinc-200',
     'mr-1',
     'mb-1',
+    'relative',
+    'group',
   );
   tagElement.textContent = tag;
+
+  const removeTag = document.createElement('span');
+  removeTag.classList.add(
+    'material-symbols-outlined',
+    'cursor-pointer',
+    'absolute',
+    '-right-4',
+    '-top-4',
+    'opacity-0',
+    'group-hover:opacity-100',
+    'transition-opacity',
+    'scale-75',
+    'bg-purple-300',
+    'p-1',
+    'rounded-full',
+    'text-zinc-900',
+    'z-10',
+  );
+  removeTag.textContent = 'delete';
+  removeTag.addEventListener('click', () => {
+    const index = tagArray.findIndex(tag => tag === tagElement.textContent);
+    tagArray.splice(index, 1);
+    tagElement.remove();
+  });
 
   if (tagArray.length > 4 - 1) {
     tagMessage.classList.remove('text-zinc-400');
@@ -45,6 +70,7 @@ export const appendTags = event => {
 
   tagArray.push(tag);
 
+  tagElement.appendChild(removeTag);
   tags.appendChild(tagElement);
   event.target.value = '';
 };

@@ -18,8 +18,13 @@ export const validateCreate = async () => {
     const mediaMessageOriginal =
       'Add a link to an image of your item. You can add up to 8 images.';
 
-    const titleRegex = /^[a-zA-Z0-9\s]{5,50}$/;
-    const descriptionRegex = /^[a-zA-Z0-9\s]{10,250}$/;
+    const deadline = document.querySelector('#listing-deadline');
+    const deadlineMessage = document.querySelector('#deadline-message');
+    const deadlineMessageOriginal =
+      '            Add a deadline. The listing will be automatically closed when it is reached.';
+
+    const titleRegex = /^[a-zA-Z0-9æøåÆØÅ\s]{5,50}$/;
+    const descriptionRegex = /^[a-zA-Z0-9æøåÆØÅ\s,.!?-]{10,250}$/;
 
     if (!titleRegex.test(title.value)) {
       title.classList.remove('border-green-400');
@@ -81,6 +86,25 @@ export const validateCreate = async () => {
       mediaMessage.classList.add('text-zinc-400');
 
       mediaMessage.textContent = mediaMessageOriginal;
+    }
+
+    if (deadline.value === '') {
+      deadline.classList.remove('border-green-400');
+      deadline.classList.add('border-red-400');
+
+      deadlineMessage.textContent = 'You must add a deadline';
+      deadlineMessage.classList.remove('text-zinc-400');
+      deadlineMessage.classList.add('text-red-400');
+
+      isOkay = false;
+    } else {
+      deadline.classList.remove('border-red-400');
+      deadline.classList.add('border-green-400');
+
+      deadlineMessage.classList.remove('text-red-400');
+      deadlineMessage.classList.add('text-zinc-400');
+
+      deadlineMessage.textContent = deadlineMessageOriginal;
     }
 
     return isOkay;

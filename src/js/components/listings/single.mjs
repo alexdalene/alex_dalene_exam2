@@ -156,7 +156,11 @@ export const singleListing = data => {
   };
 
   // Append image to the container
-  col1Container.append(imageCol1, nextButton, prevButton, indexOfImage);
+  if (imageArray.length > 1) {
+    col1Container.append(nextButton, prevButton, indexOfImage);
+  }
+
+  col1Container.appendChild(imageCol1);
 
   // Create container for the second column
   const col2Container = document.createElement('div');
@@ -215,7 +219,29 @@ export const singleListing = data => {
   );
   bidsContainerIcon.textContent = 'visibility_off';
 
-  bidsContainer.appendChild(bidsContainerIcon);
+  const bidsList = document.createElement('ul');
+  bidsList.classList.add(
+    'flex',
+    'flex-col',
+    'gap-0.5',
+    'bg-gradient-to-tl',
+    'from-zinc-800',
+    'rounded-xl',
+    'p-4',
+    'col-span-2',
+    'border',
+    'border-zinc-800',
+    'text-sm',
+    'hidden',
+    'max-h-60',
+    'overflow-y-scroll',
+  );
+
+  for (let bid of bidsArray) {
+    const listItem = createListItem(bid.bidderName, `$${bid.amount}`);
+    listItem.classList.add('border-b', 'border-zinc-700', 'mb-1', 'pb-1');
+    bidsList.appendChild(listItem);
+  }
 
   const deadlineContainer = document.createElement('div');
   deadlineContainer.textContent = 'Loading...';
@@ -248,7 +274,7 @@ export const singleListing = data => {
     'hidden',
   );
 
-  if (load('token')) {
+  if (load('token') && load('username') !== owner) {
     buttonContainer.classList.remove('hidden');
   }
 
@@ -351,30 +377,6 @@ export const singleListing = data => {
   );
   addIcon.textContent = 'gavel';
 
-  const bidsList = document.createElement('ul');
-  bidsList.classList.add(
-    'flex',
-    'flex-col',
-    'gap-0.5',
-    'bg-gradient-to-tl',
-    'from-zinc-800',
-    'rounded-xl',
-    'p-4',
-    'col-span-2',
-    'border',
-    'border-zinc-800',
-    'text-sm',
-    'hidden',
-    'max-h-60',
-    'overflow-y-scroll',
-  );
-
-  for (let bid of bidsArray) {
-    const listItem = createListItem(bid.bidderName, `$${bid.amount}`);
-    listItem.classList.add('border-b', 'border-zinc-700', 'mb-1', 'pb-1');
-    bidsList.appendChild(listItem);
-  }
-
   // Append elements to the second column container
   addButton.appendChild(addIcon);
   label.append(Input, addButton);
@@ -383,7 +385,10 @@ export const singleListing = data => {
   col2Container.appendChild(deadlineContainer);
   col2Container.appendChild(highestBidContainer);
   col2Container.appendChild(bidsContainer);
-  col2Container.appendChild(bidsList);
+  if (bidsArray.length !== 0) {
+    bidsContainer.appendChild(bidsContainerIcon);
+    col2Container.appendChild(bidsList);
+  }
   col2Container.appendChild(buttonContainer);
 
   // Create container for the third column

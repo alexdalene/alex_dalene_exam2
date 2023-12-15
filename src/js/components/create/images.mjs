@@ -12,6 +12,5 @@ export const appendImages = image => {
     return;
   }
 
-  imgArray.push(image);
   appendImage(image, gallery);
 };

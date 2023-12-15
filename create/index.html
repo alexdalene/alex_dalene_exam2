@@ -104,9 +104,12 @@
                 name="listing-deadline"
                 id="listing-deadline"
                 class="rounded-md border border-zinc-800 bg-zinc-800 px-2.5 py-2.5 text-zinc-400 transition duration-300 focus:border-purple-300 focus:text-zinc-200 focus:outline-none"
-                value="2024-01-01T00:00"
                 required
               />
+              <p class="text-sm text-zinc-400" id="deadline-message">
+                Add a deadline. The listing will be automatically closed when it
+                is reached.
+              </p>
             </label>
             <label for="listing-media" class="flex flex-col gap-1">
               Media
@@ -128,7 +131,10 @@
                 Add a link to an image of your item. You can add up to 8 images.
               </p>
             </label>
-            <div id="listing-gallery" class="grid grid-cols-4 gap-1"></div>
+            <div
+              id="listing-gallery"
+              class="grid grid-flow-row grid-cols-4 gap-1"
+            ></div>
             <label for="listing-tags" class="flex flex-col gap-1">
               <div class="relative flex items-center justify-between gap-1">
                 Tags (optional)
