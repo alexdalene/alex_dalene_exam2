@@ -6,9 +6,10 @@ import { validateCreate } from '../functions/create/validate.js';
 import { createListener } from '../listeners/create/create.js';
 import { appendTags } from '../functions/create/tags.js';
 
+loader.showLoader();
+
 const render = async () => {
   try {
-    loader.showLoader();
     await navbar();
     loader.hideLoader();
 

@@ -1,13 +1,14 @@
 import { select } from '../../tools/select.js';
 import calculateRemainingTime from '../../functions/listings/timeRemaining.js';
+import { checkMedia } from '../../functions/listings/checkImage.js';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export function listing(data) {
-  data.map(listing => {
+  data.map(async listing => {
     const listingData = {
       name: listing.title ? listing.title : 'Lorem ipsum dolor sit amet',
-      media: listing.media[0]
-        ? listing.media[0]
-        : '/src/images/placeholder.webp',
+      media: await checkMedia(listing.media),
       bids: listing.bids.map(bid => bid.amount).pop(),
       deadline: calculateRemainingTime(listing.endsAt),
       id: listing.id,
@@ -47,6 +48,22 @@ export function listing(data) {
       'mb-2.5',
     );
 
+    let tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: article,
+        start: 'top 80%',
+        end: 'bottom 80%',
+        scrub: 1,
+      },
+    });
+
+    tl.from(article, {
+      opacity: 0,
+      duration: 0.3,
+      y: 50,
+      ease: 'power2.out',
+    });
+
     // Create image container
     const imageContainer = document.createElement('div');
     imageContainer.classList.add(
@@ -55,11 +72,6 @@ export function listing(data) {
       'overflow-hidden',
       'rounded-xl',
     );
-
-    // // Create image element
-    // const image = document.createElement('img');
-    // image.src = media;
-    // image.alt = 'Image of an item being auctioned away';
 
     // Create footer element
     const footer = document.createElement('footer');
