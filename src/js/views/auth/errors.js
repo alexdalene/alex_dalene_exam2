@@ -1,5 +1,9 @@
 import { select } from '../../tools/select.js';
 
+/**
+ * Displays error messages for form fields.
+ * @param {Object} errors - The error messages for each form field.
+ */
 export const displayErrors = errors => {
   const name = select('#name-error');
   const email = select('#email-error');

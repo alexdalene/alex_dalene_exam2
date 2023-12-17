@@ -1,5 +1,11 @@
 import { imgArray } from './images-imgArray.js';
 
+/**
+ * Appends an image to the gallery.
+ *
+ * @param {string} url - The URL of the image.
+ * @param {HTMLElement} gallery - The gallery element to append the image to.
+ */
 export const appendImage = (url, gallery) => {
   const container = document.createElement('div');
   container.classList.add(

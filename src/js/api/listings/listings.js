@@ -2,6 +2,11 @@ import { apiBase } from '../base.js';
 import { headers } from '../headers.js';
 import { storePosts } from '../../storage/store.js';
 
+/**
+ * Fetches listings from the API.
+ * @returns {Promise<Object>} The response data from the API.
+ * @throws {Error} If there is an error fetching the listings or if the response is not successful.
+ */
 export async function getListings() {
   try {
     const response = await fetch(

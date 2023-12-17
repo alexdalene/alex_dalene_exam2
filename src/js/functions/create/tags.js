@@ -1,6 +1,10 @@
 import { select } from '../../tools/select.js';
 import { tagArray } from './tags-array.js';
 
+/**
+ * Appends a tag to the DOM and updates the tagArray.
+ * @param {Event} event - The event object triggered by the input field.
+ */
 export const appendTags = event => {
   const tag = event.target.value.trim();
   const tagMessage = select('#tag-message');

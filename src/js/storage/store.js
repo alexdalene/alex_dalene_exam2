@@ -1,3 +1,9 @@
+/**
+ * Stores posts in the cache and saves the current date.
+ *
+ * @param {Array} posts - The posts to be stored.
+ * @returns {void}
+ */
 import { saveCache } from './cache.js';
 import { save } from './save.js';
 

@@ -1,8 +1,13 @@
 import { getProfileListings } from '../../api/profile/listings.js';
 import { listing } from '../../components/listings/listing.js';
-import { displayAllListings } from '../../functions/listings/displayAllListings.js';
-import { displayListings } from '../listings/listings.js';
 
+/**
+ * Displays the profile listings.
+ * @async
+ * @function displayProfileListings
+ * @returns {Promise<void>} A promise that resolves when the profile listings are displayed.
+ * @throws {Error} If there is an error loading the listings.
+ */
 export async function displayProfileListings() {
   try {
     const data = await getProfileListings();

@@ -1,5 +1,10 @@
 import { login } from '../../api/auth/login.js';
 
+/**
+ * Handles the login form submission event.
+ * @param {Event} event - The form submission event.
+ * @returns {Promise<void>} - A promise that resolves when the login process is complete.
+ */
 export async function loginListener(event) {
   event.preventDefault();
 
