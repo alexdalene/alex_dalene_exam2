@@ -412,6 +412,7 @@ export const singleListing = data => {
 
   // Create description paragraph
   const descriptionParagraph = document.createElement('p');
+  descriptionParagraph.classList.add('break-words');
   descriptionParagraph.textContent = description
     ? description
     : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id eos enim fuga corrupti. Sit hic, voluptatibus accusantium sapiente autem possimus sequi eaque minus facere deserunt? Temporibus inventore nostrum officia vel.';
