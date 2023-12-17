@@ -3,9 +3,10 @@ import { displayListings } from '../views/listings/listings.js';
 import { checkStorage } from '../functions/listings/checkStorage.js';
 import { loader } from '../components/loader/loader.js';
 
+loader.showLoader();
+
 const render = async () => {
   try {
-    loader.showLoader();
     await checkStorage();
     await navbar();
     loader.hideLoader();

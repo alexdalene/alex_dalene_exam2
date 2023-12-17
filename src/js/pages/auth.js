@@ -1,6 +1,9 @@
 import { select } from '../tools/select.js';
 import changeMode from '../functions/auth/changeMode.js';
 import { load } from '../storage/load.js';
+import { loader } from '../components/loader/loader.js';
+
+loader.showLoader();
 
 document.addEventListener('DOMContentLoaded', () => {
   const token = load('token');
@@ -8,6 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
   if (token) {
     window.location.href = '/';
   }
+
+  loader.hideLoader();
 });
 
 const hash = window.location.hash;
