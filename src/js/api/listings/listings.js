@@ -19,7 +19,6 @@ export async function getListings() {
       throw new Error(data.errors[0].message);
     }
 
-    console.log('Fetch called');
     storePosts(data);
     return data;
   } catch (error) {
