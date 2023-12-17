@@ -1,6 +1,11 @@
 import { listing } from '../../components/listings/listing.js';
 import { noListings } from '../../components/listings/noListings.js';
 
+/**
+ * Loads posts on scroll.
+ *
+ * @param {Array} posts - The array of posts to load.
+ */
 export const loadOnScroll = posts => {
   const postsPerPage = 9;
   let currentPage = 1;

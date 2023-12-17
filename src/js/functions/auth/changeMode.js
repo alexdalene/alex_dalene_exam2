@@ -6,6 +6,12 @@ import { loginTemplate } from '../../templates/login.js';
 import { signupTemplate } from '../../templates/signup.js';
 import { validateRegister } from './validate.js';
 
+/**
+ * Changes the mode of the authentication form.
+ *
+ * @param {string} mode - The mode to change to. Can be either 'signup' or 'login'.
+ * @returns {null} Returns null if the mode parameter is not a string.
+ */
 export default function changeMode(mode) {
   if (typeof mode !== 'string') {
     return null;

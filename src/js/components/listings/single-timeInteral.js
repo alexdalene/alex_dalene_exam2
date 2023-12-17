@@ -1,3 +1,8 @@
+/**
+ * Updates the time countdown display based on the given deadline.
+ * @param {Object} deadline - The deadline object containing days, hours, minutes, and seconds.
+ * @param {HTMLElement} deadlineContainer - The container element to display the formatted time.
+ */
 export const updateTime = (deadline, deadlineContainer) => {
   function formatTime(days, hours, minutes, seconds) {
     return `

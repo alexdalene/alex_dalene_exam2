@@ -1,4 +1,11 @@
-// Helper function to create bid container
+/**
+ * Helper function to create a bid container.
+ *
+ * @param {string} amount - The bid amount.
+ * @param {string} icon - The icon for the bid.
+ * @param {string} label - The label for the bid.
+ * @returns {HTMLElement} - The created bid container element.
+ */
 export const createBidContainer = (amount, icon, label) => {
   const bidContainer = document.createElement('div');
   bidContainer.classList.add(

@@ -1,6 +1,11 @@
 import { getProfile } from '../../../api/profile/profile.js';
 import { load } from '../../../storage/load.js';
 
+/**
+ * Shows the credits on the button.
+ * @param {HTMLElement} btn - The button element to show the credits on.
+ * @returns {Promise<void>} - A promise that resolves when the credits are shown.
+ */
 export const showCredits = async btn => {
   await getProfile();
 

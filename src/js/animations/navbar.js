@@ -1,6 +1,10 @@
 import { select } from '../tools/select.js';
+
 gsap.registerPlugin(TextPlugin);
 
+/**
+ * Animates the navbar elements.
+ */
 export const navbarAnimations = () => {
   const open = select('#btn-open');
   const close = select('#btn-close');

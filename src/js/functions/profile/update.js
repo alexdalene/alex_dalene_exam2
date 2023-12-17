@@ -1,6 +1,9 @@
 import { updateAvatar } from '../../api/profile/update.js';
 import { updateAvatarView } from '../../views/profile/avatar.js';
 
+/**
+ * Checks the avatar update and performs the necessary actions based on the button state.
+ */
 export const checkAvatar = () => {
   const update = document.querySelector('#update-avatar');
   const button = document.querySelector('#update-button');

@@ -1,6 +1,12 @@
 import { createListing } from '../../api/listing/create.js';
 import { imgArray } from '../../components/create/images-imgArray.js';
 
+/**
+ * Handles the event when the create form is submitted.
+ *
+ * @param {Event} event - The event object.
+ * @returns {Promise} - A promise that resolves with the result of creating the listing.
+ */
 export async function createListener(event) {
   event.preventDefault();
 

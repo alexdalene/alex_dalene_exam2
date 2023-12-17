@@ -3,12 +3,13 @@ import { headers } from '../headers.js';
 import { handleErrors } from '../../functions/auth/handleErrors.js';
 
 /**
- * @param {string} name
- * @param {string} email
- * @param {string} password
- * @param {string} avatar
- * @returns {Promise<object>}
- * @description Register a new user
+ * Registers a user with the provided name, email, password, and avatar.
+ * @param {string} name - The name of the user.
+ * @param {string} email - The email of the user.
+ * @param {string} password - The password of the user.
+ * @param {string} avatar - The avatar of the user.
+ * @returns {Promise<Object>} - A promise that resolves to the response data.
+ * @throws {Error} - If there is an error during the registration process.
  */
 export async function register(name, email, password, avatar) {
   const response = await fetch(`${apiBase}/auction/auth/register`, {

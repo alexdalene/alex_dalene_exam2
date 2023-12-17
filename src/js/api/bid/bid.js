@@ -1,6 +1,12 @@
 import { apiBase } from '../base.js';
 import { headers } from '../headers.js';
 
+/**
+ * Makes a bid on a listing.
+ * @param {number} amount - The amount to bid.
+ * @returns {Promise<Object>} - The bid response data.
+ * @throws {Error} - If there is an error making the bid.
+ */
 export async function bidOnListing(amount) {
   const url = new URL(location.href);
   let id = url.searchParams.get('id').toString();

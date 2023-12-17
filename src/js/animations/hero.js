@@ -1,5 +1,8 @@
 gsap.registerPlugin(TextPlugin);
 
+/**
+ * Animates the hero section.
+ */
 export const heroAnimations = () => {
   gsap.to('h1', {
     delay: 3,

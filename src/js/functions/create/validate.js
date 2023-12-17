@@ -1,5 +1,10 @@
 import { imgArray } from '../../components/create/images-imgArray.js';
 
+/**
+ * Validates the input fields for creating a listing.
+ * @returns {Promise<boolean>} Returns a promise that resolves to a boolean indicating whether the input fields are valid or not.
+ * @throws {Error} Throws an error if there is an issue with the validation process.
+ */
 export const validateCreate = async () => {
   try {
     let isOkay = true;
