@@ -11,7 +11,7 @@ export const singleListing = data => {
   console.log(data);
 
   const listing = {
-    title: data.title,
+    title: data.title ? data.title : 'Lorem ipsum dolor sit amet',
     description: data.description,
     image: data.media[0] ? data.media[0] : '/src/images/placeholder.webp',
     imageArray: data.media,
