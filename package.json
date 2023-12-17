@@ -14,8 +14,7 @@
     "start": "live-server",
     "build": "postcss ./src/css/input.css -o ./public/css/output.css",
     "watch": "postcss --watch ./src/css/input.css -o ./public/css/output.css & yarn start",
-    "prepare": "husky install",
-    "jsdoc": "jsdoc ./src/js/*.js -d ./docs/jsdoc"
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@babel/core": "7.19.3",
