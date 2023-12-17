@@ -52,7 +52,7 @@
     }
   },
   "lint-staged": {
-    "*.mjs": [
+    "*.js": [
       "eslint --fix",
       "prettier --write --ignore-unknown"
     ],
