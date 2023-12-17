@@ -6,7 +6,6 @@ export const displayFilteredListings = (data, searchValue) => {
     listing.title.toLowerCase().includes(searchValue.toLowerCase()),
   );
 
-  console.log(filteredListings);
   clear('#listing-container');
   listing(filteredListings);
   onscroll = null;

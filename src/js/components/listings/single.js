@@ -8,8 +8,6 @@ import { createListItem } from './single-createList.js';
 import { updateTime } from './single-timeInteral.js';
 
 export const singleListing = data => {
-  console.log(data);
-
   const listing = {
     title: data.title ? data.title : 'Lorem ipsum dolor sit amet',
     description: data.description,

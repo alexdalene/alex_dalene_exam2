@@ -10,7 +10,6 @@ export const checkStorage = async () => {
       await getListings();
       displayListings();
     } else {
-      console.log('Using cached data');
       displayListings();
     }
   } catch (error) {

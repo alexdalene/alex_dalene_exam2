@@ -7,7 +7,6 @@ export async function displayProfileListings() {
   try {
     const data = await getProfileListings();
 
-    console.log(data);
     listing(data);
   } catch (error) {
     console.error('Error loading listings:', error);
