@@ -1,3 +1,8 @@
+/**
+ * Validates the registration form inputs.
+ * @returns {Promise<boolean>} Returns a promise that resolves to a boolean indicating whether the form inputs are valid or not.
+ * @throws {Error} If an error occurs during the validation process.
+ */
 export const validateRegister = async () => {
   try {
     let isOkay = true;

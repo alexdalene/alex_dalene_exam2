@@ -1,8 +1,8 @@
 import { displayErrors } from '../../views/auth/errors.js';
 
 /**
- * @param {object} data
- * @description Display errors on the register form
+ * Handles errors returned from the server and displays them on the UI.
+ * @param {Object} data - The error data returned from the server.
  */
 export const handleErrors = data => {
   const errorArr = data.errors;

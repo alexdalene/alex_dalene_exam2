@@ -3,6 +3,13 @@ import { singleListing } from '../../components/listings/single.js';
 import { displayAllListings } from '../../functions/listings/displayAllListings.js';
 import { loadCache } from '../../storage/cache.js';
 
+/**
+ * Display a single listing.
+ * @async
+ * @function displaySingleListing
+ * @returns {Promise<void>} A promise that resolves when the single listing is displayed.
+ * @throws {Error} If there is an error while displaying the single listing.
+ */
 export const displaySingleListing = async () => {
   try {
     const data = await getSpecificListing();

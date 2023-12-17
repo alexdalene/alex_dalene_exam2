@@ -1,3 +1,8 @@
+/**
+ * Calculates the remaining time until the bidding end time.
+ * @param {string} biddingEndTime - The bidding end time in string format.
+ * @returns {object} - An object containing the remaining time in days, hours, minutes, and seconds.
+ */
 export default function calculateRemainingTime(biddingEndTime) {
   // Convert the bidding end time to a Date object
   const endTime = new Date(biddingEndTime);

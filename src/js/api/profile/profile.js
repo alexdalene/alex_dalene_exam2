@@ -3,6 +3,11 @@ import { headers } from '../headers.js';
 import { load } from '../../storage/load.js';
 import { save } from '../../storage/save.js';
 
+/**
+ * Retrieves the profile data for a user.
+ * @returns {Promise<Object>} The profile data.
+ * @throws {Error} If there is an error retrieving the profile data.
+ */
 export async function getProfile() {
   const username = load('username');
   const response = await fetch(

@@ -9,6 +9,10 @@ import { animateHeader } from '../../animations/header.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
+/**
+ * Initializes and appends the navbar to the DOM.
+ * @throws {Error} If something goes wrong while appending the navbar to the DOM.
+ */
 export const navbar = async () => {
   try {
     // // Append elements to the menu

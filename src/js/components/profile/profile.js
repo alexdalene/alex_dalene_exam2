@@ -3,6 +3,10 @@ import { getProfile } from '../../api/profile/profile.js';
 import { remove } from '../../storage/remove.js';
 import { profileEdit } from './profile-edit.js';
 
+/**
+ * Renders the user profile information on the page.
+ * @returns {Promise<void>} A Promise that resolves once the profile is rendered.
+ */
 export const profile = async () => {
   const data = await getProfile();
 

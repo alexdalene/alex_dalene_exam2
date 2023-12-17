@@ -1,6 +1,12 @@
 import { appendImage } from './images-appendImage.js';
 import { imgArray } from './images-imgArray.js';
 
+/**
+ * Appends an image to the gallery.
+ *
+ * @param {string} image - The image URL to be appended.
+ * @returns {void}
+ */
 export const appendImages = image => {
   const gallery = document.querySelector('#listing-gallery');
   const message = document.querySelector('#media-message');

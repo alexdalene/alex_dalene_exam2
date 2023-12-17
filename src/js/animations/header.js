@@ -2,6 +2,9 @@ import { header } from '../components/navbar/setup/header.js';
 import { nav } from '../components/navbar/setup/navigation.js';
 import { button } from '../components/navbar/setup/menu.js';
 
+/**
+ * Animates the header based on scroll position and window width.
+ */
 export const animateHeader = () => {
   const tl = gsap.timeline({
     defaults: {
