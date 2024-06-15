@@ -1,39 +1,48 @@
-# alex_dalene_exam2
-
 [![Netlify Status](https://api.netlify.com/api/v1/badges/d7197634-bcb8-402b-94bd-75999b429cd1/deploy-status)](https://app.netlify.com/sites/ad-exam2/deploys)
 [![Test](https://github.com/alexdalene/alex_dalene_exam2/actions/workflows/test.yml/badge.svg)](https://github.com/alexdalene/alex_dalene_exam2/actions/workflows/test.yml)
 
-A website for viewing live auctions and bidding.
+# Bid-B
 
-Production: <https://ad-exam2.netlify.app/>
+<img width="1470" alt="Screenshot 2024-06-15 at 13 36 09" src="https://github.com/alexdalene/alex_dalene_exam2/assets/111867370/f44e9266-bcdf-4dd5-8a67-87111ef502ce">
 
-Dependencies are locked with a `yarn.lock` file, so please use `yarn` instead of `npm` to install them.
 
-## Available Scripts
+Browse through hundreds of items and bid on them. If you win, it's yours.
 
-In the project directory, you can run:
+## Description
 
-### `yarn start`
+This was our Semester Project 2. The client wanted an auction website where users could freely browse through hundreds of items, functional authentication and a seamless design. I focused a lot on design and UX, while also making sure that the code was well-structured and following best practices.
 
-Runs the app in the development mode.\
-Open [http://127.0.0.1:8080](http://127.0.0.1:8080) to view it in your browser.
+## Built With
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+[![My Skills](https://skillicons.dev/icons?i=js,html,css,cypress,jest,tailwind&perline=4)](https://skillicons.dev)
 
-### `yarn test`
 
-Runs jest in cli to run unit tests on project.\
+## Getting Started
 
-### `yarn cypress`
+### Installing
 
-Launches Cypress to run e2e tests on project.\
+1. Clone the repo:
 
-### `yarn build`
+```bash
+git clone https://github.com/alexdalene/alex_dalene_exam2.git
+```
 
-Builds the website for production to the `public` folder.\
+2. Install the dependencies:
 
-### `yarn watch`
+```
+npm install
+```
 
-Runs the app in development mode and starts watch mode for TailwindCSS.\
-Open [http://127.0.0.1:8080](http://127.0.0.1:8080) to view it in your browser.
+### Running
+
+To run the app, run the following commands:
+
+```bash
+npm run start
+```
+
+## Contact
+
+[My Twitter page](https://x.com/xenelad)
+
+[My LinkedIn page](https://www.linkedin.com/in/alex-dalene/)
